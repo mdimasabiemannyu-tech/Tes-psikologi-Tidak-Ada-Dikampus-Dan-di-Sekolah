@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tes Psikologi Mohammed Dimas A.m</title>
+<title>Tes Psikologi | Asesmen Refleksi Diri</title>
 
-<meta name="description" content="Tes Psikologi Mohammed Dimas A.m - asesmen refleksi diri untuk mengenali kecenderungan karakter, keunggulan, area pengembangan, dan potensi dalam lingkungan kerja.">
+<meta name="description" content="Tes psikologi dan asesmen refleksi diri online untuk mengenali pola perilaku, keunggulan, area pengembangan, komunikasi, kerja sama, ketelitian, dan kemampuan menghadapi tekanan.">
 
 <meta name="robots" content="index, follow">
 
@@ -17,41 +17,45 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
     color:#fff;
     background:
-        radial-gradient(circle at 10% 20%,rgba(59,130,246,.25),transparent 30%),
-        radial-gradient(circle at 90% 80%,rgba(168,85,247,.25),transparent 30%),
-        linear-gradient(135deg,#080b18,#111827,#0f172a);
+        radial-gradient(circle at 15% 15%,rgba(59,130,246,.20),transparent 28%),
+        radial-gradient(circle at 85% 85%,rgba(139,92,246,.20),transparent 28%),
+        linear-gradient(135deg,#070b16,#0f172a,#111827);
     overflow-x:hidden;
 }
 
 body::before{
     content:"";
     position:fixed;
-    width:300px;
-    height:300px;
-    background:rgba(59,130,246,.12);
-    border-radius:50%;
-    filter:blur(70px);
-    top:-80px;
+    width:260px;
+    height:260px;
+    top:-100px;
     left:-80px;
-    z-index:-1;
+    border-radius:50%;
+    background:rgba(59,130,246,.13);
+    filter:blur(70px);
+    pointer-events:none;
 }
 
 body::after{
     content:"";
     position:fixed;
-    width:300px;
-    height:300px;
-    background:rgba(168,85,247,.12);
-    border-radius:50%;
-    filter:blur(70px);
+    width:280px;
+    height:280px;
+    right:-100px;
     bottom:-100px;
-    right:-80px;
-    z-index:-1;
+    border-radius:50%;
+    background:rgba(139,92,246,.13);
+    filter:blur(70px);
+    pointer-events:none;
 }
 
 .container{
@@ -69,6 +73,7 @@ body::after{
     display:block;
 }
 
+
 /* =========================
    HOME
 ========================= */
@@ -82,94 +87,163 @@ body::after{
 
 .home-card{
     width:100%;
-    max-width:700px;
-    padding:40px 28px;
+    max-width:720px;
+    padding:42px 30px;
     text-align:center;
-    background:rgba(255,255,255,.07);
+
+    background:rgba(255,255,255,.065);
     border:1px solid rgba(255,255,255,.12);
-    border-radius:28px;
-    backdrop-filter:blur(18px);
-    box-shadow:0 25px 80px rgba(0,0,0,.35);
+    border-radius:30px;
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.06);
+
+    animation:fadeIn .7s ease;
 }
 
-.logo{
-    width:95px;
-    height:95px;
-    margin:0 auto 22px;
-    border-radius:50%;
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.psychology-icon{
+    width:105px;
+    height:105px;
+    margin:0 auto 24px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    font-size:38px;
-    font-weight:bold;
-    box-shadow:0 15px 40px rgba(37,99,235,.35);
+
+    border-radius:50%;
+
+    font-size:52px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59,130,246,.25),
+            rgba(139,92,246,.25)
+        );
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 45px rgba(59,130,246,.18),
+        inset 0 0 25px rgba(255,255,255,.04);
 }
 
 .home-card h1{
-    font-size:clamp(28px,6vw,48px);
-    margin-bottom:12px;
+    font-size:clamp(32px,7vw,52px);
+    letter-spacing:-1px;
+    margin-bottom:10px;
 }
 
-.home-card h2{
+.subtitle{
     color:#93c5fd;
-    font-size:20px;
-    margin-bottom:20px;
+    font-size:19px;
     font-weight:500;
+    margin-bottom:20px;
 }
 
-.home-card p{
+.intro{
     color:#cbd5e1;
-    line-height:1.7;
-    margin-bottom:25px;
+    line-height:1.75;
+    max-width:600px;
+    margin:0 auto 25px;
 }
 
-.info-box{
-    text-align:left;
-    background:rgba(0,0,0,.18);
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+
+.info-item{
+    padding:17px 12px;
+    background:rgba(255,255,255,.045);
     border:1px solid rgba(255,255,255,.08);
-    border-radius:18px;
-    padding:20px;
-    margin:20px 0;
+    border-radius:16px;
+    color:#dbeafe;
+    font-size:14px;
+    line-height:1.5;
 }
 
-.info-box div{
-    padding:8px 0;
-    color:#dbeafe;
+.info-item strong{
+    display:block;
+    color:#fff;
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.name-label{
+    display:block;
+    text-align:left;
+    margin:18px 0 7px;
+    color:#cbd5e1;
+    font-size:14px;
 }
 
 .name-input{
     width:100%;
-    padding:16px 18px;
-    border:none;
+    padding:17px 18px;
+    border-radius:15px;
     outline:none;
-    border-radius:14px;
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.15);
     color:#fff;
     font-size:16px;
-    margin:10px 0 15px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.13);
+}
+
+.name-input:focus{
+    border-color:#60a5fa;
+    box-shadow:0 0 0 3px rgba(96,165,250,.1);
 }
 
 .name-input::placeholder{
-    color:#94a3b8;
+    color:#64748b;
 }
 
 .btn{
+    width:100%;
     border:none;
     cursor:pointer;
-    color:white;
-    font-weight:bold;
+    color:#fff;
     font-size:16px;
-    padding:15px 28px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    box-shadow:0 10px 30px rgba(37,99,235,.25);
+    font-weight:bold;
+    padding:16px 24px;
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    box-shadow:
+        0 12px 30px rgba(37,99,235,.22);
+
     transition:.2s;
 }
 
 .btn:hover{
     transform:translateY(-2px);
+}
+
+.btn:active{
+    transform:translateY(0);
 }
 
 .btn:disabled{
@@ -178,25 +252,80 @@ body::after{
     transform:none;
 }
 
+.create-by{
+    margin-top:25px;
+    color:#64748b;
+    font-size:13px;
+    letter-spacing:.5px;
+}
+
 .disclaimer{
-    font-size:12px;
-    color:#94a3b8;
-    margin-top:22px;
+    margin-top:15px;
+    color:#64748b;
+    font-size:11px;
     line-height:1.6;
 }
 
+
 /* =========================
-   TEST
+   TEST HEADER
 ========================= */
 
 .test-header{
     margin-bottom:20px;
 }
 
-.top-title{
-    font-size:14px;
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.brand-small{
     color:#93c5fd;
-    margin-bottom:8px;
+    font-size:13px;
+    font-weight:bold;
+    letter-spacing:.8px;
+}
+
+.timer{
+    min-width:95px;
+    text-align:center;
+
+    padding:10px 13px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    font-variant-numeric:tabular-nums;
+}
+
+.timer.warning{
+    background:rgba(245,158,11,.15);
+    border-color:rgba(245,158,11,.4);
+    color:#fbbf24;
+}
+
+.timer.danger{
+    background:rgba(239,68,68,.15);
+    border-color:rgba(239,68,68,.45);
+    color:#f87171;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        opacity:.55;
+    }
 }
 
 .progress-info{
@@ -210,7 +339,7 @@ body::after{
 .progress{
     width:100%;
     height:9px;
-    background:rgba(255,255,255,.1);
+    background:rgba(255,255,255,.08);
     border-radius:20px;
     overflow:hidden;
 }
@@ -218,73 +347,136 @@ body::after{
 .progress-bar{
     height:100%;
     width:0%;
-    background:linear-gradient(90deg,#3b82f6,#a855f7);
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #8b5cf6
+        );
+
+    border-radius:20px;
     transition:.35s;
 }
 
+
+/* =========================
+   QUESTION
+========================= */
+
 .question-card{
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.065);
+
     border:1px solid rgba(255,255,255,.12);
+
     border-radius:25px;
+
     padding:28px;
-    backdrop-filter:blur(15px);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
     box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+    animation:questionIn .35s ease;
+}
+
+@keyframes questionIn{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .competency{
     display:inline-block;
-    padding:7px 12px;
+
+    padding:8px 13px;
+
     border-radius:20px;
-    background:rgba(59,130,246,.15);
+
+    background:rgba(59,130,246,.12);
+
+    border:1px solid rgba(96,165,250,.12);
+
     color:#93c5fd;
+
     font-size:13px;
-    margin-bottom:16px;
+
+    margin-bottom:17px;
 }
 
 .question{
     font-size:22px;
-    line-height:1.5;
-    margin-bottom:25px;
+    line-height:1.55;
+    margin-bottom:24px;
+    color:#f8fafc;
 }
 
 .option{
     display:block;
+
     padding:17px;
+
     margin:12px 0;
+
     border-radius:15px;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.1);
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.09);
+
     cursor:pointer;
+
+    line-height:1.55;
+
+    color:#dbe4f0;
+
     transition:.2s;
-    line-height:1.5;
 }
 
 .option:hover{
-    background:rgba(59,130,246,.12);
-    border-color:rgba(96,165,250,.4);
+    background:rgba(59,130,246,.10);
+    border-color:rgba(96,165,250,.35);
 }
 
 .option.selected{
-    background:rgba(59,130,246,.2);
+    background:rgba(59,130,246,.17);
+
     border-color:#60a5fa;
-    box-shadow:0 0 0 1px #60a5fa;
+
+    box-shadow:
+        0 0 0 1px rgba(96,165,250,.45);
 }
 
 .option input{
     display:none;
 }
 
+.option b{
+    color:#93c5fd;
+    margin-right:5px;
+}
+
 .navigation{
     display:flex;
-    justify-content:space-between;
     gap:12px;
-    margin-top:22px;
+    margin-top:24px;
+}
+
+.navigation .btn{
+    flex:1;
 }
 
 .btn-secondary{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.07);
     box-shadow:none;
 }
+
 
 /* =========================
    RESULT
@@ -292,41 +484,91 @@ body::after{
 
 .result-header{
     text-align:center;
-    padding:25px 0;
+    padding:25px 0 15px;
 }
 
 .result-header h1{
-    font-size:34px;
-    margin-bottom:10px;
+    font-size:36px;
+    margin-bottom:9px;
 }
 
 .result-header p{
-    color:#cbd5e1;
+    color:#94a3b8;
+    line-height:1.6;
 }
 
 .result-card{
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.065);
+
+    border:1px solid rgba(255,255,255,.11);
+
     border-radius:23px;
+
     padding:25px;
+
     margin:18px 0;
+
     backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
 }
 
 .result-card h2{
-    margin-bottom:15px;
     color:#bfdbfe;
+    margin-bottom:16px;
+    font-size:20px;
+}
+
+.score-box{
+    display:flex;
+    justify-content:center;
+    margin:5px 0 24px;
+}
+
+.score-circle{
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(59,130,246,.08);
+
+    border:7px solid rgba(96,165,250,.25);
+
+    box-shadow:
+        0 0 40px rgba(59,130,246,.10);
+}
+
+.score-number{
+    font-size:40px;
+    font-weight:bold;
+}
+
+.score-label{
+    color:#94a3b8;
+    font-size:13px;
+    margin-top:4px;
 }
 
 .profile-title{
-    font-size:25px;
-    color:#fff;
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
     margin-bottom:12px;
 }
 
 .result-text{
     color:#cbd5e1;
     line-height:1.8;
+}
+
+.center{
+    text-align:center;
 }
 
 .highlight{
@@ -344,34 +586,6 @@ body::after{
     padding-left:16px;
 }
 
-.score-box{
-    display:flex;
-    justify-content:center;
-    margin:10px 0 25px;
-}
-
-.score-circle{
-    width:155px;
-    height:155px;
-    border-radius:50%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    background:rgba(59,130,246,.1);
-    border:7px solid rgba(96,165,250,.35);
-}
-
-.score-number{
-    font-size:38px;
-    font-weight:bold;
-}
-
-.score-label{
-    color:#94a3b8;
-    font-size:13px;
-}
-
 .competency-row{
     margin:18px 0;
 }
@@ -381,55 +595,82 @@ body::after{
     justify-content:space-between;
     margin-bottom:7px;
     color:#e2e8f0;
+    font-size:14px;
 }
 
 .bar{
     height:10px;
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.07);
     border-radius:20px;
     overflow:hidden;
 }
 
 .bar-fill{
     height:100%;
-    background:linear-gradient(90deg,#3b82f6,#a855f7);
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #8b5cf6
+        );
+
     border-radius:20px;
+
+    transition:1s;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 12px;
-    margin:5px;
-    border-radius:20px;
-    background:rgba(255,255,255,.08);
-    color:#dbeafe;
-    font-size:13px;
-}
-
-.footer{
-    text-align:center;
-    color:#64748b;
-    font-size:12px;
-    padding:25px 0;
-}
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
 @media(max-width:600px){
 
     .container{
         width:94%;
+        padding-top:15px;
     }
 
     .home-card{
         padding:30px 20px;
-        border-radius:22px;
+        border-radius:24px;
+    }
+
+    .psychology-icon{
+        width:90px;
+        height:90px;
+        font-size:44px;
+    }
+
+    .home-card h1{
+        font-size:34px;
+    }
+
+    .subtitle{
+        font-size:17px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-item{
+        font-size:12px;
+        padding:14px 8px;
+    }
+
+    .info-item strong{
+        font-size:14px;
+    }
+
+    .top-row{
+        align-items:flex-start;
     }
 
     .question-card{
         padding:21px;
+        border-radius:21px;
     }
 
     .question{
@@ -445,70 +686,113 @@ body::after{
         flex-direction:column;
     }
 
-    .navigation .btn{
-        width:100%;
+    .result-header h1{
+        font-size:30px;
+    }
+}
+
+@media(max-width:380px){
+
+    .info-grid{
+        grid-template-columns:1fr;
     }
 }
 </style>
 </head>
 
+
 <body>
 
 <div class="container">
 
-<!-- =========================
+
+<!-- ==================================================
      HOME
-========================= -->
+================================================== -->
 
 <section id="homeScreen" class="screen active home">
 
 <div class="home-card">
 
-    <div class="logo">DM</div>
+    <div class="psychology-icon">
+        🧠
+    </div>
 
-    <h1>Tes Psikologi</h1>
+    <h1>
+        Tes Psikologi
+    </h1>
 
-    <h2>Mohammed Dimas A.m</h2>
+    <div class="subtitle">
+        Asesmen Refleksi Diri
+    </div>
 
-    <p>
-        Asesmen refleksi diri untuk mengenali kecenderungan
-        perilaku, cara bekerja, pola menghadapi masalah,
-        komunikasi, kerja sama, ketelitian, dan berbagai
-        karakter dalam situasi kehidupan maupun pekerjaan.
+    <p class="intro">
+        Kenali pola diri Anda melalui berbagai situasi
+        yang dekat dengan kehidupan dan lingkungan kerja.
+        Hasil akan menggambarkan kecenderungan,
+        keunggulan, area yang dapat dikembangkan,
+        dan saran pengembangan diri.
     </p>
 
-    <div class="info-box">
 
-        <div>🧠 <b>40 Soal</b> situasional</div>
+    <div class="info-grid">
 
-        <div>📊 <b>10 Kompetensi</b> yang dianalisis</div>
+        <div class="info-item">
+            <strong>40</strong>
+            Soal Situasional
+        </div>
 
-        <div>🔎 Pilihan jawaban dibuat realistis dan tidak menunjukkan
-        mana yang benar atau salah</div>
+        <div class="info-item">
+            <strong>10</strong>
+            Kompetensi
+        </div>
 
-        <div>📋 Hasil berisi keunggulan, area pengembangan,
-        dan saran pengembangan</div>
+        <div class="info-item">
+            <strong>15 Menit</strong>
+            Waktu Tes
+        </div>
 
-        <div>⏱️ Tidak ada batas waktu</div>
+        <div class="info-item">
+            <strong>Online</strong>
+            Refleksi Diri
+        </div>
 
     </div>
 
+
+    <label class="name-label">
+        Nama Peserta
+    </label>
+
     <input
-        type="text"
         id="nameInput"
         class="name-input"
-        placeholder="Masukkan nama Anda"
+        type="text"
         maxlength="50"
+        autocomplete="name"
+        placeholder="Masukkan nama Anda..."
     >
 
-    <button class="btn" onclick="startTest()">
-        MULAI TES
+
+    <br><br>
+
+    <button
+        class="btn"
+        onclick="startTest()"
+    >
+        MULAI TES →
     </button>
 
+
+    <div class="create-by">
+        Create by Dimas
+    </div>
+
+
     <div class="disclaimer">
-        Tes ini merupakan alat refleksi diri dan bukan diagnosis
-        psikologis atau pengganti pemeriksaan profesional.
-        Jawablah berdasarkan kondisi diri Anda yang sebenarnya.
+        Asesmen ini dibuat untuk refleksi dan pengembangan diri.
+        Hasil bukan diagnosis psikologis dan tidak menggantikan
+        pemeriksaan oleh psikolog atau tenaga profesional.
     </div>
 
 </div>
@@ -516,40 +800,79 @@ body::after{
 </section>
 
 
-<!-- =========================
-     TEST SCREEN
-========================= -->
+
+<!-- ==================================================
+     TEST
+================================================== -->
 
 <section id="testScreen" class="screen">
 
     <div class="test-header">
 
-        <div class="top-title">
-            TES PSIKOLOGI MOHAMMED DIMAS A.M
+        <div class="top-row">
+
+            <div class="brand-small">
+                ASESMEN REFLEKSI DIRI
+            </div>
+
+            <div
+                id="timer"
+                class="timer"
+            >
+                15:00
+            </div>
+
         </div>
+
 
         <div class="progress-info">
-            <span id="questionNumber">Soal 1 dari 40</span>
-            <span id="progressPercent">3%</span>
+
+            <span id="questionNumber">
+                Soal 1 dari 40
+            </span>
+
+            <span id="progressPercent">
+                3%
+            </span>
+
         </div>
 
+
         <div class="progress">
-            <div id="progressBar" class="progress-bar"></div>
+
+            <div
+                id="progressBar"
+                class="progress-bar"
+            ></div>
+
         </div>
 
     </div>
 
-    <div class="question-card">
 
-        <div id="competencyName" class="competency">
+    <div
+        id="questionCard"
+        class="question-card"
+    >
+
+        <div
+            id="competencyName"
+            class="competency"
+        >
             Integritas
         </div>
 
-        <div id="questionText" class="question">
+
+        <div
+            id="questionText"
+            class="question"
+        >
             Pertanyaan
         </div>
 
+
         <div id="options"></div>
+
 
         <div class="navigation">
 
@@ -560,6 +883,7 @@ body::after{
             >
                 ← Sebelumnya
             </button>
+
 
             <button
                 id="nextButton"
@@ -577,15 +901,18 @@ body::after{
 </section>
 
 
-<!-- =========================
-     RESULT SCREEN
-========================= -->
+
+<!-- ==================================================
+     RESULT
+================================================== -->
 
 <section id="resultScreen" class="screen">
 
     <div class="result-header">
 
-        <h1>Hasil Asesmen</h1>
+        <h1>
+            Hasil Asesmen
+        </h1>
 
         <p id="resultGreeting">
             Hasil refleksi diri Anda
@@ -600,86 +927,97 @@ body::after{
 
             <div class="score-circle">
 
-                <div id="totalScore" class="score-number">
+                <div
+                    id="totalScore"
+                    class="score-number"
+                >
                     0
                 </div>
 
                 <div class="score-label">
-                    Profil
+                    Indeks Profil
                 </div>
 
             </div>
 
         </div>
 
+
         <div
             id="profileTitle"
             class="profile-title"
-            style="text-align:center"
         >
             Profil Anda
         </div>
 
+
         <p
             id="profileDescription"
-            class="result-text"
-            style="text-align:center"
-        >
-        </p>
+            class="result-text center"
+        ></p>
 
     </div>
 
 
-    <!-- KEUNGGULAN -->
-
     <div class="result-card">
 
-        <h2>🌟 Keunggulan Diri</h2>
+        <h2>
+            🌟 Keunggulan Diri
+        </h2>
 
         <div class="highlight">
 
-            <p id="strengthText" class="result-text"></p>
+            <p
+                id="strengthText"
+                class="result-text"
+            ></p>
 
         </div>
 
     </div>
 
 
-    <!-- AREA PENGEMBANGAN -->
-
     <div class="result-card">
 
-        <h2>🎯 Area yang Perlu Dikembangkan</h2>
+        <h2>
+            🎯 Area yang Perlu Dikembangkan
+        </h2>
 
         <div class="warning">
 
-            <p id="developmentText" class="result-text"></p>
+            <p
+                id="developmentText"
+                class="result-text"
+            ></p>
 
         </div>
 
     </div>
 
 
-    <!-- SARAN -->
-
     <div class="result-card">
 
-        <h2>🚀 Saran Pengembangan</h2>
+        <h2>
+            🚀 Saran Pengembangan
+        </h2>
 
         <div class="advice">
 
-            <p id="adviceText" class="result-text"></p>
+            <p
+                id="adviceText"
+                class="result-text"
+            ></p>
 
         </div>
 
     </div>
 
 
-    <!-- KOMPETENSI -->
-
     <div class="result-card">
 
-        <h2>📊 Profil 10 Kompetensi</h2>
+        <h2>
+            📊 Profil 10 Kompetensi
+        </h2>
 
         <div id="competencyResults"></div>
 
@@ -688,33 +1026,44 @@ body::after{
 
     <div class="result-card">
 
-        <h2>🔍 Cara Membaca Hasil</h2>
+        <h2>
+            🔎 Cara Membaca Hasil
+        </h2>
 
         <p class="result-text">
-            Hasil tidak menentukan seseorang baik atau buruk.
-            Setiap orang memiliki kombinasi karakter dan pola
-            perilaku yang berbeda. Kompetensi dengan kecenderungan
-            lebih tinggi menunjukkan pola yang relatif lebih sering
-            muncul dalam jawaban Anda, sedangkan area yang lebih
-            rendah dapat menjadi bahan refleksi dan pengembangan.
+
+            Hasil ini merupakan gambaran pola jawaban
+            dalam asesmen refleksi diri, bukan penilaian
+            bahwa seseorang baik atau buruk.
+
+            <br><br>
+
+            Kompetensi dengan nilai relatif lebih tinggi
+            menunjukkan kecenderungan yang lebih sering
+            muncul dalam jawaban.
+
+            <br><br>
+
+            Kompetensi dengan nilai relatif lebih rendah
+            dapat digunakan sebagai bahan refleksi untuk
+            menentukan kebiasaan atau kemampuan yang ingin
+            dikembangkan.
+
         </p>
 
     </div>
 
 
-    <div style="text-align:center;margin-top:25px">
+    <button
+        class="btn"
+        onclick="location.reload()"
+    >
+        🔄 ULANGI TES
+    </button>
 
-        <button
-            class="btn"
-            onclick="location.reload()"
-        >
-            🔄 Ulangi Tes
-        </button>
 
-    </div>
-
-    <div class="footer">
-        Tes Psikologi Mohammed Dimas A.m
+    <div class="create-by center">
+        Create by Dimas
     </div>
 
 </section>
@@ -722,124 +1071,93 @@ body::after{
 </div>
 
 
+
 <script>
 
-/* =========================================
-   DATA KOMPETENSI
-========================================= */
+/* ==================================================
+   KOMPETENSI
+================================================== */
 
 const competencies = [
 
-    {
-        name:"Integritas",
-        strength:
-        "Anda cenderung memiliki perhatian terhadap tanggung jawab, kepercayaan, dan kesesuaian antara keputusan dengan prinsip yang Anda pegang.",
-        development:
-        "Dalam situasi tertentu, Anda dapat mengembangkan keberanian untuk menyampaikan sikap secara lebih terbuka ketika terdapat perbedaan antara harapan dan kondisi sebenarnya.",
-        advice:
-        "Biasakan menyampaikan fakta secara jelas, mencatat keputusan penting, dan mempertimbangkan dampak keputusan sebelum bertindak."
-    },
+{
+name:"Integritas",
+strength:"Anda cenderung memperhatikan tanggung jawab, kepercayaan, dan kesesuaian antara tindakan dengan prinsip yang Anda pegang.",
+development:"Anda dapat terus mengembangkan keberanian untuk menyampaikan kondisi atau perbedaan pendapat secara terbuka ketika situasi membutuhkan kejelasan.",
+advice:"Biasakan menyampaikan fakta berdasarkan kondisi sebenarnya, mencatat keputusan penting, dan mempertimbangkan dampaknya sebelum bertindak."
+},
 
-    {
-        name:"Disiplin & Tanggung Jawab",
-        strength:
-        "Anda menunjukkan kecenderungan untuk menjaga komitmen dan menyelesaikan sesuatu yang sudah menjadi tanggung jawab Anda.",
-        development:
-        "Anda dapat mengembangkan konsistensi dalam menjaga prioritas ketika terdapat banyak pekerjaan yang datang bersamaan.",
-        advice:
-        "Gunakan daftar prioritas harian dan tentukan pekerjaan yang harus selesai terlebih dahulu sebelum berpindah ke pekerjaan lain."
-    },
+{
+name:"Disiplin & Tanggung Jawab",
+strength:"Anda menunjukkan kecenderungan untuk menjaga komitmen dan menyelesaikan sesuatu yang sudah menjadi tanggung jawab Anda.",
+development:"Anda dapat meningkatkan konsistensi dalam menjaga prioritas ketika beberapa pekerjaan datang dalam waktu yang bersamaan.",
+advice:"Gunakan daftar prioritas harian dan tentukan pekerjaan yang paling penting sebelum mulai mengerjakan bagian lainnya."
+},
 
-    {
-        name:"Kerja Sama",
-        strength:
-        "Anda memiliki kecenderungan untuk mempertimbangkan kebutuhan anggota tim dan menjaga hubungan kerja agar tetap berjalan dengan baik.",
-        development:
-        "Anda dapat mengembangkan kemampuan untuk menyampaikan ketidaksetujuan secara langsung tanpa mengurangi kualitas hubungan dengan orang lain.",
-        advice:
-        "Saat berbeda pendapat, fokuskan pembicaraan pada masalah dan solusi, bukan pada pribadi orang yang terlibat."
-    },
+{
+name:"Kerja Sama",
+strength:"Anda cenderung memperhatikan kebutuhan anggota tim dan berusaha menjaga hubungan kerja agar tujuan bersama tetap berjalan.",
+development:"Anda dapat mengembangkan kemampuan menyampaikan ketidaksetujuan dengan lebih tegas namun tetap menjaga hubungan profesional.",
+advice:"Ketika berbeda pendapat, fokuskan pembicaraan pada masalah, data, dan solusi daripada pribadi orang yang terlibat."
+},
 
-    {
-        name:"Pelayanan",
-        strength:
-        "Anda cenderung memperhatikan kebutuhan orang lain dan berusaha memberikan pengalaman interaksi yang baik.",
-        development:
-        "Anda dapat mengembangkan kemampuan menyeimbangkan kebutuhan orang lain dengan aturan dan batasan yang berlaku.",
-        advice:
-        "Dengarkan kebutuhan orang lain terlebih dahulu, kemudian jelaskan pilihan solusi yang dapat diberikan secara transparan."
-    },
+{
+name:"Pelayanan",
+strength:"Anda memiliki kecenderungan memperhatikan kebutuhan orang lain dan berusaha memberikan pengalaman interaksi yang baik.",
+development:"Anda dapat semakin mengembangkan kemampuan menyeimbangkan kebutuhan orang lain dengan aturan dan batasan yang berlaku.",
+advice:"Dengarkan kebutuhan terlebih dahulu, kemudian jelaskan pilihan solusi yang memang dapat diberikan secara transparan."
+},
 
-    {
-        name:"Problem Solving",
-        strength:
-        "Anda menunjukkan kecenderungan untuk mencari jalan keluar ketika menghadapi masalah dan tidak hanya berhenti pada identifikasi masalah.",
-        development:
-        "Anda dapat mengembangkan kebiasaan melakukan analisis penyebab sebelum langsung memilih solusi.",
-        advice:
-        "Sebelum mengambil tindakan, tanyakan tiga hal: apa masalahnya, apa penyebabnya, dan apa risiko dari solusi yang dipilih."
-    },
+{
+name:"Problem Solving",
+strength:"Anda menunjukkan kecenderungan untuk mencari jalan keluar ketika menghadapi masalah dan tidak hanya berhenti pada identifikasi masalah.",
+development:"Anda dapat mengembangkan kebiasaan memahami akar masalah sebelum langsung menentukan solusi.",
+advice:"Sebelum bertindak, biasakan menjawab tiga pertanyaan: apa masalahnya, apa penyebabnya, dan apa risiko dari solusi tersebut."
+},
 
-    {
-        name:"Adaptasi",
-        strength:
-        "Anda memiliki kemampuan untuk menyesuaikan diri ketika kondisi, aturan, atau prioritas mengalami perubahan.",
-        development:
-        "Anda dapat mengembangkan kemampuan menjaga fokus ketika harus berpindah dari satu kondisi ke kondisi lainnya.",
-        advice:
-        "Ketika terjadi perubahan, tentukan kembali prioritas utama dan pisahkan hal yang harus dilakukan sekarang dari hal yang dapat ditunda."
-    },
+{
+name:"Adaptasi",
+strength:"Anda memiliki kecenderungan untuk menyesuaikan diri ketika kondisi, aturan, atau prioritas mengalami perubahan.",
+development:"Anda dapat meningkatkan kemampuan menjaga fokus ketika harus berpindah dari satu kondisi ke kondisi lainnya.",
+advice:"Ketika terjadi perubahan, tentukan kembali prioritas utama dan pisahkan pekerjaan yang harus dilakukan sekarang dengan pekerjaan yang dapat ditunda."
+},
 
-    {
-        name:"Orientasi Target",
-        strength:
-        "Anda cenderung memiliki dorongan untuk mencapai hasil dan menyelesaikan sesuatu sesuai tujuan yang telah ditetapkan.",
-        development:
-        "Anda dapat mengembangkan keseimbangan antara pencapaian target, kualitas hasil, dan keberlanjutan cara kerja.",
-        advice:
-        "Gunakan target yang terukur dan evaluasi bukan hanya hasil akhir, tetapi juga proses yang digunakan untuk mencapainya."
-    },
+{
+name:"Orientasi Target",
+strength:"Anda cenderung memiliki dorongan untuk mencapai hasil dan menyelesaikan sesuatu sesuai tujuan yang telah ditetapkan.",
+development:"Anda dapat mengembangkan keseimbangan antara pencapaian target, kualitas hasil, dan keberlanjutan cara kerja.",
+advice:"Gunakan target yang terukur dan evaluasi bukan hanya hasil akhir tetapi juga proses yang digunakan untuk mencapainya."
+},
 
-    {
-        name:"Ketelitian",
-        strength:
-        "Anda cenderung memberikan perhatian terhadap detail dan berusaha mengurangi kesalahan sebelum pekerjaan diselesaikan.",
-        development:
-        "Anda dapat mengembangkan kemampuan menentukan detail mana yang benar-benar penting agar ketelitian tidak menghambat kecepatan kerja.",
-        advice:
-        "Gunakan pemeriksaan dua tahap: cek bagian yang memiliki risiko tinggi terlebih dahulu, kemudian lakukan pemeriksaan umum."
-    },
+{
+name:"Ketelitian",
+strength:"Anda cenderung memberikan perhatian terhadap detail dan berusaha mengurangi kesalahan sebelum pekerjaan diselesaikan.",
+development:"Anda dapat mengembangkan kemampuan menentukan detail mana yang paling penting agar ketelitian tetap seimbang dengan kecepatan.",
+advice:"Lakukan pemeriksaan dua tahap: periksa bagian yang memiliki risiko tinggi terlebih dahulu kemudian lakukan pengecekan umum."
+},
 
-    {
-        name:"Komunikasi",
-        strength:
-        "Anda memiliki kecenderungan untuk mempertimbangkan cara menyampaikan informasi agar dapat dipahami oleh orang lain.",
-        development:
-        "Anda dapat mengembangkan kemampuan menyampaikan pesan yang kompleks menjadi lebih singkat dan langsung pada inti masalah.",
-        advice:
-        "Sebelum berbicara, tentukan tiga hal: pesan utama, alasan pentingnya, dan tindakan yang diharapkan."
-    },
+{
+name:"Komunikasi",
+strength:"Anda memiliki kecenderungan mempertimbangkan cara menyampaikan informasi agar dapat dipahami oleh orang lain.",
+development:"Anda dapat mengembangkan kemampuan menyampaikan informasi yang kompleks menjadi lebih singkat dan langsung pada inti.",
+advice:"Sebelum berbicara, tentukan pesan utama, alasan pentingnya, dan tindakan yang diharapkan dari komunikasi tersebut."
+},
 
-    {
-        name:"Pengelolaan Tekanan",
-        strength:
-        "Anda menunjukkan kecenderungan untuk tetap berusaha menjalankan tanggung jawab ketika menghadapi tekanan atau situasi yang menuntut.",
-        development:
-        "Anda dapat mengembangkan strategi untuk mengatur energi dan emosi agar tekanan tidak menumpuk menjadi kelelahan.",
-        advice:
-        "Saat tekanan meningkat, pecah pekerjaan menjadi langkah kecil, tentukan prioritas, dan berikan jeda singkat sebelum mengambil keputusan penting."
-    }
+{
+name:"Pengelolaan Tekanan",
+strength:"Anda menunjukkan kecenderungan untuk tetap berusaha menjalankan tanggung jawab ketika menghadapi tekanan atau situasi yang menuntut.",
+development:"Anda dapat mengembangkan strategi untuk mengatur energi dan tekanan agar tidak menumpuk menjadi kelelahan.",
+advice:"Saat tekanan meningkat, pecah pekerjaan menjadi langkah kecil, tentukan prioritas, dan berikan jeda sebelum mengambil keputusan penting."
+}
 
 ];
 
 
-/* =========================================
+/* ==================================================
    SOAL
-========================================= */
+================================================== */
 
 const questions = [
-
-/* INTEGRITAS */
 
 {
 c:0,
@@ -885,8 +1203,6 @@ o:[
 ]
 },
 
-/* DISIPLIN */
-
 {
 c:1,
 q:"Ketika beberapa pekerjaan memiliki batas waktu yang hampir bersamaan, bagaimana Anda mengaturnya?",
@@ -930,8 +1246,6 @@ o:[
 "Saya berkoordinasi dengan orang lain jika pekerjaan membutuhkan dukungan."
 ]
 },
-
-/* KERJA SAMA */
 
 {
 c:2,
@@ -977,8 +1291,6 @@ o:[
 ]
 },
 
-/* PELAYANAN */
-
 {
 c:3,
 q:"Ketika seseorang menyampaikan keluhan dengan cara yang cukup emosional, bagaimana Anda merespons?",
@@ -1017,13 +1329,11 @@ c:3,
 q:"Ketika menghadapi orang yang memiliki tingkat pemahaman berbeda-beda, bagaimana Anda menjelaskan sesuatu?",
 o:[
 "Saya menggunakan bahasa yang sederhana.",
-"Saya menyesuaikan penjelasan dengan respons orang tersebut.",
+"Saya menyesuaikan penjelasan dengan orang tersebut.",
 "Saya memberikan contoh agar lebih mudah dipahami.",
 "Saya memastikan kembali apakah informasi sudah dipahami."
 ]
 },
-
-/* PROBLEM SOLVING */
 
 {
 c:4,
@@ -1069,8 +1379,6 @@ o:[
 ]
 },
 
-/* ADAPTASI */
-
 {
 c:5,
 q:"Jika aturan atau sistem kerja berubah secara tiba-tiba, apa yang paling menggambarkan Anda?",
@@ -1114,8 +1422,6 @@ o:[
 "Saya memastikan pekerjaan penting tetap memiliki perkembangan."
 ]
 },
-
-/* TARGET */
 
 {
 c:6,
@@ -1161,8 +1467,6 @@ o:[
 ]
 },
 
-/* KETELITIAN */
-
 {
 c:7,
 q:"Sebelum menyerahkan pekerjaan yang penting, apa yang biasanya Anda lakukan?",
@@ -1207,8 +1511,6 @@ o:[
 ]
 },
 
-/* KOMUNIKASI */
-
 {
 c:8,
 q:"Ketika harus menjelaskan sesuatu yang cukup rumit kepada orang lain, apa yang biasanya Anda lakukan?",
@@ -1252,8 +1554,6 @@ o:[
 "Saya menggabungkan kritik dengan alternatif solusi."
 ]
 },
-
-/* TEKANAN */
 
 {
 c:9,
@@ -1302,166 +1602,429 @@ o:[
 ];
 
 
-/* =========================================
-   VARIABLES
-========================================= */
+/* ==================================================
+   VARIABLE
+================================================== */
 
 let currentQuestion = 0;
 
-let answers = new Array(questions.length).fill(null);
+let answers =
+    new Array(questions.length).fill(null);
 
 let userName = "";
 
+let timeLeft = 15 * 60;
 
-/* =========================================
+let timerInterval = null;
+
+let testFinished = false;
+
+
+/* ==================================================
    START
-========================================= */
+================================================== */
 
 function startTest(){
 
     const input =
-        document.getElementById("nameInput").value.trim();
+        document
+        .getElementById("nameInput")
+        .value
+        .trim();
+
 
     if(!input){
 
-        alert("Silakan masukkan nama terlebih dahulu.");
+        alert(
+            "Silakan masukkan nama terlebih dahulu."
+        );
 
         return;
     }
 
+
     userName = input;
+
 
     document
         .getElementById("homeScreen")
         .classList.remove("active");
 
+
     document
         .getElementById("testScreen")
         .classList.add("active");
 
+
     currentQuestion = 0;
 
+    answers =
+        new Array(questions.length).fill(null);
+
+
+    /* 15 MENIT */
+
+    timeLeft = 15 * 60;
+
+    testFinished = false;
+
+
+    updateTimer();
+
+
+    clearInterval(timerInterval);
+
+
+    timerInterval =
+        setInterval(
+            countdown,
+            1000
+        );
+
+
     showQuestion();
+
+
+    setTimeout(()=>{
+        scrollTopInstant();
+    },80);
 }
 
 
-/* =========================================
+/* ==================================================
+   COUNTDOWN
+================================================== */
+
+function countdown(){
+
+    if(testFinished){
+        return;
+    }
+
+
+    timeLeft--;
+
+
+    updateTimer();
+
+
+    if(timeLeft <= 0){
+
+        clearInterval(timerInterval);
+
+        testFinished = true;
+
+        finishByTime();
+
+    }
+}
+
+
+/* ==================================================
+   UPDATE TIMER
+================================================== */
+
+function updateTimer(){
+
+    const timer =
+        document.getElementById("timer");
+
+
+    let minutes =
+        Math.floor(timeLeft / 60);
+
+
+    let seconds =
+        timeLeft % 60;
+
+
+    minutes =
+        String(minutes)
+        .padStart(2,"0");
+
+
+    seconds =
+        String(seconds)
+        .padStart(2,"0");
+
+
+    timer.textContent =
+        minutes + ":" + seconds;
+
+
+    timer.classList.remove(
+        "warning",
+        "danger"
+    );
+
+
+    if(timeLeft <= 60){
+
+        timer.classList.add(
+            "danger"
+        );
+
+    }
+
+    else if(timeLeft <= 180){
+
+        timer.classList.add(
+            "warning"
+        );
+
+    }
+}
+
+
+/* ==================================================
+   TIME UP
+================================================== */
+
+function finishByTime(){
+
+    alert(
+        "Waktu tes 15 menit telah habis. Jawaban yang sudah Anda pilih akan digunakan untuk membuat hasil."
+    );
+
+
+    showResult();
+
+}
+
+
+/* ==================================================
+   SCROLL
+================================================== */
+
+function scrollTopInstant(){
+
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"auto"
+    });
+
+    document.documentElement.scrollTop = 0;
+
+    document.body.scrollTop = 0;
+}
+
+
+/* ==================================================
    SHOW QUESTION
-========================================= */
+================================================== */
 
 function showQuestion(){
 
-    const q = questions[currentQuestion];
+    const q =
+        questions[currentQuestion];
 
-    document.getElementById("questionNumber")
+
+    document
+        .getElementById("questionNumber")
         .textContent =
         `Soal ${currentQuestion+1} dari ${questions.length}`;
 
+
     const percent =
         Math.round(
-            ((currentQuestion+1)/questions.length)*100
+            ((currentQuestion+1)
+            /questions.length)*100
         );
 
-    document.getElementById("progressPercent")
-        .textContent = percent + "%";
 
-    document.getElementById("progressBar")
-        .style.width = percent + "%";
+    document
+        .getElementById("progressPercent")
+        .textContent =
+        percent+"%";
 
-    document.getElementById("competencyName")
-        .textContent = competencies[q.c].name;
 
-    document.getElementById("questionText")
-        .textContent = q.q;
+    document
+        .getElementById("progressBar")
+        .style.width =
+        percent+"%";
+
+
+    document
+        .getElementById("competencyName")
+        .textContent =
+        competencies[q.c].name;
+
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        q.q;
+
 
     const options =
         document.getElementById("options");
 
+
     options.innerHTML = "";
 
-    q.o.forEach((option,index)=>{
 
-        const label =
-            document.createElement("label");
+    q.o.forEach(
+        (option,index)=>{
 
-        label.className = "option";
-
-        if(answers[currentQuestion] === index){
-            label.classList.add("selected");
-        }
-
-        label.innerHTML = `
-            <input
-                type="radio"
-                name="answer"
-                value="${index}"
-                ${answers[currentQuestion] === index ? "checked" : ""}
-            >
-            <b>${String.fromCharCode(65+index)}.</b>
-            ${option}
-        `;
-
-        label.onclick = function(){
-
-            answers[currentQuestion] = index;
-
-            document
-                .querySelectorAll(".option")
-                .forEach(el =>
-                    el.classList.remove("selected")
+            const label =
+                document.createElement(
+                    "label"
                 );
 
-            label.classList.add("selected");
 
-            document
-                .getElementById("nextButton")
-                .disabled = false;
-        };
+            label.className =
+                "option";
 
-        options.appendChild(label);
 
-    });
+            if(
+                answers[currentQuestion]
+                === index
+            ){
 
-    document.getElementById("backButton")
-        .disabled = currentQuestion === 0;
+                label.classList.add(
+                    "selected"
+                );
 
-    document.getElementById("nextButton")
+            }
+
+
+            label.innerHTML = `
+
+                <input
+                    type="radio"
+                    name="answer"
+                    value="${index}"
+                    ${
+                        answers[currentQuestion]
+                        === index
+                        ? "checked"
+                        : ""
+                    }
+                >
+
+                <b>
+                    ${String.fromCharCode(65+index)}.
+                </b>
+
+                ${option}
+
+            `;
+
+
+            label.onclick = function(){
+
+                answers[currentQuestion] =
+                    index;
+
+
+                document
+                    .querySelectorAll(
+                        ".option"
+                    )
+                    .forEach(el=>{
+                        el.classList.remove(
+                            "selected"
+                        );
+                    });
+
+
+                label.classList.add(
+                    "selected"
+                );
+
+
+                document
+                    .getElementById(
+                        "nextButton"
+                    )
+                    .disabled = false;
+
+            };
+
+
+            options.appendChild(label);
+
+        }
+    );
+
+
+    document
+        .getElementById("backButton")
+        .disabled =
+        currentQuestion === 0;
+
+
+    document
+        .getElementById("nextButton")
         .textContent =
-        currentQuestion === questions.length-1
+
+        currentQuestion ===
+        questions.length-1
+
         ? "Lihat Hasil →"
+
         : "Berikutnya →";
 
-    document.getElementById("nextButton")
+
+    document
+        .getElementById("nextButton")
         .disabled =
         answers[currentQuestion] === null;
+
+
+    /*
+       Setiap pindah soal:
+       otomatis kembali ke atas.
+    */
+
+    setTimeout(()=>{
+        scrollTopInstant();
+    },40);
 }
 
 
-/* =========================================
+/* ==================================================
    NEXT
-========================================= */
+================================================== */
 
 function nextQuestion(){
 
-    if(answers[currentQuestion] === null){
+    if(testFinished){
+        return;
+    }
 
-        alert("Silakan pilih salah satu jawaban.");
+
+    if(
+        answers[currentQuestion] === null
+    ){
+
+        alert(
+            "Silakan pilih salah satu jawaban."
+        );
 
         return;
     }
 
-    if(currentQuestion < questions.length-1){
+
+    if(
+        currentQuestion <
+        questions.length-1
+    ){
 
         currentQuestion++;
 
         showQuestion();
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
+    }
 
-    }else{
+    else{
+
+        testFinished = true;
+
+        clearInterval(
+            timerInterval
+        );
 
         showResult();
 
@@ -1469,11 +2032,16 @@ function nextQuestion(){
 }
 
 
-/* =========================================
+/* ==================================================
    PREVIOUS
-========================================= */
+================================================== */
 
 function previousQuestion(){
+
+    if(testFinished){
+        return;
+    }
+
 
     if(currentQuestion > 0){
 
@@ -1481,154 +2049,205 @@ function previousQuestion(){
 
         showQuestion();
 
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
     }
 }
 
 
-/* =========================================
-   ANALYSIS
-========================================= */
+/* ==================================================
+   SCORE
+================================================== */
 
 function calculateScores(){
 
     const scores =
-        new Array(competencies.length).fill(0);
+        new Array(
+            competencies.length
+        ).fill(0);
+
 
     const counts =
-        new Array(competencies.length).fill(0);
+        new Array(
+            competencies.length
+        ).fill(0);
 
-    questions.forEach((q,index)=>{
 
-        const answer = answers[index];
+    questions.forEach(
+        (q,index)=>{
 
-        if(answer !== null){
+            const answer =
+                answers[index];
 
-            /*
-            Semua pilihan bernilai.
-            Bobot berbeda digunakan untuk membaca
-            kecenderungan pola, bukan benar/salah.
-            */
 
-            const weights = [4,3,2,1];
+            if(answer !== null){
 
-            scores[q.c] += weights[answer];
+                /*
+                   Semua jawaban dibuat terlihat
+                   masuk akal.
 
-            counts[q.c]++;
+                   Nilai digunakan untuk membaca
+                   kecenderungan pola jawaban.
+                */
+
+                const weights =
+                    [4,3,2,1];
+
+
+                scores[q.c] +=
+                    weights[answer];
+
+
+                counts[q.c]++;
+
+            }
 
         }
+    );
 
-    });
 
-    return scores.map((score,index)=>{
+    return scores.map(
+        (score,index)=>{
 
-        const max =
-            counts[index] * 4;
+            if(counts[index] === 0){
+                return 0;
+            }
 
-        return Math.round(
-            (score/max)*100
-        );
 
-    });
+            const max =
+                counts[index] * 4;
 
+
+            return Math.round(
+                (score/max)*100
+            );
+
+        }
+    );
 }
 
 
-/* =========================================
-   PROFILE ANALYSIS
-========================================= */
+/* ==================================================
+   PROFILE
+================================================== */
 
 function getProfile(scores){
 
-    const average =
-        scores.reduce((a,b)=>a+b,0)
-        /scores.length;
+    const answered =
+        scores.filter(
+            score => score > 0
+        );
 
-    let title = "";
-    let description = "";
+
+    const average =
+        answered.length
+        ? answered.reduce(
+            (a,b)=>a+b,
+            0
+        ) / answered.length
+        : 0;
+
+
+    let title;
+
+    let description;
+
 
     if(average >= 88){
 
-        title = "Profil Konsisten & Berorientasi Hasil";
+        title =
+        "Profil Konsisten & Berorientasi Hasil";
+
 
         description =
-        "Pola jawaban Anda menunjukkan kecenderungan yang relatif konsisten dalam menjalankan tanggung jawab, berinteraksi dengan orang lain, menghadapi masalah, dan menjaga pencapaian tujuan. Anda cenderung memiliki standar pribadi yang cukup jelas terhadap cara bekerja.";
+        "Pola jawaban Anda menunjukkan kecenderungan yang relatif konsisten dalam menjalankan tanggung jawab, menjaga kualitas pekerjaan, berinteraksi dengan orang lain, dan mengarahkan aktivitas menuju tujuan.";
 
     }
 
     else if(average >= 78){
 
-        title = "Profil Stabil & Adaptif";
+        title =
+        "Profil Stabil & Adaptif";
+
 
         description =
-        "Pola jawaban Anda menunjukkan keseimbangan antara pencapaian hasil, hubungan dengan orang lain, serta kemampuan menyesuaikan diri terhadap situasi. Anda cenderung dapat bekerja dengan struktur namun tetap memberikan ruang untuk penyesuaian.";
+        "Pola jawaban Anda menunjukkan keseimbangan antara pencapaian hasil, hubungan dengan orang lain, dan kemampuan menyesuaikan diri terhadap situasi.";
 
     }
 
     else if(average >= 68){
 
-        title = "Profil Fleksibel & Reflektif";
+        title =
+        "Profil Fleksibel & Reflektif";
+
 
         description =
-        "Pola jawaban Anda menunjukkan kecenderungan untuk melihat situasi dari beberapa sisi sebelum bertindak. Anda memiliki ruang yang baik untuk terus mengembangkan konsistensi, ketegasan, dan efektivitas dalam berbagai kondisi.";
+        "Pola jawaban Anda menunjukkan kecenderungan untuk mempertimbangkan beberapa sisi sebelum bertindak. Anda memiliki ruang yang baik untuk terus membangun konsistensi dan efektivitas.";
 
     }
 
     else{
 
-        title = "Profil Eksploratif & Berkembang";
+        title =
+        "Profil Eksploratif & Berkembang";
+
 
         description =
-        "Pola jawaban Anda menunjukkan adanya beberapa kecenderungan yang masih cukup fleksibel. Hal ini dapat menjadi kesempatan untuk lebih mengenali pola kerja pribadi, menentukan prioritas, dan membangun kebiasaan yang lebih konsisten.";
+        "Pola jawaban Anda menunjukkan beberapa kecenderungan yang masih cukup fleksibel. Hal ini dapat menjadi kesempatan untuk lebih mengenali pola kerja pribadi dan membangun kebiasaan yang semakin konsisten.";
+
     }
+
 
     return {
         average,
         title,
         description
     };
-
 }
 
 
-/* =========================================
+/* ==================================================
    RESULT
-========================================= */
+================================================== */
 
 function showResult(){
 
-    const scores =
-        calculateScores();
+    clearInterval(timerInterval);
 
-    const profile =
-        getProfile(scores);
 
     document
         .getElementById("testScreen")
         .classList.remove("active");
 
+
     document
         .getElementById("resultScreen")
         .classList.add("active");
+
+
+    const scores =
+        calculateScores();
+
+
+    const profile =
+        getProfile(scores);
+
 
     document
         .getElementById("resultGreeting")
         .textContent =
         `Berikut gambaran pola jawaban ${userName}.`;
 
+
     document
         .getElementById("totalScore")
         .textContent =
         Math.round(profile.average);
 
+
     document
         .getElementById("profileTitle")
         .textContent =
         profile.title;
+
 
     document
         .getElementById("profileDescription")
@@ -1636,140 +2255,180 @@ function showResult(){
         profile.description;
 
 
-    /* =========================
-       SORT COMPETENCIES
-    ========================= */
-
     const ranking =
         scores
-        .map((score,index)=>({
-            score,
-            index
-        }))
-        .sort((a,b)=>b.score-a.score);
+        .map(
+            (score,index)=>({
+                score,
+                index
+            })
+        )
+        .sort(
+            (a,b)=>b.score-a.score
+        );
 
 
     const strongest =
-        ranking.slice(0,3);
+        ranking
+        .filter(x=>x.score>0)
+        .slice(0,3);
+
 
     const weakest =
-        ranking.slice(-3).reverse();
+        ranking
+        .filter(x=>x.score>0)
+        .slice(-3)
+        .reverse();
 
 
-    /* =========================
-       STRENGTH
-    ========================= */
-
-    const strengthText =
-        strongest.map(item => {
-
-            return `
-            <b>${competencies[item.index].name}</b>
-            (${item.score}%): 
-            ${competencies[item.index].strength}
-            `;
-
-        }).join("<br><br>");
+    /* ==========================
+       KEUNGGULAN
+    ========================== */
 
     document
         .getElementById("strengthText")
         .innerHTML =
-        strengthText;
+
+        strongest.length
+
+        ? strongest
+            .map(item=>`
+
+                <b>
+                    ${competencies[item.index].name}
+                </b>
+
+                (${item.score}%)
+
+                :
+
+                ${competencies[item.index].strength}
+
+            `)
+            .join("<br><br>")
+
+        : "Belum terdapat cukup jawaban untuk menggambarkan keunggulan.";
 
 
-    /* =========================
+
+    /* ==========================
        DEVELOPMENT
-    ========================= */
-
-    const developmentText =
-        weakest.map(item => {
-
-            return `
-            <b>${competencies[item.index].name}</b>
-            (${item.score}%): 
-            ${competencies[item.index].development}
-            `;
-
-        }).join("<br><br>");
+    ========================== */
 
     document
         .getElementById("developmentText")
         .innerHTML =
-        developmentText;
+
+        weakest.length
+
+        ? weakest
+            .map(item=>`
+
+                <b>
+                    ${competencies[item.index].name}
+                </b>
+
+                (${item.score}%)
+
+                :
+
+                ${competencies[item.index].development}
+
+            `)
+            .join("<br><br>")
+
+        : "Belum terdapat cukup jawaban untuk menentukan area pengembangan.";
 
 
-    /* =========================
+
+    /* ==========================
        ADVICE
-    ========================= */
-
-    const adviceText =
-        weakest.map(item => {
-
-            return `
-            <b>${competencies[item.index].name}</b>:
-            ${competencies[item.index].advice}
-            `;
-
-        }).join("<br><br>");
+    ========================== */
 
     document
         .getElementById("adviceText")
         .innerHTML =
-        adviceText;
+
+        weakest.length
+
+        ? weakest
+            .map(item=>`
+
+                <b>
+                    ${competencies[item.index].name}
+                </b>
+
+                :
+
+                ${competencies[item.index].advice}
+
+            `)
+            .join("<br><br>")
+
+        : "Selesaikan lebih banyak pertanyaan untuk mendapatkan saran pengembangan yang lebih sesuai.";
 
 
-    /* =========================
-       COMPETENCY BARS
-    ========================= */
+
+    /* ==========================
+       COMPETENCY
+    ========================== */
 
     const container =
-        document.getElementById("competencyResults");
+        document.getElementById(
+            "competencyResults"
+        );
+
 
     container.innerHTML = "";
 
-    scores.forEach((score,index)=>{
 
-        const row =
-            document.createElement("div");
+    scores.forEach(
+        (score,index)=>{
 
-        row.className =
-            "competency-row";
-
-        row.innerHTML = `
-
-            <div class="competency-head">
-
-                <span>
-                    ${competencies[index].name}
-                </span>
-
-                <span>
-                    ${score}%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:${score}%"
-                ></div>
-
-            </div>
-
-        `;
-
-        container.appendChild(row);
-
-    });
+            const row =
+                document.createElement(
+                    "div"
+                );
 
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+            row.className =
+                "competency-row";
 
+
+            row.innerHTML = `
+
+                <div class="competency-head">
+
+                    <span>
+                        ${competencies[index].name}
+                    </span>
+
+                    <span>
+                        ${score}%
+                    </span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill"
+                        style="width:${score}%"
+                    ></div>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(row);
+
+        }
+    );
+
+
+    scrollTopInstant();
 }
 
 </script>
