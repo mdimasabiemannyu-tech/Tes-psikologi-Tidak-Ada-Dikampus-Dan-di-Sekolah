@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Asesmen Refleksi Diri</title>
 
@@ -11,24 +11,89 @@
     box-sizing:border-box;
 }
 
-body{
+html,body{
     margin:0;
+    min-height:100%;
     font-family:Arial,Helvetica,sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e3a5f);
+}
+
+body{
     color:#172033;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND DINAMIS
+========================= */
+
+#app{
     min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    transition:background 1s ease;
+}
+
+.bg-orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(3px);
+    opacity:.45;
+    pointer-events:none;
+    z-index:0;
+    animation:float 8s ease-in-out infinite;
+}
+
+.orb1{
+    width:280px;
+    height:280px;
+    background:#60a5fa;
+    top:-80px;
+    left:-80px;
+}
+
+.orb2{
+    width:330px;
+    height:330px;
+    background:#a78bfa;
+    right:-100px;
+    bottom:-100px;
+    animation-delay:2s;
+}
+
+.orb3{
+    width:180px;
+    height:180px;
+    background:#34d399;
+    right:15%;
+    top:25%;
+    opacity:.2;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+    50%{
+        transform:translate(25px,-25px) scale(1.08);
+    }
 }
 
 .container{
-    max-width:900px;
+    position:relative;
+    z-index:2;
+    max-width:950px;
     margin:auto;
-    padding:15px;
+    padding:18px;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero{
-    min-height:480px;
-    border-radius:25px;
+    min-height:530px;
+    border-radius:30px;
     overflow:hidden;
     position:relative;
     display:flex;
@@ -37,37 +102,45 @@ body{
     text-align:center;
     color:white;
 
-    background-image:
+    background:
     linear-gradient(
-        rgba(5,15,35,.68),
-        rgba(5,15,35,.82)
+        135deg,
+        rgba(15,23,42,.72),
+        rgba(30,64,175,.72)
     ),
-    url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85");
+    url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=85");
 
     background-size:cover;
     background-position:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+    box-shadow:
+    0 30px 70px rgba(0,0,0,.35);
 }
 
 .hero-content{
-    padding:35px 20px;
+    max-width:750px;
+    padding:40px 25px;
 }
 
 .logo{
-    font-size:60px;
-    margin-bottom:10px;
+    font-size:75px;
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
 }
 
 .hero h1{
-    font-size:36px;
-    margin:0 0 15px;
+    font-size:42px;
+    margin:15px 0;
 }
 
 .hero p{
-    max-width:650px;
-    margin:auto;
+    font-size:17px;
     line-height:1.7;
-    font-size:16px;
+    opacity:.95;
 }
 
 .badges{
@@ -75,189 +148,278 @@ body{
     justify-content:center;
     flex-wrap:wrap;
     gap:10px;
-    margin-top:25px;
+    margin-top:28px;
 }
 
 .badge{
-    padding:10px 15px;
-    border-radius:30px;
-    background:rgba(255,255,255,.15);
+    padding:10px 16px;
+    border-radius:50px;
+    background:rgba(255,255,255,.13);
     border:1px solid rgba(255,255,255,.3);
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(12px);
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
+
 .card{
-    background:white;
-    border-radius:22px;
-    padding:25px;
-    margin:18px 0;
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    background:rgba(255,255,255,.93);
+    border-radius:25px;
+    padding:28px;
+    margin:20px 0;
+    box-shadow:0 20px 60px rgba(0,0,0,.22);
+    backdrop-filter:blur(15px);
 }
 
-h2,h3{
-    margin-top:0;
+.glass{
+    background:rgba(255,255,255,.9);
 }
 
-/* INPUT */
+/* =========================
+   INPUT
+========================= */
+
 input{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:2px solid #e2e8f0;
-    border-radius:12px;
+    border-radius:14px;
     font-size:16px;
-    margin:8px 0 15px;
+    margin:10px 0 18px;
     outline:none;
+    transition:.2s;
 }
 
 input:focus{
     border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
+
 button{
     border:0;
-    border-radius:12px;
-    padding:14px 20px;
+    border-radius:14px;
+    padding:15px 20px;
     font-size:16px;
     font-weight:bold;
     cursor:pointer;
-    background:#2563eb;
-    color:white;
     transition:.2s;
     -webkit-tap-highlight-color:transparent;
 }
 
-button:hover{
-    opacity:.9;
-}
-
 button:active{
-    transform:scale(.98);
+    transform:scale(.97);
 }
 
 button:disabled{
-    opacity:.45;
+    opacity:.4;
     cursor:not-allowed;
 }
 
 .start-button{
     width:100%;
-    padding:17px;
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    padding:18px;
     font-size:18px;
-    margin-top:10px;
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
-    box-shadow:0 8px 20px rgba(37,99,235,.3);
+    box-shadow:0 10px 25px rgba(37,99,235,.28);
 }
 
 .secondary{
     background:#64748b;
+    color:white;
 }
 
-/* NOTE */
-.note{
-    background:#fff7ed;
-    border-left:5px solid #f59e0b;
-    padding:15px;
-    border-radius:8px;
-    line-height:1.6;
+/* =========================
+   QUIZ HEADER
+========================= */
+
+.quiz-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
 }
 
-/* QUIZ */
-.question-number{
-    font-size:14px;
-    color:#64748b;
+.category{
+    display:inline-block;
+    padding:8px 13px;
+    border-radius:30px;
+    background:#dbeafe;
+    color:#1d4ed8;
+    font-size:13px;
     font-weight:bold;
 }
 
+.question-number{
+    color:#64748b;
+    font-weight:bold;
+    font-size:14px;
+}
+
 .progress{
-    height:10px;
+    height:11px;
     background:#e5e7eb;
     border-radius:20px;
     overflow:hidden;
-    margin:15px 0 25px;
+    margin:17px 0 28px;
 }
 
-.progress div{
+.progress-bar{
     height:100%;
     width:0;
-    background:#2563eb;
-    transition:.3s;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#8b5cf6,#06b6d4);
+    transition:.5s;
 }
 
 .question{
-    font-size:21px;
-    line-height:1.5;
-    margin:15px 0 20px;
+    font-size:23px;
+    line-height:1.55;
+    font-weight:bold;
+    margin:15px 0 25px;
 }
 
+/* =========================
+   OPTIONS
+========================= */
+
 .option{
-    display:block;
+    display:flex;
+    align-items:center;
+    gap:13px;
     width:100%;
     text-align:left;
-    margin:10px 0;
-    padding:17px;
+    margin:12px 0;
+    padding:18px;
     background:#f8fafc;
     color:#172033;
     border:2px solid #e2e8f0;
-    border-radius:14px;
+    border-radius:16px;
     font-weight:normal;
+    transition:.2s;
 }
 
 .option:hover{
-    border-color:#2563eb;
+    transform:translateX(4px);
+    border-color:#60a5fa;
     background:#eff6ff;
 }
 
 .option.selected{
     border-color:#2563eb;
     background:#dbeafe;
+    box-shadow:0 6px 18px rgba(37,99,235,.12);
+}
+
+.option-letter{
+    min-width:35px;
+    height:35px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e2e8f0;
     font-weight:bold;
 }
 
+.option.selected .option-letter{
+    background:#2563eb;
+    color:white;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
 .navigation{
     display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:25px;
+    gap:12px;
+    margin-top:28px;
 }
 
 .navigation button{
     flex:1;
 }
 
-/* RESULT */
+.next{
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+}
+
+/* =========================
+   RESULT
+========================= */
+
 .result-header{
     text-align:center;
-    padding:10px;
 }
 
 .result-icon{
-    font-size:70px;
+    font-size:75px;
 }
 
 .result-title{
-    font-size:30px;
+    font-size:32px;
     margin:10px 0;
     color:#1d4ed8;
 }
 
 .score-box{
-    background:#eff6ff;
-    border-radius:18px;
-    padding:20px;
     text-align:center;
-    margin:20px 0;
+    margin:25px 0;
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#eff6ff,#f5f3ff);
 }
 
 .score{
-    font-size:45px;
+    font-size:48px;
     font-weight:bold;
     color:#2563eb;
 }
 
+.profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:20px;
+}
+
+.profile{
+    padding:18px;
+    border-radius:18px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+}
+
+.profile-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.bar{
+    height:9px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar div{
+    height:100%;
+    border-radius:20px;
+    background:linear-gradient(90deg,#2563eb,#8b5cf6);
+    transition:1s;
+}
+
 .result-section{
-    margin-top:25px;
+    margin-top:28px;
 }
 
 .result-section h3{
@@ -265,21 +427,21 @@ button:disabled{
 }
 
 .result-list{
-    padding-left:20px;
-    line-height:1.8;
+    line-height:1.9;
+    padding-left:22px;
 }
 
-.warning{
+.note{
     background:#fff7ed;
     border-left:5px solid #f59e0b;
-    padding:15px;
+    padding:16px;
     border-radius:10px;
     line-height:1.6;
 }
 
 .footer{
-    color:#cbd5e1;
     text-align:center;
+    color:#dbeafe;
     padding:25px 10px;
     font-size:13px;
 }
@@ -288,26 +450,41 @@ button:disabled{
     display:none !important;
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
+
+    .container{
+        padding:10px;
+    }
 
     .hero{
-        min-height:500px;
+        min-height:520px;
+        border-radius:22px;
     }
 
     .hero h1{
-        font-size:28px;
+        font-size:30px;
     }
 
     .logo{
-        font-size:50px;
-    }
-
-    .question{
-        font-size:19px;
+        font-size:60px;
     }
 
     .card{
         padding:20px;
+        border-radius:20px;
+    }
+
+    .question{
+        font-size:20px;
+    }
+
+    .quiz-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .profile-grid{
+        grid-template-columns:1fr;
     }
 
     .navigation{
@@ -319,6 +496,12 @@ button:disabled{
 
 <body>
 
+<div id="app">
+
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
 <div class="container">
 
 <!-- =========================
@@ -327,61 +510,69 @@ button:disabled{
 
 <section id="startPage">
 
-    <div class="hero">
+<div class="hero">
 
-        <div class="hero-content">
+<div class="hero-content">
 
-            <div class="logo">🧠</div>
+<div class="logo">🧠</div>
 
-            <h1>Asesmen Refleksi Diri</h1>
+<h1>Asesmen Refleksi Diri</h1>
 
-            <p>
-                Kenali kecenderungan cara berpikir, bekerja,
-                menghadapi masalah, berkomunikasi, dan mengambil keputusan.
-            </p>
+<p>
+Kenali kecenderungan cara kamu bekerja,
+menghadapi tekanan, mengambil keputusan,
+berkomunikasi, melayani, dan bekerja sama.
+</p>
 
-            <div class="badges">
-                <div class="badge">🧠 Kepribadian Kerja</div>
-                <div class="badge">🎯 Fokus & Disiplin</div>
-                <div class="badge">🤝 Kerja Sama</div>
-                <div class="badge">💡 Pemecahan Masalah</div>
-            </div>
+<div class="badges">
 
-        </div>
+<div class="badge">🛡️ Integritas</div>
+<div class="badge">🤝 Kerja Sama</div>
+<div class="badge">🎯 Target</div>
+<div class="badge">🧠 Problem Solving</div>
+<div class="badge">🔄 Adaptasi</div>
 
-    </div>
+</div>
 
-    <div class="card">
+</div>
+</div>
 
-        <h2>Mulai Asesmen</h2>
 
-        <p>
-            Sebelum memulai, masukkan nama kamu.
-        </p>
+<div class="card">
 
-        <input
-            type="text"
-            id="nama"
-            placeholder="Masukkan nama..."
-            autocomplete="off"
-        >
+<h2>Siap mengenal diri sendiri?</h2>
 
-        <div class="note">
-            <b>Catatan:</b><br>
-            Tes ini merupakan alat refleksi diri sederhana,
-            bukan diagnosis psikologis atau pengganti pemeriksaan
-            dari psikolog profesional.
-        </div>
+<p>
+Jawablah berdasarkan apa yang <b>paling sering kamu lakukan
+dalam situasi nyata</b>, bukan berdasarkan jawaban yang
+menurutmu paling ideal.
+</p>
 
-        <button
-            class="start-button"
-            onclick="mulaiTes()"
-            type="button"
-        >
-            🚀 MULAI TES
-        </button>
+<input
+id="nama"
+type="text"
+placeholder="Masukkan nama kamu..."
+autocomplete="off"
+>
 
-    </div>
+<div class="note">
+<b>Catatan:</b><br>
+Asesmen ini adalah alat refleksi diri dan simulasi
+kompetensi kerja. Hasilnya bukan diagnosis psikologis
+dan bukan pengganti pemeriksaan profesional.
+</div>
+
+<br>
+
+<button
+class="start-button"
+onclick="mulaiTes()"
+type="button"
+>
+🚀 MULAI ASESMEN
+</button>
+
+</div>
 
 </section>
 
@@ -392,409 +583,731 @@ button:disabled{
 
 <section id="quizPage" class="hidden">
 
-    <div class="card">
+<div class="card glass">
 
-        <div class="question-number" id="questionNumber">
-            Pertanyaan 1 dari 20
-        </div>
+<div class="quiz-header">
 
-        <div class="progress">
-            <div id="progressBar"></div>
-        </div>
+<div id="category" class="category">
+Integritas
+</div>
 
-        <div
-            class="question"
-            id="questionText"
-        ></div>
+<div id="questionNumber" class="question-number">
+Pertanyaan 1 dari 40
+</div>
 
-        <div id="options"></div>
+</div>
 
-        <div class="navigation">
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
 
-            <button
-                id="prevButton"
-                class="secondary"
-                onclick="sebelumnya()"
-                type="button"
-            >
-                ← Sebelumnya
-            </button>
+<div id="questionText" class="question"></div>
 
-            <button
-                id="nextButton"
-                onclick="berikutnya()"
-                type="button"
-            >
-                Berikutnya →
-            </button>
+<div id="options"></div>
 
-        </div>
+<div class="navigation">
 
-    </div>
+<button
+id="prevButton"
+class="secondary"
+onclick="sebelumnya()"
+type="button"
+>
+← Sebelumnya
+</button>
+
+<button
+id="nextButton"
+class="next"
+onclick="berikutnya()"
+type="button"
+disabled
+>
+Berikutnya →
+</button>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- =========================
-     HALAMAN HASIL
+     HASIL
 ========================= -->
 
 <section id="resultPage" class="hidden">
 
-    <div class="card">
+<div class="card">
 
-        <div class="result-header">
+<div class="result-header">
 
-            <div class="result-icon" id="resultIcon">
-                🧠
-            </div>
+<div id="resultIcon" class="result-icon">🧠</div>
 
-            <h1 class="result-title" id="resultTitle">
-                Hasil Refleksi
-            </h1>
+<h1 id="resultTitle" class="result-title">
+Profil Refleksi Diri
+</h1>
 
-            <p id="resultName"></p>
+<p id="resultName"></p>
 
-        </div>
+</div>
 
+<div class="score-box">
 
-        <div class="score-box">
+<div>Total Skor</div>
 
-            <div>Skor Refleksi</div>
+<div id="score" class="score">
+0
+</div>
 
-            <div class="score" id="score">
-                0
-            </div>
+<div>dari 160</div>
 
-            <div>
-                dari 80
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="result-section">
+<h2>📊 Profil Kompetensi</h2>
 
-            <h3>📋 Gambaran Umum</h3>
-
-            <p id="description"></p>
-
-        </div>
+<div id="profileGrid" class="profile-grid"></div>
 
 
-        <div class="result-section">
+<div class="result-section">
 
-            <h3>💪 Potensi Kelebihan</h3>
+<h3>💪 Kekuatan yang Terlihat</h3>
 
-            <ul
-                class="result-list"
-                id="strengths"
-            ></ul>
+<ul id="strengths" class="result-list"></ul>
 
-        </div>
+</div>
 
 
-        <div class="result-section">
+<div class="result-section">
 
-            <h3>🔧 Area yang Bisa Dikembangkan</h3>
+<h3>🔧 Area yang Bisa Dikembangkan</h3>
 
-            <ul
-                class="result-list"
-                id="weaknesses"
-            ></ul>
+<ul id="weaknesses" class="result-list"></ul>
 
-        </div>
+</div>
 
 
-        <div class="result-section">
+<div class="result-section">
 
-            <h3>🎯 Saran Pengembangan Diri</h3>
+<h3>🎯 Saran Pengembangan</h3>
 
-            <p id="advice"></p>
+<p id="advice"></p>
 
-        </div>
-
-
-        <div class="warning">
-
-            <b>⚠️ Penting:</b><br>
-
-            Hasil ini hanya memberikan gambaran
-            reflektif berdasarkan jawaban yang kamu pilih.
-            Hasil ini tidak dapat digunakan untuk menentukan
-            diagnosis gangguan mental, kepribadian, atau kondisi
-            psikologis secara medis.
-
-        </div>
+</div>
 
 
-        <br>
+<div class="note">
 
-        <button
-            class="start-button"
-            onclick="ulangTes()"
-            type="button"
-        >
-            🔄 ULANGI TES
-        </button>
+<b>⚠️ Perlu diingat</b><br>
+Hasil ini menggambarkan pola jawaban dalam asesmen ini.
+Seseorang dapat memiliki perilaku berbeda tergantung
+situasi, lingkungan, pengalaman, dan kondisi pekerjaan.
+Hasil ini tidak digunakan untuk diagnosis kesehatan mental.
 
-    </div>
+</div>
+
+<br>
+
+<button
+class="start-button"
+onclick="ulangTes()"
+type="button"
+>
+🔄 ULANGI ASESMEN
+</button>
+
+</div>
 
 </section>
 
 
 <div class="footer">
-    Asesmen Refleksi Diri • Dibuat untuk pengembangan diri
+Asesmen Refleksi Diri • Personal Development
 </div>
 
+</div>
 </div>
 
 
 <script>
 
-/* =========================
-   DATA SOAL
-========================= */
+/* =====================================================
+   SOAL
+===================================================== */
 
 const questions = [
 
+/* INTEGRITAS */
+
 {
-    q:"Ketika mendapatkan tugas baru yang sulit, saya biasanya...",
-    options:[
-        "Langsung mencoba dan mencari cara menyelesaikannya",
-        "Mempelajari terlebih dahulu sebelum bertindak",
-        "Menunggu arahan dari orang lain",
-        "Cenderung menghindarinya"
-    ]
+category:"🛡️ Integritas",
+text:"Kamu menemukan kesalahan pada data yang sudah hampir selesai diproses. Jika diperbaiki, pekerjaanmu akan terlambat.",
+options:[
+"Segera memperbaikinya meskipun membutuhkan waktu tambahan.",
+"Memastikan dulu apakah kesalahan tersebut berdampak pada hasil.",
+"Membiarkannya jika kemungkinan diketahui orang lain kecil.",
+"Menunggu sampai ada yang menemukan kesalahan tersebut."
+],
+reverse:false
 },
 
 {
-    q:"Jika terjadi masalah dalam pekerjaan, saya...",
-    options:[
-        "Mencari penyebab dan solusi",
-        "Berdiskusi dengan orang lain",
-        "Menunggu masalah menjadi lebih jelas",
-        "Mudah merasa panik"
-    ]
+category:"🛡️ Integritas",
+text:"Seorang pelanggan yang kamu kenal meminta perlakuan khusus yang sebenarnya tidak sesuai prosedur.",
+options:[
+"Membantunya karena sudah mengenal pelanggan tersebut.",
+"Menjelaskan prosedur dan menawarkan alternatif yang diperbolehkan.",
+"Meminta rekan lain yang menangani.",
+"Memberikan pengecualian selama tidak menimbulkan masalah."
+],
+reverse:false
 },
 
 {
-    q:"Ketika bekerja dalam tim, saya lebih sering...",
-    options:[
-        "Membantu anggota tim mencapai tujuan",
-        "Menjalankan bagian saya dengan baik",
-        "Mengikuti keputusan mayoritas",
-        "Lebih nyaman bekerja sendiri"
-    ]
+category:"🛡️ Integritas",
+text:"Saat tidak ada orang yang mengawasi pekerjaanmu, biasanya kamu...",
+options:[
+"Tetap bekerja sesuai standar yang ditetapkan.",
+"Menjaga kualitas pada bagian yang menurutmu penting.",
+"Lebih santai karena tidak ada yang mengawasi.",
+"Mengerjakan sekadar agar pekerjaan selesai."
+],
+reverse:false
 },
 
 {
-    q:"Jika menerima kritik dari orang lain...",
-    options:[
-        "Mencoba mengambil pelajaran dari kritik tersebut",
-        "Mendengarkan tetapi tetap mempertimbangkan pendapat sendiri",
-        "Kadang merasa kurang nyaman",
-        "Cenderung langsung tersinggung"
-    ]
+category:"🛡️ Integritas",
+text:"Kamu mengetahui informasi internal yang menarik untuk dibicarakan dengan teman.",
+options:[
+"Menceritakannya kepada teman dekat saja.",
+"Membagikannya jika menurutmu tidak terlalu penting.",
+"Menyimpan informasi tersebut dan menggunakannya hanya sesuai kebutuhan pekerjaan.",
+"Menceritakannya kepada orang yang kamu percaya."
+],
+reverse:false
+},
+
+/* DISIPLIN */
+
+{
+category:"⏱️ Disiplin",
+text:"Pekerjaan rutin terasa membosankan dan berulang.",
+options:[
+"Tetap menyelesaikannya dengan standar yang sama.",
+"Mengerjakannya lebih cepat agar segera selesai.",
+"Menunda sampai mood kembali.",
+"Mengerjakannya sekadarnya."
+],
+reverse:false
 },
 
 {
-    q:"Ketika memiliki target pekerjaan...",
-    options:[
-        "Membuat rencana dan berusaha menyelesaikannya",
-        "Berusaha menyelesaikan sesuai kemampuan",
-        "Bekerja ketika sudah mendekati batas waktu",
-        "Sering kehilangan motivasi"
-    ]
+category:"⏱️ Disiplin",
+text:"Deadline pekerjaan masih beberapa hari lagi.",
+options:[
+"Menunggu sampai waktunya mendekat.",
+"Menyelesaikan bagian penting lebih awal.",
+"Mengerjakan ketika sudah diingatkan.",
+"Fokus pada pekerjaan lain terlebih dahulu."
+],
+reverse:false
 },
 
 {
-    q:"Dalam mengambil keputusan penting, saya...",
-    options:[
-        "Mempertimbangkan fakta dan konsekuensi",
-        "Meminta pendapat orang yang dipercaya",
-        "Lebih banyak mengikuti perasaan",
-        "Sering ragu dalam mengambil keputusan"
-    ]
+category:"⏱️ Disiplin",
+text:"Kamu memiliki target pribadi yang belum tercapai.",
+options:[
+"Mengevaluasi progres dan menyesuaikan rencana.",
+"Mengurangi target agar lebih mudah.",
+"Menunggu motivasi datang.",
+"Melupakan target tersebut untuk sementara."
+],
+reverse:false
 },
 
 {
-    q:"Jika rencana saya gagal...",
-    options:[
-        "Mencari penyebab dan mencoba kembali",
-        "Mengevaluasi kesalahan",
-        "Membutuhkan waktu untuk bangkit",
-        "Cenderung menyerah"
-    ]
+category:"⏱️ Disiplin",
+text:"Jika mendapatkan tugas yang tidak terlalu diawasi...",
+options:[
+"Tetap menyelesaikannya dengan baik.",
+"Mengerjakan bagian yang terlihat saja.",
+"Menunggu instruksi berikutnya.",
+"Mengutamakan pekerjaan yang lebih diperhatikan atasan."
+],
+reverse:false
+},
+
+/* KERJA SAMA */
+
+{
+category:"🤝 Kerja Sama",
+text:"Rekan kerja mengalami kesulitan ketika tim sedang sibuk.",
+options:[
+"Membantu jika pekerjaan utama saya sudah aman.",
+"Fokus pada pekerjaan sendiri.",
+"Menunggu sampai dia meminta bantuan.",
+"Memintanya menyelesaikan sendiri."
+],
+reverse:false
 },
 
 {
-    q:"Ketika memiliki banyak pekerjaan sekaligus...",
-    options:[
-        "Menentukan prioritas",
-        "Mengerjakan satu per satu",
-        "Mengerjakan yang paling mudah terlebih dahulu",
-        "Mudah merasa kewalahan"
-    ]
+category:"🤝 Kerja Sama",
+text:"Pendapatmu berbeda dengan mayoritas anggota tim.",
+options:[
+"Tetap mempertahankan pendapat sampai diterima.",
+"Menjelaskan alasan dan mempertimbangkan sudut pandang tim.",
+"Langsung mengikuti mayoritas.",
+"Tidak menyampaikan pendapat."
+],
+reverse:false
 },
 
 {
-    q:"Ketika melihat rekan kerja mengalami kesulitan...",
-    options:[
-        "Berusaha membantu jika memungkinkan",
-        "Menawarkan bantuan jika diminta",
-        "Memberikan saran",
-        "Lebih fokus pada pekerjaan sendiri"
-    ]
+category:"🤝 Kerja Sama",
+text:"Rekan mendapatkan penghargaan atas keberhasilan yang juga melibatkan kerja tim.",
+options:[
+"Ikut menghargai keberhasilan tersebut.",
+"Merasa kontribusimu seharusnya lebih diperhatikan.",
+"Tidak memberikan respons.",
+"Mengurangi bantuan kepada rekan tersebut."
+],
+reverse:false
 },
 
 {
-    q:"Saya biasanya menyelesaikan pekerjaan...",
-    options:[
-        "Sebelum atau sesuai batas waktu",
-        "Tepat ketika mendekati batas waktu",
-        "Kadang melewati batas waktu",
-        "Sering menunda"
-    ]
+category:"🤝 Kerja Sama",
+text:"Kamu harus bekerja dengan orang yang gaya komunikasinya sangat berbeda.",
+options:[
+"Berusaha menyesuaikan cara komunikasi.",
+"Mengurangi komunikasi dengannya.",
+"Meminta dipindahkan.",
+"Menunggu orang tersebut yang menyesuaikan."
+],
+reverse:false
+},
+
+/* PELAYANAN */
+
+{
+category:"👥 Pelayanan",
+text:"Pelanggan datang dalam keadaan kesal karena menunggu cukup lama.",
+options:[
+"Menjelaskan bahwa antrean memang sedang banyak.",
+"Mendengarkan keluhan lalu menjelaskan solusi sesuai prosedur.",
+"Meminta pelanggan menunggu sampai tenang.",
+"Mengalihkan pelanggan kepada orang lain."
+],
+reverse:false
 },
 
 {
-    q:"Jika harus mempelajari sesuatu yang baru...",
-    options:[
-        "Saya merasa tertarik",
-        "Saya akan belajar jika memang diperlukan",
-        "Saya membutuhkan waktu untuk terbiasa",
-        "Saya cenderung menghindarinya"
-    ]
+category:"👥 Pelayanan",
+text:"Pelanggan menanyakan informasi yang belum kamu ketahui.",
+options:[
+"Memberikan jawaban berdasarkan perkiraan.",
+"Mengatakan tidak tahu.",
+"Memastikan informasi melalui sumber yang benar sebelum menjawab.",
+"Mengarahkan pelanggan mencari informasi sendiri."
+],
+reverse:false
 },
 
 {
-    q:"Saat menghadapi tekanan pekerjaan...",
-    options:[
-        "Berusaha tetap tenang dan mencari solusi",
-        "Mencoba mengatur ulang pekerjaan",
-        "Kadang merasa stres",
-        "Sulit berkonsentrasi"
-    ]
+category:"👥 Pelayanan",
+text:"Pelanggan memberikan kritik yang menurutmu kurang tepat.",
+options:[
+"Menjelaskan bahwa pelanggan salah.",
+"Mendengarkan dan memeriksa masalah berdasarkan fakta.",
+"Mengabaikan kritik.",
+"Meminta pelanggan berbicara dengan atasan."
+],
+reverse:false
 },
 
 {
-    q:"Ketika terjadi perbedaan pendapat...",
-    options:[
-        "Mencari titik temu",
-        "Mendengarkan pendapat pihak lain",
-        "Mempertahankan pendapat sendiri",
-        "Cenderung menghindari konflik"
-    ]
+category:"👥 Pelayanan",
+text:"Ada dua pelanggan yang membutuhkan bantuan secara bersamaan.",
+options:[
+"Memilih pelanggan yang paling mudah dilayani.",
+"Melayani yang datang lebih dulu tanpa melihat kebutuhan.",
+"Menilai urgensi dan mengatur pelayanan secara adil.",
+"Meminta keduanya menunggu."
+],
+reverse:false
+},
+
+/* PROBLEM SOLVING */
+
+{
+category:"🧠 Problem Solving",
+text:"Terjadi masalah yang belum pernah kamu hadapi sebelumnya.",
+options:[
+"Menunggu orang lain menyelesaikannya.",
+"Mencari informasi, memahami penyebab, lalu mencoba solusi.",
+"Mencoba secara acak sampai berhasil.",
+"Menghindari masalah tersebut."
+],
+reverse:false
 },
 
 {
-    q:"Saya menilai kesalahan sebagai...",
-    options:[
-        "Kesempatan untuk belajar",
-        "Sesuatu yang perlu diperbaiki",
-        "Hal yang sebisa mungkin harus dihindari",
-        "Sesuatu yang membuat saya kehilangan kepercayaan diri"
-    ]
+category:"🧠 Problem Solving",
+text:"Data dalam sistem berbeda dengan dokumen fisik.",
+options:[
+"Memilih data sistem.",
+"Memilih dokumen fisik.",
+"Melakukan verifikasi sebelum melanjutkan.",
+"Memilih data yang paling memudahkan pekerjaan."
+],
+reverse:false
 },
 
 {
-    q:"Jika diberikan tanggung jawab besar...",
-    options:[
-        "Saya menerimanya sebagai kesempatan berkembang",
-        "Saya akan mempertimbangkan kemampuan saya",
-        "Saya merasa cukup khawatir",
-        "Saya lebih memilih tanggung jawab kecil"
-    ]
+category:"🧠 Problem Solving",
+text:"Solusi pertama yang kamu coba tidak berhasil.",
+options:[
+"Berhenti mencoba.",
+"Menyalahkan kondisi.",
+"Menganalisis kembali penyebab dan mencoba pendekatan lain.",
+"Menunggu orang lain menemukan solusi."
+],
+reverse:false
 },
 
 {
-    q:"Dalam bekerja, saya paling mengutamakan...",
-    options:[
-        "Hasil dan kualitas",
-        "Ketepatan proses",
-        "Kecepatan menyelesaikan pekerjaan",
-        "Kenyamanan diri"
-    ]
+category:"🧠 Problem Solving",
+text:"Masalah harus diselesaikan dengan informasi yang belum lengkap.",
+options:[
+"Mengambil keputusan berdasarkan perkiraan saja.",
+"Menunggu informasi sempurna.",
+"Menggunakan informasi yang tersedia sambil mempertimbangkan risiko.",
+"Menyerahkan keputusan kepada orang lain."
+],
+reverse:false
+},
+
+/* ADAPTASI */
+
+{
+category:"🔄 Adaptasi",
+text:"Perusahaan menerapkan prosedur baru yang membuat pekerjaan terasa lebih rumit.",
+options:[
+"Tetap menggunakan cara lama.",
+"Mempelajari prosedur baru dan menyesuaikan diri.",
+"Menunggu semua orang terbiasa.",
+"Menolak karena cara lama lebih mudah."
+],
+reverse:false
 },
 
 {
-    q:"Ketika mendapatkan pekerjaan yang monoton...",
-    options:[
-        "Tetap menyelesaikannya dengan konsisten",
-        "Mencari cara agar lebih menarik",
-        "Mengerjakannya sesuai kebutuhan",
-        "Mudah kehilangan motivasi"
-    ]
+category:"🔄 Adaptasi",
+text:"Kamu mendapat tugas yang belum pernah dikerjakan.",
+options:[
+"Menolak karena belum berpengalaman.",
+"Mempelajari cara mengerjakannya dan meminta bantuan jika perlu.",
+"Mengerjakannya berdasarkan perkiraan.",
+"Menunggu orang lain mengerjakan."
+],
+reverse:false
 },
 
 {
-    q:"Jika seseorang melakukan kesalahan kepada saya...",
-    options:[
-        "Membicarakannya dengan baik",
-        "Memberikan kesempatan untuk memperbaiki",
-        "Menjaga jarak sementara",
-        "Sulit melupakan kesalahan tersebut"
-    ]
+category:"🔄 Adaptasi",
+text:"Kamu dipindahkan sementara ke lingkungan kerja yang berbeda.",
+options:[
+"Membutuhkan waktu tetapi berusaha memahami lingkungan baru.",
+"Langsung membandingkannya dengan tempat lama.",
+"Menolak perubahan tersebut.",
+"Menunggu orang lain membantu seluruhnya."
+],
+reverse:false
 },
 
 {
-    q:"Ketika menghadapi perubahan aturan...",
-    options:[
-        "Berusaha beradaptasi",
-        "Mempelajari aturan baru",
-        "Membutuhkan waktu untuk menyesuaikan",
-        "Merasa tidak nyaman dengan perubahan"
-    ]
+category:"🔄 Adaptasi",
+text:"Sistem kerja yang biasa kamu gunakan tiba-tiba berubah.",
+options:[
+"Mencoba memahami sistem baru.",
+"Terus menggunakan sistem lama.",
+"Menunggu sampai diwajibkan.",
+"Merasa tidak nyaman lalu mengurangi pekerjaan."
+],
+reverse:false
+},
+
+/* TARGET */
+
+{
+category:"🎯 Orientasi Target",
+text:"Target bulan ini belum tercapai dan waktu tinggal beberapa hari.",
+options:[
+"Menganggap target terlalu tinggi.",
+"Mengevaluasi penyebab dan menentukan tindakan yang masih bisa dilakukan.",
+"Berusaha mengejar dengan cara apa pun.",
+"Menunggu bulan berikutnya."
+],
+reverse:false
 },
 
 {
-    q:"Menurut saya, keberhasilan terutama membutuhkan...",
-    options:[
-        "Disiplin, usaha, dan kemauan belajar",
-        "Kemampuan dan pengalaman",
-        "Kesempatan yang tepat",
-        "Keberuntungan"
-    ]
+category:"🎯 Orientasi Target",
+text:"Kamu mendapat target yang cukup menantang.",
+options:[
+"Menyusun rencana dan memantau perkembangan.",
+"Menunggu arahan lebih lanjut.",
+"Langsung mengerjakan tanpa rencana.",
+"Meminta target diturunkan."
+],
+reverse:false
+},
+
+{
+category:"🎯 Orientasi Target",
+text:"Hasil tim belum sesuai target.",
+options:[
+"Mencari siapa yang paling bertanggung jawab.",
+"Mengevaluasi proses dan faktor yang dapat diperbaiki.",
+"Menganggap target memang terlalu tinggi.",
+"Menunggu atasan menentukan solusinya."
+],
+reverse:false
+},
+
+{
+category:"🎯 Orientasi Target",
+text:"Kamu berhasil mencapai target lebih cepat dari perkiraan.",
+options:[
+"Berhenti sampai target berikutnya diberikan.",
+"Mengevaluasi apa yang membuat hasil tersebut berhasil.",
+"Langsung mengambil pekerjaan sebanyak mungkin.",
+"Menganggap keberhasilan terutama karena keberuntungan."
+],
+reverse:false
+},
+
+/* KETELITIAN */
+
+{
+category:"🔍 Ketelitian",
+text:"Kamu sedang mengejar waktu tetapi pekerjaan membutuhkan pemeriksaan data.",
+options:[
+"Mengurangi pemeriksaan.",
+"Memeriksa bagian yang menurutmu paling penting.",
+"Tetap melakukan pemeriksaan sesuai prosedur.",
+"Meminta orang lain memeriksanya."
+],
+reverse:false
+},
+
+{
+category:"🔍 Ketelitian",
+text:"Sebelum menyerahkan pekerjaan, kamu biasanya...",
+options:[
+"Melakukan pemeriksaan akhir.",
+"Memeriksa jika waktunya cukup.",
+"Langsung menyerahkan karena merasa sudah selesai.",
+"Menunggu orang lain memeriksanya."
+],
+reverse:false
+},
+
+{
+category:"🔍 Ketelitian",
+text:"Kamu menemukan angka yang tampaknya tidak sesuai.",
+options:[
+"Mengubahnya agar terlihat benar.",
+"Memeriksa sumber datanya terlebih dahulu.",
+"Membiarkannya.",
+"Meminta orang lain memutuskan."
+],
+reverse:false
+},
+
+{
+category:"🔍 Ketelitian",
+text:"Pekerjaanmu banyak dan beberapa detail kecil perlu diperiksa.",
+options:[
+"Melewati detail kecil.",
+"Memprioritaskan pemeriksaan bagian berisiko tinggi.",
+"Memeriksa semuanya tanpa memperhatikan waktu.",
+"Menyerahkan pemeriksaan kepada rekan."
+],
+reverse:false
+},
+
+/* KOMUNIKASI */
+
+{
+category:"💬 Komunikasi",
+text:"Instruksi atasan belum kamu pahami sepenuhnya.",
+options:[
+"Langsung mengerjakan berdasarkan asumsi.",
+"Meminta klarifikasi pada bagian yang belum jelas.",
+"Menunggu sampai atasan menjelaskan sendiri.",
+"Bertanya kepada siapa saja tanpa memastikan."
+],
+reverse:false
+},
+
+{
+category:"💬 Komunikasi",
+text:"Kamu tidak setuju dengan keputusan dalam rapat.",
+options:[
+"Menyampaikan alasan dengan jelas dan tetap menghargai pendapat lain.",
+"Diam agar tidak terjadi konflik.",
+"Memaksakan pendapat.",
+"Membicarakannya setelah rapat kepada orang lain."
+],
+reverse:false
+},
+
+{
+category:"💬 Komunikasi",
+text:"Kamu harus menyampaikan kabar yang kurang menyenangkan kepada rekan.",
+options:[
+"Menyampaikannya secara langsung tanpa banyak penjelasan.",
+"Menunda selama mungkin.",
+"Menyampaikannya dengan jelas, sopan, dan fokus pada solusi.",
+"Meminta orang lain menyampaikannya."
+],
+reverse:false
+},
+
+{
+category:"💬 Komunikasi",
+text:"Saat menjelaskan sesuatu kepada orang yang belum memahami istilah pekerjaan...",
+options:[
+"Tetap menggunakan istilah pekerjaan.",
+"Menjelaskan dengan bahasa yang lebih sederhana.",
+"Membiarkannya bertanya sendiri.",
+"Meminta orang lain menjelaskan."
+],
+reverse:false
+},
+
+/* TEKANAN */
+
+{
+category:"💪 Pengelolaan Tekanan",
+text:"Beberapa pekerjaan datang bersamaan dan semuanya terasa penting.",
+options:[
+"Mengerjakan semuanya secara acak.",
+"Menentukan prioritas berdasarkan urgensi dan dampak.",
+"Mengerjakan yang paling mudah.",
+"Menunggu arahan."
+],
+reverse:false
+},
+
+{
+category:"💪 Pengelolaan Tekanan",
+text:"Saat menghadapi tekanan pekerjaan, kamu biasanya...",
+options:[
+"Berusaha tetap tenang dan menyusun langkah.",
+"Menjadi lebih cepat tetapi kurang teliti.",
+"Kesulitan menentukan prioritas.",
+"Menghindari pekerjaan sampai tekanan berkurang."
+],
+reverse:false
+},
+
+{
+category:"💪 Pengelolaan Tekanan",
+text:"Pekerjaanmu belum selesai sementara batas waktu semakin dekat.",
+options:[
+"Panik dan mengerjakan semuanya sekaligus.",
+"Menentukan bagian paling penting dan menyelesaikannya secara terstruktur.",
+"Menunggu bantuan.",
+"Mengurangi kualitas agar cepat selesai."
+],
+reverse:false
+},
+
+{
+category:"💪 Pengelolaan Tekanan",
+text:"Setelah mengalami kegagalan dalam pekerjaan, kamu cenderung...",
+options:[
+"Menghindari pekerjaan yang sama.",
+"Mencari penyebab dan mengambil pelajaran.",
+"Menyalahkan keadaan.",
+"Membutuhkan waktu lama sebelum mencoba lagi."
+],
+reverse:false
 }
 
 ];
 
 
-/* =========================
+/* =====================================================
    VARIABEL
-========================= */
+===================================================== */
 
-let currentQuestion = 0;
+let currentQuestion=0;
 
-let answers = new Array(questions.length).fill(null);
+let answers=new Array(questions.length).fill(null);
 
-let namaUser = "";
+let namaUser="";
 
 
-/* =========================
-   MULAI TES
-========================= */
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+const backgrounds=[
+"linear-gradient(135deg,#0f172a,#1e3a8a)",
+"linear-gradient(135deg,#172554,#312e81)",
+"linear-gradient(135deg,#042f2e,#155e75)",
+"linear-gradient(135deg,#1e1b4b,#581c87)",
+"linear-gradient(135deg,#172554,#164e63)",
+"linear-gradient(135deg,#0f172a,#334155)",
+"linear-gradient(135deg,#312e81,#1e3a8a)",
+"linear-gradient(135deg,#083344,#164e63)"
+];
+
+function changeBackground(){
+
+    const index=
+        currentQuestion%backgrounds.length;
+
+    document.getElementById("app")
+        .style.background=
+        backgrounds[index];
+}
+
+
+/* =====================================================
+   MULAI
+===================================================== */
 
 function mulaiTes(){
 
-    const input = document.getElementById("nama");
+    const input=
+        document.getElementById("nama");
 
-    namaUser = input.value.trim();
+    namaUser=input.value.trim();
 
-    if(namaUser === ""){
+    if(!namaUser){
+
         alert("Silakan masukkan nama terlebih dahulu.");
+
         input.focus();
+
         return;
     }
 
-    document.getElementById("startPage")
+    document
+        .getElementById("startPage")
         .classList.add("hidden");
 
-    document.getElementById("quizPage")
+    document
+        .getElementById("quizPage")
         .classList.remove("hidden");
 
-    currentQuestion = 0;
+    currentQuestion=0;
 
     tampilkanSoal();
 
@@ -805,121 +1318,157 @@ function mulaiTes(){
 }
 
 
-/* =========================
-   TAMPILKAN SOAL
-========================= */
+/* =====================================================
+   SOAL
+===================================================== */
 
 function tampilkanSoal(){
 
-    const question = questions[currentQuestion];
+    const q=
+        questions[currentQuestion];
 
-    document.getElementById("questionNumber")
-        .textContent =
-        "Pertanyaan " +
-        (currentQuestion + 1) +
-        " dari " +
+    document
+        .getElementById("category")
+        .textContent=q.category;
+
+    document
+        .getElementById("questionNumber")
+        .textContent=
+        "Pertanyaan "+
+        (currentQuestion+1)+
+        " dari "+
         questions.length;
 
-    document.getElementById("questionText")
-        .textContent = question.q;
+    document
+        .getElementById("questionText")
+        .textContent=q.text;
 
 
-    const optionsContainer =
+    const progress=
+        ((currentQuestion+1)/
+        questions.length)*100;
+
+    document
+        .getElementById("progressBar")
+        .style.width=
+        progress+"%";
+
+
+    const options=
         document.getElementById("options");
 
-    optionsContainer.innerHTML = "";
+    options.innerHTML="";
 
 
-    question.options.forEach(
-        (option,index)=>{
+    q.options.forEach((option,index)=>{
 
-            const button =
-                document.createElement("button");
+        const button=
+            document.createElement("button");
 
-            button.type = "button";
+        button.type="button";
 
-            button.className = "option";
-
-            button.textContent =
-                String.fromCharCode(65 + index)
-                + ". "
-                + option;
+        button.className="option";
 
 
-            if(answers[currentQuestion] === index){
-                button.classList.add("selected");
-            }
+        if(answers[currentQuestion]===index){
 
+            button.classList.add("selected");
 
-            button.onclick = function(){
-
-                answers[currentQuestion] = index;
-
-                document
-                    .querySelectorAll(".option")
-                    .forEach(el =>
-                        el.classList.remove("selected")
-                    );
-
-                button.classList.add("selected");
-
-                document.getElementById("nextButton")
-                    .disabled = false;
-            };
-
-
-            optionsContainer.appendChild(button);
         }
-    );
 
 
-    const progress =
-        ((currentQuestion + 1) /
-        questions.length) * 100;
+        const letter=
+            document.createElement("span");
 
-    document.getElementById("progressBar")
-        .style.width = progress + "%";
+        letter.className="option-letter";
 
-
-    document.getElementById("prevButton")
-        .disabled = currentQuestion === 0;
+        letter.textContent=
+            String.fromCharCode(65+index);
 
 
-    document.getElementById("nextButton")
-        .disabled =
-        answers[currentQuestion] === null;
+        const text=
+            document.createElement("span");
+
+        text.textContent=option;
 
 
-    if(currentQuestion === questions.length - 1){
+        button.appendChild(letter);
 
-        document.getElementById("nextButton")
-            .textContent = "Lihat Hasil 🎯";
+        button.appendChild(text);
+
+
+        button.onclick=function(){
+
+            answers[currentQuestion]=index;
+
+            document
+                .querySelectorAll(".option")
+                .forEach(el=>{
+                    el.classList.remove("selected");
+                });
+
+            button.classList.add("selected");
+
+            document
+                .getElementById("nextButton")
+                .disabled=false;
+        };
+
+
+        options.appendChild(button);
+
+    });
+
+
+    document
+        .getElementById("prevButton")
+        .disabled=
+        currentQuestion===0;
+
+
+    document
+        .getElementById("nextButton")
+        .disabled=
+        answers[currentQuestion]===null;
+
+
+    if(currentQuestion===questions.length-1){
+
+        document
+            .getElementById("nextButton")
+            .textContent=
+            "Lihat Hasil 🎯";
 
     }else{
 
-        document.getElementById("nextButton")
-            .textContent = "Berikutnya →";
-
+        document
+            .getElementById("nextButton")
+            .textContent=
+            "Berikutnya →";
     }
+
+
+    changeBackground();
+
 }
 
 
-/* =========================
-   BERIKUTNYA
-========================= */
+/* =====================================================
+   NEXT
+===================================================== */
 
 function berikutnya(){
 
-    if(answers[currentQuestion] === null){
+    if(answers[currentQuestion]===null){
 
-        alert("Silakan pilih salah satu jawaban.");
+        alert("Pilih salah satu jawaban terlebih dahulu.");
 
         return;
     }
 
 
-    if(currentQuestion <
-        questions.length - 1){
+    if(currentQuestion<
+        questions.length-1){
 
         currentQuestion++;
 
@@ -938,13 +1487,13 @@ function berikutnya(){
 }
 
 
-/* =========================
-   SEBELUMNYA
-========================= */
+/* =====================================================
+   PREVIOUS
+===================================================== */
 
 function sebelumnya(){
 
-    if(currentQuestion > 0){
+    if(currentQuestion>0){
 
         currentQuestion--;
 
@@ -958,254 +1507,339 @@ function sebelumnya(){
 }
 
 
-/* =========================
-   HASIL
-========================= */
+/* =====================================================
+   HITUNG HASIL
+===================================================== */
 
 function tampilkanHasil(){
 
-    document.getElementById("quizPage")
+    document
+        .getElementById("quizPage")
         .classList.add("hidden");
 
-    document.getElementById("resultPage")
+    document
+        .getElementById("resultPage")
         .classList.remove("hidden");
 
 
-    /*
-       Jawaban pertama = 1 poin
-       Jawaban kedua = 2 poin
-       Jawaban ketiga = 3 poin
-       Jawaban keempat = 4 poin
-    */
+    let total=0;
 
-    let score = 0;
+    answers.forEach((answer,index)=>{
 
-    answers.forEach(answer => {
+        if(answer!==null){
 
-        if(answer !== null){
-            score += answer + 1;
+            /*
+            A=4
+            B=3
+            C=2
+            D=1
+            */
+
+            let point=
+                4-answer;
+
+            total+=point;
+
         }
 
     });
 
 
-    document.getElementById("score")
-        .textContent = score;
+    document
+        .getElementById("score")
+        .textContent=total;
 
 
-    document.getElementById("resultName")
-        .textContent =
-        "Hasil untuk " + namaUser;
+    document
+        .getElementById("resultName")
+        .textContent=
+        "Hasil asesmen untuk "+namaUser;
 
 
-    let title = "";
-    let icon = "";
-    let description = "";
-    let strengths = [];
-    let weaknesses = [];
-    let advice = "";
+    /* =========================
+       KOMPETENSI
+    ========================= */
+
+    const categories=[
+        "Integritas",
+        "Disiplin",
+        "Kerja Sama",
+        "Pelayanan",
+        "Problem Solving",
+        "Adaptasi",
+        "Orientasi Target",
+        "Ketelitian",
+        "Komunikasi",
+        "Pengelolaan Tekanan"
+    ];
 
 
-    if(score >= 65){
+    let categoryScores={};
 
-        title = "Pribadi Proaktif & Berkembang";
-        icon = "🚀";
 
-        description =
-        "Jawaban kamu menunjukkan kecenderungan " +
-        "yang cukup kuat untuk mengambil inisiatif, " +
-        "beradaptasi, belajar dari pengalaman, dan " +
-        "menghadapi tanggung jawab.";
+    categories.forEach(cat=>{
+        categoryScores[cat]={
+            score:0,
+            count:0
+        };
+    });
 
-        strengths = [
-            "Cenderung memiliki kemauan untuk berkembang",
-            "Cenderung mampu menghadapi tantangan",
-            "Memiliki orientasi pada penyelesaian masalah",
-            "Cenderung terbuka terhadap pembelajaran",
-            "Berpotensi memiliki konsistensi dalam mencapai tujuan"
-        ];
 
-        weaknesses = [
-            "Tetap perlu menjaga keseimbangan agar tidak terlalu memaksakan diri",
-            "Perlu mempertimbangkan pendapat orang lain",
-            "Perlu menjaga konsistensi ketika menghadapi kegagalan"
-        ];
+    questions.forEach((q,index)=>{
 
-        advice =
-        "Pertahankan kebiasaan belajar dan evaluasi diri. " +
-        "Gunakan kemampuan mengambil inisiatif dengan tetap " +
-        "mempertimbangkan komunikasi, kerja sama, dan kondisi sekitar.";
+        const answer=answers[index];
+
+        if(answer!==null){
+
+            const cat=
+                q.category
+                .replace(/^.\s/,"");
+
+            categoryScores[cat].score+=
+                4-answer;
+
+            categoryScores[cat].count++;
+
+        }
+
+    });
+
+
+    const profileGrid=
+        document.getElementById("profileGrid");
+
+    profileGrid.innerHTML="";
+
+
+    let sorted=[];
+
+
+    categories.forEach(cat=>{
+
+        const data=
+            categoryScores[cat];
+
+        const percentage=
+            Math.round(
+                (data.score/
+                (data.count*4))*100
+            );
+
+        sorted.push({
+            name:cat,
+            percentage:percentage
+        });
+
+
+        const div=
+            document.createElement("div");
+
+        div.className="profile";
+
+        div.innerHTML=`
+
+        <div class="profile-top">
+            <span>${cat}</span>
+            <span>${percentage}%</span>
+        </div>
+
+        <div class="bar">
+            <div style="width:${percentage}%"></div>
+        </div>
+
+        `;
+
+        profileGrid.appendChild(div);
+
+    });
+
+
+    sorted.sort(
+        (a,b)=>b.percentage-a.percentage
+    );
+
+
+    const strengths=
+        document.getElementById("strengths");
+
+    const weaknesses=
+        document.getElementById("weaknesses");
+
+    strengths.innerHTML="";
+    weaknesses.innerHTML="";
+
+
+    sorted.slice(0,3).forEach(item=>{
+
+        const li=
+            document.createElement("li");
+
+        li.textContent=
+            item.name+
+            " — "+
+            item.percentage+
+            "%";
+
+        strengths.appendChild(li);
+
+    });
+
+
+    sorted.slice(-3).reverse().forEach(item=>{
+
+        const li=
+            document.createElement("li");
+
+        li.textContent=
+            item.name+
+            " — "+
+            item.percentage+
+            "%";
+
+        weaknesses.appendChild(li);
+
+    });
+
+
+    /* =========================
+       PROFIL UMUM
+    ========================= */
+
+    let average=
+        total/(questions.length*4)*100;
+
+    let title;
+    let icon;
+    let advice;
+
+
+    if(average>=80){
+
+        title=
+        "Profil Sangat Konsisten & Proaktif";
+
+        icon="🚀";
+
+        advice=
+        "Pertahankan konsistensi yang sudah terlihat. " +
+        "Fokus berikutnya adalah menjaga kualitas ketika " +
+        "beban kerja meningkat dan tetap terbuka terhadap " +
+        "masukan dari orang lain.";
 
     }
 
-    else if(score >= 50){
+    else if(average>=65){
 
-        title = "Pribadi Adaptif & Bertanggung Jawab";
-        icon = "🎯";
+        title=
+        "Profil Adaptif & Bertanggung Jawab";
 
-        description =
-        "Jawaban kamu menunjukkan kecenderungan yang cukup " +
-        "seimbang dalam menghadapi pekerjaan, tanggung jawab, " +
-        "dan hubungan dengan orang lain.";
+        icon="🎯";
 
-        strengths = [
-            "Cenderung mampu menjalankan tanggung jawab",
-            "Mampu menyesuaikan diri dalam berbagai kondisi",
-            "Cukup terbuka terhadap masukan",
-            "Memiliki kemampuan bekerja secara terstruktur",
-            "Cenderung mampu bekerja sama"
-        ];
-
-        weaknesses = [
-            "Kepercayaan diri dapat terus ditingkatkan",
-            "Kemampuan mengambil inisiatif dapat lebih dilatih",
-            "Perlu membangun konsistensi dalam situasi sulit"
-        ];
-
-        advice =
-        "Latih keberanian mengambil keputusan dan inisiatif. " +
-        "Tetapkan target kecil yang jelas lalu evaluasi " +
-        "perkembangannya secara rutin.";
+        advice=
+        "Kamu menunjukkan fondasi perilaku kerja yang cukup " +
+        "baik. Tingkatkan area dengan skor paling rendah " +
+        "melalui latihan kecil yang dilakukan secara konsisten.";
 
     }
 
-    else if(score >= 35){
+    else if(average>=50){
 
-        title = "Pribadi Reflektif & Berhati-hati";
-        icon = "🧩";
+        title=
+        "Profil Reflektif & Sedang Berkembang";
 
-        description =
-        "Jawaban kamu menunjukkan kecenderungan untuk " +
-        "mempertimbangkan situasi sebelum bertindak. " +
-        "Kamu mungkin membutuhkan waktu untuk merasa yakin " +
-        "sebelum mengambil keputusan.";
+        icon="🧩";
 
-        strengths = [
-            "Cenderung berhati-hati dalam mengambil keputusan",
-            "Dapat mempertimbangkan risiko",
-            "Berpotensi menjadi pendengar yang baik",
-            "Cenderung mempertimbangkan perasaan orang lain"
-        ];
-
-        weaknesses = [
-            "Kepercayaan diri perlu terus dikembangkan",
-            "Perlu mengurangi kebiasaan terlalu banyak ragu",
-            "Perlu melatih keberanian menghadapi tantangan baru"
-        ];
-
-        advice =
-        "Mulailah dengan tantangan kecil. Jangan menunggu " +
-        "semuanya sempurna sebelum bertindak. Gunakan kesalahan " +
-        "sebagai bahan belajar, bukan alasan untuk berhenti.";
+        advice=
+        "Ada beberapa kompetensi yang sudah terlihat tetapi " +
+        "masih dapat diperkuat. Fokus pada satu atau dua area " +
+        "terendah terlebih dahulu agar perkembangan lebih terarah.";
 
     }
 
     else{
 
-        title = "Pribadi yang Sedang Bertumbuh";
-        icon = "🌱";
+        title=
+        "Profil Dalam Tahap Pengembangan";
 
-        description =
-        "Jawaban kamu menunjukkan beberapa area yang masih " +
-        "dapat dikembangkan, terutama dalam menghadapi tekanan, " +
-        "konsistensi, kepercayaan diri, dan pengambilan keputusan.";
+        icon="🌱";
 
-        strengths = [
-            "Memiliki kesempatan besar untuk berkembang",
-            "Dapat membangun kebiasaan baru",
-            "Pengalaman dapat menjadi sumber pembelajaran",
-            "Perubahan positif dapat dimulai dari langkah kecil"
-        ];
-
-        weaknesses = [
-            "Konsistensi perlu diperkuat",
-            "Kepercayaan diri perlu dilatih",
-            "Kemampuan menghadapi tekanan dapat dikembangkan",
-            "Kebiasaan menunda perlu dikurangi"
-        ];
-
-        advice =
-        "Tidak perlu mengubah semuanya sekaligus. Pilih satu " +
-        "kebiasaan yang ingin diperbaiki, lakukan secara konsisten, " +
-        "kemudian lanjutkan ke kebiasaan berikutnya.";
+        advice=
+        "Gunakan hasil ini sebagai bahan evaluasi, bukan label. " +
+        "Mulailah dari kebiasaan sederhana seperti membuat " +
+        "prioritas, mengevaluasi kesalahan, dan meningkatkan " +
+        "komunikasi.";
 
     }
 
 
-    document.getElementById("resultIcon")
-        .textContent = icon;
+    document
+        .getElementById("resultTitle")
+        .textContent=title;
 
-    document.getElementById("resultTitle")
-        .textContent = title;
+    document
+        .getElementById("resultIcon")
+        .textContent=icon;
 
-    document.getElementById("description")
-        .textContent = description;
-
-    const strengthsElement =
-        document.getElementById("strengths");
-
-    strengthsElement.innerHTML = "";
-
-    strengths.forEach(item => {
-
-        const li = document.createElement("li");
-
-        li.textContent = item;
-
-        strengthsElement.appendChild(li);
-
-    });
-
-
-    const weaknessesElement =
-        document.getElementById("weaknesses");
-
-    weaknessesElement.innerHTML = "";
-
-    weaknesses.forEach(item => {
-
-        const li = document.createElement("li");
-
-        li.textContent = item;
-
-        weaknessesElement.appendChild(li);
-
-    });
-
-
-    document.getElementById("advice")
-        .textContent = advice;
+    document
+        .getElementById("advice")
+        .textContent=advice;
 
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
+
 }
 
 
-/* =========================
-   ULANGI
-========================= */
+/* =====================================================
+   ULANG
+===================================================== */
 
 function ulangTes(){
 
-    answers =
-        new Array(questions.length).fill(null);
+    answers=
+        new Array(questions.length)
+        .fill(null);
 
-    currentQuestion = 0;
+    currentQuestion=0;
 
-    document.getElementById("resultPage")
+    document
+        .getElementById("resultPage")
         .classList.add("hidden");
 
-    document.getElementById("startPage")
+    document
+        .getElementById("startPage")
         .classList.remove("hidden");
+
+    document
+        .getElementById("nama")
+        .value="";
+
+    document
+        .getElementById("app")
+        .style.background=
+        backgrounds[0];
 
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
 }
+
+
+/* ENTER DI NAMA */
+
+document
+    .getElementById("nama")
+    .addEventListener("keydown",function(e){
+
+        if(e.key==="Enter"){
+            mulaiTes();
+        }
+
+    });
 
 </script>
 
