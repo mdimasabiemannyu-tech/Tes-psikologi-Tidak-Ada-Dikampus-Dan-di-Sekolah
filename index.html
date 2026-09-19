@@ -25,10 +25,7 @@ body{
     padding:15px;
 }
 
-/* =========================
-   HERO / HALAMAN AWAL
-========================= */
-
+/* HERO */
 .hero{
     min-height:480px;
     border-radius:25px;
@@ -89,10 +86,7 @@ body{
     backdrop-filter:blur(8px);
 }
 
-/* =========================
-   CARD
-========================= */
-
+/* CARD */
 .card{
     background:white;
     border-radius:22px;
@@ -105,10 +99,7 @@ h2,h3{
     margin-top:0;
 }
 
-/* =========================
-   INPUT
-========================= */
-
+/* INPUT */
 input{
     width:100%;
     padding:15px;
@@ -123,10 +114,7 @@ input:focus{
     border-color:#2563eb;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
+/* BUTTON */
 button{
     border:0;
     border-radius:12px;
@@ -166,10 +154,7 @@ button:disabled{
     background:#64748b;
 }
 
-/* =========================
-   NOTE
-========================= */
-
+/* NOTE */
 .note{
     background:#fff7ed;
     border-left:5px solid #f59e0b;
@@ -178,10 +163,7 @@ button:disabled{
     line-height:1.6;
 }
 
-/* =========================
-   QUIZ
-========================= */
-
+/* QUIZ */
 .question-number{
     font-size:14px;
     color:#64748b;
@@ -212,4 +194,1020 @@ button:disabled{
 .option{
     display:block;
     width:100%;
-    text-align:left
+    text-align:left;
+    margin:10px 0;
+    padding:17px;
+    background:#f8fafc;
+    color:#172033;
+    border:2px solid #e2e8f0;
+    border-radius:14px;
+    font-weight:normal;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.option.selected{
+    border-color:#2563eb;
+    background:#dbeafe;
+    font-weight:bold;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:25px;
+}
+
+.navigation button{
+    flex:1;
+}
+
+/* RESULT */
+.result-header{
+    text-align:center;
+    padding:10px;
+}
+
+.result-icon{
+    font-size:70px;
+}
+
+.result-title{
+    font-size:30px;
+    margin:10px 0;
+    color:#1d4ed8;
+}
+
+.score-box{
+    background:#eff6ff;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    margin:20px 0;
+}
+
+.score{
+    font-size:45px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.result-section{
+    margin-top:25px;
+}
+
+.result-section h3{
+    color:#1d4ed8;
+}
+
+.result-list{
+    padding-left:20px;
+    line-height:1.8;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:5px solid #f59e0b;
+    padding:15px;
+    border-radius:10px;
+    line-height:1.6;
+}
+
+.footer{
+    color:#cbd5e1;
+    text-align:center;
+    padding:25px 10px;
+    font-size:13px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:500px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .logo{
+        font-size:50px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .navigation{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =========================
+     HALAMAN AWAL
+========================= -->
+
+<section id="startPage">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo">🧠</div>
+
+            <h1>Asesmen Refleksi Diri</h1>
+
+            <p>
+                Kenali kecenderungan cara berpikir, bekerja,
+                menghadapi masalah, berkomunikasi, dan mengambil keputusan.
+            </p>
+
+            <div class="badges">
+                <div class="badge">🧠 Kepribadian Kerja</div>
+                <div class="badge">🎯 Fokus & Disiplin</div>
+                <div class="badge">🤝 Kerja Sama</div>
+                <div class="badge">💡 Pemecahan Masalah</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Mulai Asesmen</h2>
+
+        <p>
+            Sebelum memulai, masukkan nama kamu.
+        </p>
+
+        <input
+            type="text"
+            id="nama"
+            placeholder="Masukkan nama..."
+            autocomplete="off"
+        >
+
+        <div class="note">
+            <b>Catatan:</b><br>
+            Tes ini merupakan alat refleksi diri sederhana,
+            bukan diagnosis psikologis atau pengganti pemeriksaan
+            dari psikolog profesional.
+        </div>
+
+        <button
+            class="start-button"
+            onclick="mulaiTes()"
+            type="button"
+        >
+            🚀 MULAI TES
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HALAMAN SOAL
+========================= -->
+
+<section id="quizPage" class="hidden">
+
+    <div class="card">
+
+        <div class="question-number" id="questionNumber">
+            Pertanyaan 1 dari 20
+        </div>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <div
+            class="question"
+            id="questionText"
+        ></div>
+
+        <div id="options"></div>
+
+        <div class="navigation">
+
+            <button
+                id="prevButton"
+                class="secondary"
+                onclick="sebelumnya()"
+                type="button"
+            >
+                ← Sebelumnya
+            </button>
+
+            <button
+                id="nextButton"
+                onclick="berikutnya()"
+                type="button"
+            >
+                Berikutnya →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HALAMAN HASIL
+========================= -->
+
+<section id="resultPage" class="hidden">
+
+    <div class="card">
+
+        <div class="result-header">
+
+            <div class="result-icon" id="resultIcon">
+                🧠
+            </div>
+
+            <h1 class="result-title" id="resultTitle">
+                Hasil Refleksi
+            </h1>
+
+            <p id="resultName"></p>
+
+        </div>
+
+
+        <div class="score-box">
+
+            <div>Skor Refleksi</div>
+
+            <div class="score" id="score">
+                0
+            </div>
+
+            <div>
+                dari 80
+            </div>
+
+        </div>
+
+
+        <div class="result-section">
+
+            <h3>📋 Gambaran Umum</h3>
+
+            <p id="description"></p>
+
+        </div>
+
+
+        <div class="result-section">
+
+            <h3>💪 Potensi Kelebihan</h3>
+
+            <ul
+                class="result-list"
+                id="strengths"
+            ></ul>
+
+        </div>
+
+
+        <div class="result-section">
+
+            <h3>🔧 Area yang Bisa Dikembangkan</h3>
+
+            <ul
+                class="result-list"
+                id="weaknesses"
+            ></ul>
+
+        </div>
+
+
+        <div class="result-section">
+
+            <h3>🎯 Saran Pengembangan Diri</h3>
+
+            <p id="advice"></p>
+
+        </div>
+
+
+        <div class="warning">
+
+            <b>⚠️ Penting:</b><br>
+
+            Hasil ini hanya memberikan gambaran
+            reflektif berdasarkan jawaban yang kamu pilih.
+            Hasil ini tidak dapat digunakan untuk menentukan
+            diagnosis gangguan mental, kepribadian, atau kondisi
+            psikologis secara medis.
+
+        </div>
+
+
+        <br>
+
+        <button
+            class="start-button"
+            onclick="ulangTes()"
+            type="button"
+        >
+            🔄 ULANGI TES
+        </button>
+
+    </div>
+
+</section>
+
+
+<div class="footer">
+    Asesmen Refleksi Diri • Dibuat untuk pengembangan diri
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   DATA SOAL
+========================= */
+
+const questions = [
+
+{
+    q:"Ketika mendapatkan tugas baru yang sulit, saya biasanya...",
+    options:[
+        "Langsung mencoba dan mencari cara menyelesaikannya",
+        "Mempelajari terlebih dahulu sebelum bertindak",
+        "Menunggu arahan dari orang lain",
+        "Cenderung menghindarinya"
+    ]
+},
+
+{
+    q:"Jika terjadi masalah dalam pekerjaan, saya...",
+    options:[
+        "Mencari penyebab dan solusi",
+        "Berdiskusi dengan orang lain",
+        "Menunggu masalah menjadi lebih jelas",
+        "Mudah merasa panik"
+    ]
+},
+
+{
+    q:"Ketika bekerja dalam tim, saya lebih sering...",
+    options:[
+        "Membantu anggota tim mencapai tujuan",
+        "Menjalankan bagian saya dengan baik",
+        "Mengikuti keputusan mayoritas",
+        "Lebih nyaman bekerja sendiri"
+    ]
+},
+
+{
+    q:"Jika menerima kritik dari orang lain...",
+    options:[
+        "Mencoba mengambil pelajaran dari kritik tersebut",
+        "Mendengarkan tetapi tetap mempertimbangkan pendapat sendiri",
+        "Kadang merasa kurang nyaman",
+        "Cenderung langsung tersinggung"
+    ]
+},
+
+{
+    q:"Ketika memiliki target pekerjaan...",
+    options:[
+        "Membuat rencana dan berusaha menyelesaikannya",
+        "Berusaha menyelesaikan sesuai kemampuan",
+        "Bekerja ketika sudah mendekati batas waktu",
+        "Sering kehilangan motivasi"
+    ]
+},
+
+{
+    q:"Dalam mengambil keputusan penting, saya...",
+    options:[
+        "Mempertimbangkan fakta dan konsekuensi",
+        "Meminta pendapat orang yang dipercaya",
+        "Lebih banyak mengikuti perasaan",
+        "Sering ragu dalam mengambil keputusan"
+    ]
+},
+
+{
+    q:"Jika rencana saya gagal...",
+    options:[
+        "Mencari penyebab dan mencoba kembali",
+        "Mengevaluasi kesalahan",
+        "Membutuhkan waktu untuk bangkit",
+        "Cenderung menyerah"
+    ]
+},
+
+{
+    q:"Ketika memiliki banyak pekerjaan sekaligus...",
+    options:[
+        "Menentukan prioritas",
+        "Mengerjakan satu per satu",
+        "Mengerjakan yang paling mudah terlebih dahulu",
+        "Mudah merasa kewalahan"
+    ]
+},
+
+{
+    q:"Ketika melihat rekan kerja mengalami kesulitan...",
+    options:[
+        "Berusaha membantu jika memungkinkan",
+        "Menawarkan bantuan jika diminta",
+        "Memberikan saran",
+        "Lebih fokus pada pekerjaan sendiri"
+    ]
+},
+
+{
+    q:"Saya biasanya menyelesaikan pekerjaan...",
+    options:[
+        "Sebelum atau sesuai batas waktu",
+        "Tepat ketika mendekati batas waktu",
+        "Kadang melewati batas waktu",
+        "Sering menunda"
+    ]
+},
+
+{
+    q:"Jika harus mempelajari sesuatu yang baru...",
+    options:[
+        "Saya merasa tertarik",
+        "Saya akan belajar jika memang diperlukan",
+        "Saya membutuhkan waktu untuk terbiasa",
+        "Saya cenderung menghindarinya"
+    ]
+},
+
+{
+    q:"Saat menghadapi tekanan pekerjaan...",
+    options:[
+        "Berusaha tetap tenang dan mencari solusi",
+        "Mencoba mengatur ulang pekerjaan",
+        "Kadang merasa stres",
+        "Sulit berkonsentrasi"
+    ]
+},
+
+{
+    q:"Ketika terjadi perbedaan pendapat...",
+    options:[
+        "Mencari titik temu",
+        "Mendengarkan pendapat pihak lain",
+        "Mempertahankan pendapat sendiri",
+        "Cenderung menghindari konflik"
+    ]
+},
+
+{
+    q:"Saya menilai kesalahan sebagai...",
+    options:[
+        "Kesempatan untuk belajar",
+        "Sesuatu yang perlu diperbaiki",
+        "Hal yang sebisa mungkin harus dihindari",
+        "Sesuatu yang membuat saya kehilangan kepercayaan diri"
+    ]
+},
+
+{
+    q:"Jika diberikan tanggung jawab besar...",
+    options:[
+        "Saya menerimanya sebagai kesempatan berkembang",
+        "Saya akan mempertimbangkan kemampuan saya",
+        "Saya merasa cukup khawatir",
+        "Saya lebih memilih tanggung jawab kecil"
+    ]
+},
+
+{
+    q:"Dalam bekerja, saya paling mengutamakan...",
+    options:[
+        "Hasil dan kualitas",
+        "Ketepatan proses",
+        "Kecepatan menyelesaikan pekerjaan",
+        "Kenyamanan diri"
+    ]
+},
+
+{
+    q:"Ketika mendapatkan pekerjaan yang monoton...",
+    options:[
+        "Tetap menyelesaikannya dengan konsisten",
+        "Mencari cara agar lebih menarik",
+        "Mengerjakannya sesuai kebutuhan",
+        "Mudah kehilangan motivasi"
+    ]
+},
+
+{
+    q:"Jika seseorang melakukan kesalahan kepada saya...",
+    options:[
+        "Membicarakannya dengan baik",
+        "Memberikan kesempatan untuk memperbaiki",
+        "Menjaga jarak sementara",
+        "Sulit melupakan kesalahan tersebut"
+    ]
+},
+
+{
+    q:"Ketika menghadapi perubahan aturan...",
+    options:[
+        "Berusaha beradaptasi",
+        "Mempelajari aturan baru",
+        "Membutuhkan waktu untuk menyesuaikan",
+        "Merasa tidak nyaman dengan perubahan"
+    ]
+},
+
+{
+    q:"Menurut saya, keberhasilan terutama membutuhkan...",
+    options:[
+        "Disiplin, usaha, dan kemauan belajar",
+        "Kemampuan dan pengalaman",
+        "Kesempatan yang tepat",
+        "Keberuntungan"
+    ]
+}
+
+];
+
+
+/* =========================
+   VARIABEL
+========================= */
+
+let currentQuestion = 0;
+
+let answers = new Array(questions.length).fill(null);
+
+let namaUser = "";
+
+
+/* =========================
+   MULAI TES
+========================= */
+
+function mulaiTes(){
+
+    const input = document.getElementById("nama");
+
+    namaUser = input.value.trim();
+
+    if(namaUser === ""){
+        alert("Silakan masukkan nama terlebih dahulu.");
+        input.focus();
+        return;
+    }
+
+    document.getElementById("startPage")
+        .classList.add("hidden");
+
+    document.getElementById("quizPage")
+        .classList.remove("hidden");
+
+    currentQuestion = 0;
+
+    tampilkanSoal();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   TAMPILKAN SOAL
+========================= */
+
+function tampilkanSoal(){
+
+    const question = questions[currentQuestion];
+
+    document.getElementById("questionNumber")
+        .textContent =
+        "Pertanyaan " +
+        (currentQuestion + 1) +
+        " dari " +
+        questions.length;
+
+    document.getElementById("questionText")
+        .textContent = question.q;
+
+
+    const optionsContainer =
+        document.getElementById("options");
+
+    optionsContainer.innerHTML = "";
+
+
+    question.options.forEach(
+        (option,index)=>{
+
+            const button =
+                document.createElement("button");
+
+            button.type = "button";
+
+            button.className = "option";
+
+            button.textContent =
+                String.fromCharCode(65 + index)
+                + ". "
+                + option;
+
+
+            if(answers[currentQuestion] === index){
+                button.classList.add("selected");
+            }
+
+
+            button.onclick = function(){
+
+                answers[currentQuestion] = index;
+
+                document
+                    .querySelectorAll(".option")
+                    .forEach(el =>
+                        el.classList.remove("selected")
+                    );
+
+                button.classList.add("selected");
+
+                document.getElementById("nextButton")
+                    .disabled = false;
+            };
+
+
+            optionsContainer.appendChild(button);
+        }
+    );
+
+
+    const progress =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
+    document.getElementById("progressBar")
+        .style.width = progress + "%";
+
+
+    document.getElementById("prevButton")
+        .disabled = currentQuestion === 0;
+
+
+    document.getElementById("nextButton")
+        .disabled =
+        answers[currentQuestion] === null;
+
+
+    if(currentQuestion === questions.length - 1){
+
+        document.getElementById("nextButton")
+            .textContent = "Lihat Hasil 🎯";
+
+    }else{
+
+        document.getElementById("nextButton")
+            .textContent = "Berikutnya →";
+
+    }
+}
+
+
+/* =========================
+   BERIKUTNYA
+========================= */
+
+function berikutnya(){
+
+    if(answers[currentQuestion] === null){
+
+        alert("Silakan pilih salah satu jawaban.");
+
+        return;
+    }
+
+
+    if(currentQuestion <
+        questions.length - 1){
+
+        currentQuestion++;
+
+        tampilkanSoal();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }else{
+
+        tampilkanHasil();
+
+    }
+}
+
+
+/* =========================
+   SEBELUMNYA
+========================= */
+
+function sebelumnya(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        tampilkanSoal();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+}
+
+
+/* =========================
+   HASIL
+========================= */
+
+function tampilkanHasil(){
+
+    document.getElementById("quizPage")
+        .classList.add("hidden");
+
+    document.getElementById("resultPage")
+        .classList.remove("hidden");
+
+
+    /*
+       Jawaban pertama = 1 poin
+       Jawaban kedua = 2 poin
+       Jawaban ketiga = 3 poin
+       Jawaban keempat = 4 poin
+    */
+
+    let score = 0;
+
+    answers.forEach(answer => {
+
+        if(answer !== null){
+            score += answer + 1;
+        }
+
+    });
+
+
+    document.getElementById("score")
+        .textContent = score;
+
+
+    document.getElementById("resultName")
+        .textContent =
+        "Hasil untuk " + namaUser;
+
+
+    let title = "";
+    let icon = "";
+    let description = "";
+    let strengths = [];
+    let weaknesses = [];
+    let advice = "";
+
+
+    if(score >= 65){
+
+        title = "Pribadi Proaktif & Berkembang";
+        icon = "🚀";
+
+        description =
+        "Jawaban kamu menunjukkan kecenderungan " +
+        "yang cukup kuat untuk mengambil inisiatif, " +
+        "beradaptasi, belajar dari pengalaman, dan " +
+        "menghadapi tanggung jawab.";
+
+        strengths = [
+            "Cenderung memiliki kemauan untuk berkembang",
+            "Cenderung mampu menghadapi tantangan",
+            "Memiliki orientasi pada penyelesaian masalah",
+            "Cenderung terbuka terhadap pembelajaran",
+            "Berpotensi memiliki konsistensi dalam mencapai tujuan"
+        ];
+
+        weaknesses = [
+            "Tetap perlu menjaga keseimbangan agar tidak terlalu memaksakan diri",
+            "Perlu mempertimbangkan pendapat orang lain",
+            "Perlu menjaga konsistensi ketika menghadapi kegagalan"
+        ];
+
+        advice =
+        "Pertahankan kebiasaan belajar dan evaluasi diri. " +
+        "Gunakan kemampuan mengambil inisiatif dengan tetap " +
+        "mempertimbangkan komunikasi, kerja sama, dan kondisi sekitar.";
+
+    }
+
+    else if(score >= 50){
+
+        title = "Pribadi Adaptif & Bertanggung Jawab";
+        icon = "🎯";
+
+        description =
+        "Jawaban kamu menunjukkan kecenderungan yang cukup " +
+        "seimbang dalam menghadapi pekerjaan, tanggung jawab, " +
+        "dan hubungan dengan orang lain.";
+
+        strengths = [
+            "Cenderung mampu menjalankan tanggung jawab",
+            "Mampu menyesuaikan diri dalam berbagai kondisi",
+            "Cukup terbuka terhadap masukan",
+            "Memiliki kemampuan bekerja secara terstruktur",
+            "Cenderung mampu bekerja sama"
+        ];
+
+        weaknesses = [
+            "Kepercayaan diri dapat terus ditingkatkan",
+            "Kemampuan mengambil inisiatif dapat lebih dilatih",
+            "Perlu membangun konsistensi dalam situasi sulit"
+        ];
+
+        advice =
+        "Latih keberanian mengambil keputusan dan inisiatif. " +
+        "Tetapkan target kecil yang jelas lalu evaluasi " +
+        "perkembangannya secara rutin.";
+
+    }
+
+    else if(score >= 35){
+
+        title = "Pribadi Reflektif & Berhati-hati";
+        icon = "🧩";
+
+        description =
+        "Jawaban kamu menunjukkan kecenderungan untuk " +
+        "mempertimbangkan situasi sebelum bertindak. " +
+        "Kamu mungkin membutuhkan waktu untuk merasa yakin " +
+        "sebelum mengambil keputusan.";
+
+        strengths = [
+            "Cenderung berhati-hati dalam mengambil keputusan",
+            "Dapat mempertimbangkan risiko",
+            "Berpotensi menjadi pendengar yang baik",
+            "Cenderung mempertimbangkan perasaan orang lain"
+        ];
+
+        weaknesses = [
+            "Kepercayaan diri perlu terus dikembangkan",
+            "Perlu mengurangi kebiasaan terlalu banyak ragu",
+            "Perlu melatih keberanian menghadapi tantangan baru"
+        ];
+
+        advice =
+        "Mulailah dengan tantangan kecil. Jangan menunggu " +
+        "semuanya sempurna sebelum bertindak. Gunakan kesalahan " +
+        "sebagai bahan belajar, bukan alasan untuk berhenti.";
+
+    }
+
+    else{
+
+        title = "Pribadi yang Sedang Bertumbuh";
+        icon = "🌱";
+
+        description =
+        "Jawaban kamu menunjukkan beberapa area yang masih " +
+        "dapat dikembangkan, terutama dalam menghadapi tekanan, " +
+        "konsistensi, kepercayaan diri, dan pengambilan keputusan.";
+
+        strengths = [
+            "Memiliki kesempatan besar untuk berkembang",
+            "Dapat membangun kebiasaan baru",
+            "Pengalaman dapat menjadi sumber pembelajaran",
+            "Perubahan positif dapat dimulai dari langkah kecil"
+        ];
+
+        weaknesses = [
+            "Konsistensi perlu diperkuat",
+            "Kepercayaan diri perlu dilatih",
+            "Kemampuan menghadapi tekanan dapat dikembangkan",
+            "Kebiasaan menunda perlu dikurangi"
+        ];
+
+        advice =
+        "Tidak perlu mengubah semuanya sekaligus. Pilih satu " +
+        "kebiasaan yang ingin diperbaiki, lakukan secara konsisten, " +
+        "kemudian lanjutkan ke kebiasaan berikutnya.";
+
+    }
+
+
+    document.getElementById("resultIcon")
+        .textContent = icon;
+
+    document.getElementById("resultTitle")
+        .textContent = title;
+
+    document.getElementById("description")
+        .textContent = description;
+
+    const strengthsElement =
+        document.getElementById("strengths");
+
+    strengthsElement.innerHTML = "";
+
+    strengths.forEach(item => {
+
+        const li = document.createElement("li");
+
+        li.textContent = item;
+
+        strengthsElement.appendChild(li);
+
+    });
+
+
+    const weaknessesElement =
+        document.getElementById("weaknesses");
+
+    weaknessesElement.innerHTML = "";
+
+    weaknesses.forEach(item => {
+
+        const li = document.createElement("li");
+
+        li.textContent = item;
+
+        weaknessesElement.appendChild(li);
+
+    });
+
+
+    document.getElementById("advice")
+        .textContent = advice;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   ULANGI
+========================= */
+
+function ulangTes(){
+
+    answers =
+        new Array(questions.length).fill(null);
+
+    currentQuestion = 0;
+
+    document.getElementById("resultPage")
+        .classList.add("hidden");
+
+    document.getElementById("startPage")
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
