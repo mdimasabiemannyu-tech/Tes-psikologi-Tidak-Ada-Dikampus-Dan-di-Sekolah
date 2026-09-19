@@ -3,16 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Tes Psikologi | Asesmen Refleksi Diri</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 html,body{
     width:100%;
@@ -27,10 +21,6 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   SCREEN
-========================= */
-
 .screen{
     display:none;
     min-height:100vh;
@@ -44,20 +34,14 @@ body{
     align-items:center;
 }
 
-/* =========================
-   HOME
-========================= */
-
 .home-box{
     width:100%;
     max-width:650px;
     padding:35px 25px;
     text-align:center;
-
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
     border-radius:25px;
-
     box-shadow:
         0 20px 60px rgba(0,0,0,.4),
         inset 0 1px 0 rgba(255,255,255,.08);
@@ -67,18 +51,13 @@ body{
     width:90px;
     height:90px;
     margin:0 auto 20px;
-
     border-radius:50%;
-
     background:linear-gradient(135deg,#38bdf8,#6366f1);
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     font-size:40px;
     font-weight:bold;
-
     box-shadow:0 10px 35px rgba(56,189,248,.25);
 }
 
@@ -116,14 +95,10 @@ h1{
 .name-input{
     width:100%;
     padding:15px 16px;
-
     border:none;
     outline:none;
-
     border-radius:12px;
-
     font-size:16px;
-
     background:#fff;
     color:#111827;
 }
@@ -131,22 +106,14 @@ h1{
 .btn{
     border:none;
     outline:none;
-
     padding:15px 25px;
-
     border-radius:12px;
-
     font-weight:bold;
     font-size:15px;
-
     cursor:pointer;
-
     color:#fff;
-
     background:linear-gradient(135deg,#2563eb,#7c3aed);
-
     box-shadow:0 8px 25px rgba(37,99,235,.3);
-
     transition:.2s;
 }
 
@@ -160,10 +127,6 @@ h1{
     font-size:13px;
 }
 
-/* =========================
-   TEST SCREEN
-========================= */
-
 #testScreen{
     align-items:flex-start;
     padding-top:18px;
@@ -174,19 +137,12 @@ h1{
     max-width:800px;
 }
 
-/* HEADER */
-
 .test-header{
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.12);
-
     border-radius:18px;
-
     padding:15px;
-
     margin-bottom:15px;
-
-    position:relative;
 }
 
 .header-row{
@@ -204,11 +160,8 @@ h1{
 .timer{
     padding:8px 14px;
     border-radius:10px;
-
     background:rgba(0,0,0,.3);
-
     color:#fff;
-
     font-weight:bold;
     font-size:16px;
 }
@@ -220,87 +173,58 @@ h1{
 .progress-container{
     width:100%;
     height:8px;
-
     background:rgba(255,255,255,.12);
-
     border-radius:20px;
-
     overflow:hidden;
-
     margin-top:14px;
 }
 
 .progress-bar{
     height:100%;
     width:0%;
-
     background:linear-gradient(90deg,#38bdf8,#818cf8);
-
     transition:width:.25s;
 }
 
-/* =========================
-   QUESTION PAGE
-========================= */
-
 .question-page{
     width:100%;
-
-    animation:
-        pageIn .25s ease;
+    animation:pageIn .25s ease;
 }
 
 @keyframes pageIn{
-
     from{
         opacity:0;
         transform:translateX(25px);
     }
-
     to{
         opacity:1;
         transform:translateX(0);
     }
-
 }
 
 .question-card{
     width:100%;
-
     background:rgba(255,255,255,.08);
-
     border:1px solid rgba(255,255,255,.12);
-
     border-radius:22px;
-
     padding:25px;
-
     box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
 .competency{
     display:inline-block;
-
     padding:8px 12px;
-
     border-radius:20px;
-
     background:rgba(56,189,248,.15);
-
     color:#7dd3fc;
-
     font-size:13px;
-
     font-weight:bold;
-
     margin-bottom:18px;
 }
 
 .question-text{
     font-size:22px;
-
     line-height:1.5;
-
     margin-bottom:25px;
 }
 
@@ -320,21 +244,13 @@ h1{
 }
 
 .option label{
-
     display:block;
-
     padding:17px;
-
     border-radius:14px;
-
     background:rgba(255,255,255,.06);
-
     border:1px solid rgba(255,255,255,.1);
-
     cursor:pointer;
-
     line-height:1.5;
-
     transition:.2s;
 }
 
@@ -343,48 +259,27 @@ h1{
 }
 
 .option input:checked + label{
-
     background:rgba(59,130,246,.2);
-
     border-color:#60a5fa;
-
-    box-shadow:
-        0 0 0 1px rgba(96,165,250,.3);
+    box-shadow:0 0 0 1px rgba(96,165,250,.3);
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
 .navigation{
-
     display:flex;
-
     justify-content:space-between;
-
     gap:12px;
-
     margin-top:25px;
 }
 
 .nav-btn{
-
     border:none;
-
     padding:13px 18px;
-
     border-radius:12px;
-
     cursor:pointer;
-
     font-weight:bold;
-
     font-size:14px;
-
     color:#fff;
-
     background:rgba(255,255,255,.1);
-
     transition:.2s;
 }
 
@@ -403,17 +298,10 @@ h1{
 
 .question-hint{
     margin-top:18px;
-
     text-align:center;
-
     color:#94a3b8;
-
     font-size:12px;
 }
-
-/* =========================
-   RESULT
-========================= */
 
 .result-container{
     width:100%;
@@ -421,172 +309,125 @@ h1{
 }
 
 .result-card{
-
     background:rgba(255,255,255,.08);
-
     border:1px solid rgba(255,255,255,.12);
-
     border-radius:22px;
-
     padding:28px;
-
     margin-bottom:18px;
 }
 
 .result-title{
     text-align:center;
-
     font-size:28px;
-
     margin-bottom:10px;
 }
 
 .result-greeting{
     text-align:center;
-
     color:#cbd5e1;
-
     margin-bottom:25px;
-
     line-height:1.6;
 }
 
 .score-box{
-
     text-align:center;
-
     padding:25px;
-
     border-radius:18px;
-
     background:rgba(0,0,0,.2);
-
     margin-bottom:25px;
 }
 
 .total-score{
     font-size:48px;
-
     font-weight:bold;
-
     color:#7dd3fc;
 }
 
 .score-label{
     color:#94a3b8;
-
     margin-top:5px;
 }
 
 .profile-title{
-
     text-align:center;
-
     font-size:24px;
-
     margin-bottom:12px;
 }
 
 .profile-description{
-
     text-align:center;
-
     color:#cbd5e1;
-
     line-height:1.7;
 }
 
 .section-title{
-
     font-size:19px;
-
     margin-bottom:15px;
 }
 
 .result-item{
-
     background:rgba(0,0,0,.18);
-
-    padding:15px;
-
+    padding:17px;
     border-radius:14px;
-
     margin-bottom:12px;
-
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .result-item strong{
     color:#e0f2fe;
 }
 
+.result-item .meaning{
+    margin-top:7px;
+    color:#cbd5e1;
+}
+
+.result-item .detail{
+    margin-top:7px;
+    color:#dbeafe;
+}
+
 .bar-item{
-    margin-bottom:15px;
+    margin-bottom:18px;
 }
 
 .bar-header{
-
     display:flex;
-
     justify-content:space-between;
-
     margin-bottom:7px;
-
     font-size:14px;
 }
 
 .bar-bg{
-
     width:100%;
-
     height:9px;
-
     background:rgba(255,255,255,.1);
-
     border-radius:20px;
-
     overflow:hidden;
 }
 
 .bar-fill{
-
     height:100%;
-
     background:linear-gradient(90deg,#38bdf8,#818cf8);
-
     border-radius:20px;
-
     transition:width .6s ease;
 }
 
 .disclaimer{
-
     margin-top:20px;
-
     padding:15px;
-
     border-radius:12px;
-
     background:rgba(251,191,36,.08);
-
     border:1px solid rgba(251,191,36,.18);
-
     color:#fde68a;
-
     font-size:13px;
-
     line-height:1.6;
 }
 
 .result-actions{
     text-align:center;
-
     margin-top:25px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:600px){
 
@@ -615,10 +456,6 @@ h1{
         font-size:14px;
     }
 
-    .navigation{
-        position:relative;
-    }
-
     .nav-btn{
         padding:12px 14px;
     }
@@ -626,29 +463,19 @@ h1{
     .result-card{
         padding:20px 16px;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- =====================================================
-     HALAMAN AWAL
-===================================================== -->
-
 <section id="homeScreen" class="screen active">
 
     <div class="home-box">
 
-        <div class="logo">
-            ✓
-        </div>
+        <div class="logo">✓</div>
 
-        <h1>
-            Asesmen Refleksi Diri
-        </h1>
+        <h1>Asesmen Refleksi Diri</h1>
 
         <div class="subtitle">
             Tes situasional untuk menggambarkan kecenderungan
@@ -657,21 +484,13 @@ h1{
 
         <div class="info">
 
-            <div>
-                📝 <strong>40 Soal Situasional</strong>
-            </div>
+            <div>📝 <strong>40 Soal Situasional</strong></div>
 
-            <div>
-                ⏱️ <strong>Waktu 15 Menit</strong>
-            </div>
+            <div>⏱️ <strong>Waktu 15 Menit</strong></div>
 
-            <div>
-                🎯 <strong>10 Indikator Kompetensi</strong>
-            </div>
+            <div>🎯 <strong>10 Indikator Kompetensi</strong></div>
 
-            <div>
-                📊 <strong>Analisis Pola Respons</strong>
-            </div>
+            <div>📊 <strong>Analisis Pola Respons</strong></div>
 
         </div>
 
@@ -705,10 +524,6 @@ h1{
 
 </section>
 
-
-<!-- =====================================================
-     HALAMAN TES
-===================================================== -->
 
 <section id="testScreen" class="screen">
 
@@ -745,19 +560,12 @@ h1{
 
         </div>
 
-
-        <!-- SOAL AKAN DIGANTI DI SINI -->
-
         <div id="questionPage"></div>
 
     </div>
 
 </section>
 
-
-<!-- =====================================================
-     HALAMAN HASIL
-===================================================== -->
 
 <section id="resultScreen" class="screen">
 
@@ -802,8 +610,6 @@ h1{
         </div>
 
 
-        <!-- KEUNGGULAN -->
-
         <div class="result-card">
 
             <div class="section-title">
@@ -814,8 +620,6 @@ h1{
 
         </div>
 
-
-        <!-- AREA PENGEMBANGAN -->
 
         <div class="result-card">
 
@@ -828,8 +632,6 @@ h1{
         </div>
 
 
-        <!-- SARAN -->
-
         <div class="result-card">
 
             <div class="section-title">
@@ -840,8 +642,6 @@ h1{
 
         </div>
 
-
-        <!-- KOMPETENSI -->
 
         <div class="result-card">
 
@@ -894,7 +694,7 @@ h1{
 <script>
 
 /* =====================================================
-   DATA KOMPETENSI
+   KOMPETENSI
 ===================================================== */
 
 const competencies = [
@@ -914,482 +714,620 @@ const competencies = [
 
 
 /* =====================================================
-   DATA SOAL
+   SOAL
+   scores = bobot tersembunyi A,B,C,D
 ===================================================== */
 
 const questions = [
 
-/* INTEGRITAS */
-
 {
-    competency:"Integritas",
-    question:"Anda menemukan kesalahan data yang sebenarnya menguntungkan pencapaian tim. Apa yang paling mungkin Anda lakukan?",
-    options:[
-        "Menyampaikan kesalahan tersebut dan mengusulkan perbaikan data.",
-        "Memastikan kembali sumber kesalahannya sebelum mengambil tindakan.",
-        "Membicarakannya dengan rekan yang terkait agar dapat menentukan langkah.",
-        "Menyelesaikan pekerjaan terlebih dahulu kemudian melaporkan temuan tersebut."
-    ]
+competency:"Integritas",
+question:"Anda menemukan kesalahan data yang berpotensi menguntungkan pencapaian tim. Apa yang paling mungkin Anda lakukan?",
+options:[
+"Memastikan kembali sumber kesalahan sebelum mengambil tindakan.",
+"Menyampaikan temuan tersebut dan mengusulkan perbaikan.",
+"Mendiskusikannya dengan rekan terkait agar langkah yang diambil tepat.",
+"Menyelesaikan bagian pekerjaan yang sedang berjalan lalu melaporkan temuan."
+],
+scores:[3,4,2,1]
 },
 
 {
-    competency:"Integritas",
-    question:"Seorang rekan meminta Anda membantu melewati prosedur karena menurutnya pekerjaan sedang sangat mendesak.",
-    options:[
-        "Membantu mencari cara yang tetap sesuai prosedur.",
-        "Menjelaskan risiko jika prosedur dilewati.",
-        "Mendiskusikan kebutuhan tersebut dengan atasan.",
-        "Membantu bagian yang memungkinkan tanpa mengubah ketentuan utama."
-    ]
+competency:"Integritas",
+question:"Seorang rekan meminta bantuan melewati salah satu prosedur karena pekerjaan sedang sangat mendesak.",
+options:[
+"Mencari alternatif yang tetap memenuhi ketentuan utama.",
+"Menjelaskan konsekuensi jika prosedur tersebut dilewati.",
+"Mendiskusikan kondisi tersebut dengan pihak yang memiliki kewenangan.",
+"Membantu bagian pekerjaan yang memungkinkan tanpa mengubah prosedur."
+],
+scores:[4,3,2,2]
 },
 
 {
-    competency:"Integritas",
-    question:"Anda mengetahui ada informasi pekerjaan yang belum diketahui oleh anggota tim lain.",
-    options:[
-        "Menyampaikan informasi tersebut kepada pihak yang memang membutuhkan.",
-        "Memastikan terlebih dahulu apakah informasi tersebut boleh dibagikan.",
-        "Menyimpan informasi sampai ada arahan resmi.",
-        "Menyampaikan secara terbatas kepada anggota yang pekerjaannya terdampak."
-    ]
+competency:"Integritas",
+question:"Anda menerima informasi pekerjaan yang belum diketahui anggota tim lain.",
+options:[
+"Memastikan terlebih dahulu apakah informasi tersebut memang boleh dibagikan.",
+"Menyampaikan informasi kepada pihak yang pekerjaannya terdampak.",
+"Menunggu arahan resmi sebelum menyampaikan informasi.",
+"Menyampaikan secara terbatas kepada pihak yang memang membutuhkan."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Integritas",
-    question:"Anda melakukan kesalahan yang berpotensi memengaruhi pekerjaan tim.",
-    options:[
-        "Mengakui kesalahan dan segera membantu memperbaikinya.",
-        "Menganalisis dampaknya sebelum menyampaikan kepada tim.",
-        "Menyampaikan kepada pihak yang bertanggung jawab agar dapat ditangani.",
-        "Mencari solusi terlebih dahulu kemudian menjelaskan penyebabnya."
-    ]
+competency:"Integritas",
+question:"Anda menyadari bahwa kesalahan yang Anda lakukan dapat memengaruhi pekerjaan tim.",
+options:[
+"Menganalisis dampaknya sebelum menyampaikan kepada pihak terkait.",
+"Segera mengakui kesalahan dan membantu memperbaikinya.",
+"Menyampaikan kepada pihak yang bertanggung jawab agar dapat ditangani.",
+"Mencari solusi terlebih dahulu agar dampaknya dapat diminimalkan."
+],
+scores:[3,4,2,3]
 },
 
 
-/* DISIPLIN */
-
 {
-    competency:"Disiplin & Tanggung Jawab",
-    question:"Beberapa pekerjaan datang bersamaan dengan tenggat yang hampir sama.",
-    options:[
-        "Menyusun prioritas berdasarkan urgensi dan dampaknya.",
-        "Menyelesaikan pekerjaan yang paling cepat terlebih dahulu.",
-        "Mengatur kembali jadwal agar seluruh pekerjaan tetap terkontrol.",
-        "Meminta konfirmasi prioritas kepada atasan."
-    ]
+competency:"Disiplin & Tanggung Jawab",
+question:"Beberapa pekerjaan datang bersamaan dengan tenggat yang hampir sama.",
+options:[
+"Menyusun prioritas berdasarkan urgensi dan dampak.",
+"Menyelesaikan pekerjaan yang paling cepat terlebih dahulu.",
+"Mengatur kembali jadwal agar seluruh pekerjaan tetap terkontrol.",
+"Memastikan kembali prioritas kepada atasan."
+],
+scores:[4,2,3,3]
 },
 
 {
-    competency:"Disiplin & Tanggung Jawab",
-    question:"Anda menyadari pekerjaan hari ini belum selesai sementara jam kerja hampir berakhir.",
-    options:[
-        "Menyelesaikan bagian yang paling penting terlebih dahulu.",
-        "Menginformasikan status pekerjaan kepada pihak terkait.",
-        "Melanjutkan pekerjaan sampai bagian penting benar-benar selesai.",
-        "Membuat rencana penyelesaian untuk hari berikutnya."
-    ]
+competency:"Disiplin & Tanggung Jawab",
+question:"Pekerjaan hari ini belum selesai sementara waktu kerja hampir berakhir.",
+options:[
+"Menyelesaikan bagian yang paling penting terlebih dahulu.",
+"Menginformasikan status pekerjaan kepada pihak terkait.",
+"Melanjutkan pekerjaan sampai bagian penting benar-benar terkendali.",
+"Membuat rencana penyelesaian untuk waktu berikutnya."
+],
+scores:[4,3,3,2]
 },
 
 {
-    competency:"Disiplin & Tanggung Jawab",
-    question:"Anda mendapatkan tugas rutin yang menurut Anda kurang menarik.",
-    options:[
-        "Tetap mengerjakannya sesuai standar yang ditetapkan.",
-        "Mencari cara agar prosesnya lebih efisien.",
-        "Menyelesaikannya lebih awal agar dapat fokus pada pekerjaan lain.",
-        "Menjaga konsistensi hasil meskipun pekerjaannya berulang."
-    ]
+competency:"Disiplin & Tanggung Jawab",
+question:"Anda mendapatkan tugas rutin yang kurang menarik bagi Anda.",
+options:[
+"Menjaga standar hasil meskipun pekerjaannya berulang.",
+"Mencari cara agar prosesnya lebih efisien.",
+"Menyelesaikannya lebih awal agar dapat fokus pada pekerjaan lain.",
+"Tetap mengerjakannya sesuai tanggung jawab yang diberikan."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Disiplin & Tanggung Jawab",
-    question:"Target pribadi Anda belum tercapai menjelang akhir periode.",
-    options:[
-        "Mengevaluasi penyebab dan membuat langkah tambahan.",
-        "Memfokuskan waktu pada aktivitas yang paling berdampak.",
-        "Mendiskusikan kondisi tersebut dengan atasan.",
-        "Menyusun strategi baru berdasarkan hasil sebelumnya."
-    ]
+competency:"Disiplin & Tanggung Jawab",
+question:"Target pribadi belum tercapai menjelang akhir periode.",
+options:[
+"Mengevaluasi penyebab dan membuat langkah tambahan.",
+"Memfokuskan waktu pada aktivitas yang paling berdampak.",
+"Mendiskusikan kondisi tersebut dengan atasan.",
+"Menyusun strategi baru berdasarkan hasil sebelumnya."
+],
+scores:[4,3,2,3]
 },
 
 
-/* KERJA SAMA */
-
 {
-    competency:"Kerja Sama",
-    question:"Pendapat Anda berbeda dengan mayoritas anggota tim dalam sebuah pekerjaan.",
-    options:[
-        "Menyampaikan alasan dengan data dan tetap terbuka terhadap pendapat lain.",
-        "Mendengarkan alasan anggota tim sebelum menentukan sikap.",
-        "Mencari titik temu yang dapat diterima bersama.",
-        "Mengikuti keputusan tim setelah memastikan risiko sudah dipahami."
-    ]
+competency:"Kerja Sama",
+question:"Pendapat Anda berbeda dengan mayoritas anggota tim.",
+options:[
+"Menyampaikan alasan berdasarkan data dan tetap terbuka terhadap pendapat lain.",
+"Mendengarkan alasan anggota tim sebelum menentukan sikap.",
+"Mencari titik temu yang dapat diterima bersama.",
+"Mengikuti keputusan tim setelah memastikan risiko dipahami."
+],
+scores:[4,3,4,2]
 },
 
 {
-    competency:"Kerja Sama",
-    question:"Seorang rekan mengalami kesulitan menyelesaikan bagian pekerjaannya.",
-    options:[
-        "Menawarkan bantuan pada bagian yang dapat Anda dukung.",
-        "Menanyakan kendala yang dihadapi terlebih dahulu.",
-        "Membantu setelah pekerjaan utama Anda terkendali.",
-        "Mengajak rekan tersebut mencari solusi bersama."
-    ]
+competency:"Kerja Sama",
+question:"Seorang rekan mengalami kesulitan menyelesaikan bagian pekerjaannya.",
+options:[
+"Menawarkan bantuan pada bagian yang dapat Anda dukung.",
+"Menanyakan kendala yang dihadapi terlebih dahulu.",
+"Membantu setelah pekerjaan utama Anda terkendali.",
+"Mengajak rekan mencari solusi bersama."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Kerja Sama",
-    question:"Dalam tim terdapat anggota yang cenderung pasif saat diskusi.",
-    options:[
-        "Memberinya kesempatan menyampaikan pendapat.",
-        "Mengajukan pertanyaan yang membuatnya lebih mudah berpartisipasi.",
-        "Mengajak berdiskusi secara langsung setelah rapat.",
-        "Memastikan pembagian tugas tetap jelas bagi semua anggota."
-    ]
+competency:"Kerja Sama",
+question:"Dalam tim terdapat anggota yang cenderung pasif saat diskusi.",
+options:[
+"Memberinya kesempatan menyampaikan pendapat.",
+"Mengajukan pertanyaan yang membuatnya lebih mudah berpartisipasi.",
+"Mengajak berdiskusi secara langsung setelah rapat.",
+"Memastikan pembagian tugas tetap jelas bagi semua anggota."
+],
+scores:[4,3,2,2]
 },
 
 {
-    competency:"Kerja Sama",
-    question:"Tim Anda mengalami perbedaan cara kerja yang cukup besar.",
-    options:[
-        "Membuat kesepakatan cara kerja yang jelas.",
-        "Mencoba memahami alasan masing-masing pendekatan.",
-        "Menggunakan cara yang paling sesuai dengan tujuan pekerjaan.",
-        "Membicarakan perbedaan tersebut agar tidak menghambat hasil."
-    ]
+competency:"Kerja Sama",
+question:"Tim Anda memiliki perbedaan cara kerja yang cukup besar.",
+options:[
+"Membuat kesepakatan cara kerja yang jelas.",
+"Mencoba memahami alasan masing-masing pendekatan.",
+"Menggunakan cara yang paling sesuai dengan tujuan pekerjaan.",
+"Membicarakan perbedaan tersebut agar tidak menghambat hasil."
+],
+scores:[4,3,2,4]
 },
 
 
-/* PELAYANAN */
-
 {
-    competency:"Pelayanan",
-    question:"Seorang pelanggan menyampaikan keluhan dengan nada cukup tinggi.",
-    options:[
-        "Mendengarkan terlebih dahulu sebelum memberikan penjelasan.",
-        "Mengidentifikasi masalah utama yang dirasakan pelanggan.",
-        "Menjelaskan solusi yang dapat dilakukan sesuai ketentuan.",
-        "Memastikan pelanggan memahami langkah penyelesaiannya."
-    ]
+competency:"Pelayanan",
+question:"Seorang pelanggan menyampaikan keluhan dengan nada cukup tinggi.",
+options:[
+"Mendengarkan terlebih dahulu sebelum memberikan penjelasan.",
+"Mengidentifikasi masalah utama yang dirasakan pelanggan.",
+"Menjelaskan solusi yang dapat dilakukan sesuai ketentuan.",
+"Memastikan pelanggan memahami langkah penyelesaiannya."
+],
+scores:[4,3,3,4]
 },
 
 {
-    competency:"Pelayanan",
-    question:"Pelanggan meminta sesuatu yang tidak dapat Anda berikan sesuai aturan.",
-    options:[
-        "Menjelaskan ketentuan dengan bahasa yang mudah dipahami.",
-        "Menawarkan alternatif yang masih sesuai aturan.",
-        "Menjelaskan alasan pembatasan tersebut.",
-        "Mencari bantuan pihak terkait jika diperlukan."
-    ]
+competency:"Pelayanan",
+question:"Pelanggan meminta sesuatu yang tidak dapat diberikan sesuai aturan.",
+options:[
+"Menjelaskan ketentuan dengan bahasa yang mudah dipahami.",
+"Menawarkan alternatif yang masih sesuai aturan.",
+"Menjelaskan alasan pembatasan tersebut.",
+"Mencari bantuan pihak terkait jika diperlukan."
+],
+scores:[3,4,2,3]
 },
 
 {
-    competency:"Pelayanan",
-    question:"Antrean pelanggan sedang cukup panjang sementara satu pelanggan membutuhkan penjelasan cukup lama.",
-    options:[
-        "Memberikan penjelasan secara efektif tanpa mengurangi kualitas pelayanan.",
-        "Memastikan kebutuhan pelanggan tersebut selesai dengan benar.",
-        "Mengatur komunikasi agar antrean tetap berjalan.",
-        "Meminta bantuan rekan jika kondisi memungkinkan."
-    ]
+competency:"Pelayanan",
+question:"Antrean sedang panjang sementara seorang pelanggan membutuhkan penjelasan cukup lama.",
+options:[
+"Memberikan penjelasan efektif tanpa mengurangi kualitas pelayanan.",
+"Memastikan kebutuhan pelanggan tersebut selesai dengan benar.",
+"Mengatur komunikasi agar antrean tetap berjalan.",
+"Meminta bantuan rekan jika kondisi memungkinkan."
+],
+scores:[4,3,3,2]
 },
 
 {
-    competency:"Pelayanan",
-    question:"Pelanggan terlihat bingung dengan informasi yang Anda jelaskan.",
-    options:[
-        "Menggunakan bahasa yang lebih sederhana.",
-        "Memberikan contoh agar lebih mudah dipahami.",
-        "Menanyakan bagian mana yang masih membingungkan.",
-        "Mengulang informasi utama secara bertahap."
-    ]
+competency:"Pelayanan",
+question:"Pelanggan terlihat bingung dengan informasi yang Anda jelaskan.",
+options:[
+"Menggunakan bahasa yang lebih sederhana.",
+"Memberikan contoh agar lebih mudah dipahami.",
+"Menanyakan bagian mana yang masih membingungkan.",
+"Mengulang informasi utama secara bertahap."
+],
+scores:[4,3,4,3]
 },
 
 
-/* PROBLEM SOLVING */
-
 {
-    competency:"Problem Solving",
-    question:"Sebuah proses kerja tiba-tiba mengalami kendala yang belum pernah Anda temui.",
-    options:[
-        "Mengidentifikasi penyebab sebelum menentukan solusi.",
-        "Mencari referensi dari kasus yang pernah terjadi.",
-        "Mendiskusikan masalah dengan orang yang lebih berpengalaman.",
-        "Mencoba solusi yang risikonya paling dapat dikendalikan."
-    ]
+competency:"Problem Solving",
+question:"Sebuah proses kerja mengalami kendala yang belum pernah Anda temui.",
+options:[
+"Mengidentifikasi penyebab sebelum menentukan solusi.",
+"Mencari referensi dari kasus yang pernah terjadi.",
+"Mendiskusikan masalah dengan orang yang lebih berpengalaman.",
+"Mencoba solusi yang risikonya paling dapat dikendalikan."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Problem Solving",
-    question:"Hasil pekerjaan tidak sesuai dengan yang diharapkan.",
-    options:[
-        "Memeriksa kembali proses untuk menemukan sumber masalah.",
-        "Membandingkan hasil dengan standar yang ditetapkan.",
-        "Meminta masukan dari rekan kerja.",
-        "Membuat perbaikan berdasarkan temuan yang diperoleh."
-    ]
+competency:"Problem Solving",
+question:"Hasil pekerjaan tidak sesuai dengan yang diharapkan.",
+options:[
+"Memeriksa kembali proses untuk menemukan sumber masalah.",
+"Membandingkan hasil dengan standar yang ditetapkan.",
+"Meminta masukan dari rekan kerja.",
+"Membuat perbaikan berdasarkan temuan yang diperoleh."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Problem Solving",
-    question:"Anda harus mengambil keputusan sementara informasi yang tersedia belum lengkap.",
-    options:[
-        "Menggunakan informasi yang paling dapat dipercaya.",
-        "Mencari informasi tambahan yang paling penting.",
-        "Mempertimbangkan risiko dari beberapa pilihan.",
-        "Meminta arahan jika keputusan memiliki dampak besar."
-    ]
+competency:"Problem Solving",
+question:"Anda harus mengambil keputusan sementara informasi belum lengkap.",
+options:[
+"Menggunakan informasi yang paling dapat dipercaya.",
+"Mencari informasi tambahan yang paling penting.",
+"Mempertimbangkan risiko dari beberapa pilihan.",
+"Meminta arahan jika keputusan memiliki dampak besar."
+],
+scores:[3,4,4,2]
 },
 
 {
-    competency:"Problem Solving",
-    question:"Masalah yang sama terjadi berulang kali.",
-    options:[
-        "Mencari akar penyebabnya.",
-        "Mencatat pola kejadian untuk menemukan penyebab.",
-        "Membahasnya dengan tim.",
-        "Membuat langkah pencegahan agar masalah tidak berulang."
-    ]
+competency:"Problem Solving",
+question:"Masalah yang sama terjadi berulang kali.",
+options:[
+"Mencari akar penyebabnya.",
+"Mencatat pola kejadian untuk menemukan penyebab.",
+"Membahasnya dengan tim.",
+"Membuat langkah pencegahan agar masalah tidak berulang."
+],
+scores:[4,3,2,4]
 },
 
 
-/* ADAPTASI */
-
 {
-    competency:"Adaptasi",
-    question:"Sistem kerja baru diterapkan dan Anda belum terbiasa menggunakannya.",
-    options:[
-        "Mempelajarinya secara bertahap melalui praktik.",
-        "Meminta panduan dari orang yang sudah menguasainya.",
-        "Mencoba memahami perbedaan dengan sistem sebelumnya.",
-        "Membuat catatan agar proses belajar lebih terarah."
-    ]
+competency:"Adaptasi",
+question:"Sistem kerja baru diterapkan dan Anda belum terbiasa menggunakannya.",
+options:[
+"Mempelajarinya secara bertahap melalui praktik.",
+"Meminta panduan dari orang yang sudah menguasainya.",
+"Mencoba memahami perbedaan dengan sistem sebelumnya.",
+"Membuat catatan agar proses belajar lebih terarah."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Adaptasi",
-    question:"Prioritas pekerjaan berubah secara mendadak.",
-    options:[
-        "Menyesuaikan rencana berdasarkan prioritas terbaru.",
-        "Memastikan kembali prioritas yang berubah.",
-        "Mengatur ulang pekerjaan yang sedang berjalan.",
-        "Menentukan pekerjaan yang dapat ditunda."
-    ]
+competency:"Adaptasi",
+question:"Prioritas pekerjaan berubah secara mendadak.",
+options:[
+"Menyesuaikan rencana berdasarkan prioritas terbaru.",
+"Memastikan kembali prioritas yang berubah.",
+"Mengatur ulang pekerjaan yang sedang berjalan.",
+"Menentukan pekerjaan yang dapat ditunda."
+],
+scores:[4,3,4,2]
 },
 
 {
-    competency:"Adaptasi",
-    question:"Anda dipindahkan sementara untuk membantu pekerjaan yang berbeda.",
-    options:[
-        "Mempelajari kebutuhan pekerjaan tersebut terlebih dahulu.",
-        "Menggunakan pengalaman sebelumnya yang masih relevan.",
-        "Meminta arahan mengenai standar pekerjaan.",
-        "Berusaha menyesuaikan diri sambil mempelajari prosesnya."
-    ]
+competency:"Adaptasi",
+question:"Anda dipindahkan sementara untuk membantu pekerjaan berbeda.",
+options:[
+"Mempelajari kebutuhan pekerjaan tersebut terlebih dahulu.",
+"Menggunakan pengalaman sebelumnya yang masih relevan.",
+"Meminta arahan mengenai standar pekerjaan.",
+"Berusaha menyesuaikan diri sambil mempelajari proses."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Adaptasi",
-    question:"Cara kerja yang biasa Anda gunakan ternyata tidak lagi efektif.",
-    options:[
-        "Mencari pendekatan lain yang lebih sesuai.",
-        "Menganalisis penyebab cara lama tidak efektif.",
-        "Mempelajari cara kerja rekan yang berhasil.",
-        "Mencoba perubahan secara bertahap."
-    ]
+competency:"Adaptasi",
+question:"Cara kerja yang biasa Anda gunakan ternyata tidak lagi efektif.",
+options:[
+"Mencari pendekatan lain yang lebih sesuai.",
+"Menganalisis penyebab cara lama tidak efektif.",
+"Mempelajari cara kerja rekan yang berhasil.",
+"Mencoba perubahan secara bertahap."
+],
+scores:[4,3,2,3]
 },
 
 
-/* ORIENTASI TARGET */
-
 {
-    competency:"Orientasi Target",
-    question:"Target pekerjaan cukup tinggi sementara waktu yang tersedia terbatas.",
-    options:[
-        "Membagi target menjadi beberapa tahap.",
-        "Memprioritaskan aktivitas yang paling berpengaruh.",
-        "Mengoptimalkan sumber daya yang tersedia.",
-        "Mengevaluasi perkembangan secara berkala."
-    ]
+competency:"Orientasi Target",
+question:"Target pekerjaan cukup tinggi sementara waktu yang tersedia terbatas.",
+options:[
+"Membagi target menjadi beberapa tahap.",
+"Memprioritaskan aktivitas yang paling berpengaruh.",
+"Mengoptimalkan sumber daya yang tersedia.",
+"Mengevaluasi perkembangan secara berkala."
+],
+scores:[3,4,3,3]
 },
 
 {
-    competency:"Orientasi Target",
-    question:"Hasil sementara belum sesuai target.",
-    options:[
-        "Mengevaluasi strategi yang sedang digunakan.",
-        "Meningkatkan aktivitas pada bagian yang paling potensial.",
-        "Mencari hambatan yang menyebabkan target belum tercapai.",
-        "Menyusun penyesuaian rencana berdasarkan hasil sementara."
-    ]
+competency:"Orientasi Target",
+question:"Hasil sementara belum sesuai target.",
+options:[
+"Mengevaluasi strategi yang sedang digunakan.",
+"Meningkatkan aktivitas pada bagian yang paling potensial.",
+"Mencari hambatan yang menyebabkan target belum tercapai.",
+"Menyusun penyesuaian rencana berdasarkan hasil sementara."
+],
+scores:[4,3,3,4]
 },
 
 {
-    competency:"Orientasi Target",
-    question:"Anda berhasil mencapai target lebih cepat dari perkiraan.",
-    options:[
-        "Memastikan kualitas hasil tetap terjaga.",
-        "Menggunakan waktu tersisa untuk membantu pekerjaan lain.",
-        "Mengevaluasi apakah masih ada peluang peningkatan.",
-        "Mempersiapkan pekerjaan berikutnya."
-    ]
+competency:"Orientasi Target",
+question:"Anda mencapai target lebih cepat dari perkiraan.",
+options:[
+"Memastikan kualitas hasil tetap terjaga.",
+"Menggunakan waktu tersisa untuk membantu pekerjaan lain.",
+"Mengevaluasi apakah masih ada peluang peningkatan.",
+"Mempersiapkan pekerjaan berikutnya."
+],
+scores:[4,3,4,2]
 },
 
 {
-    competency:"Orientasi Target",
-    question:"Target tim dan target pribadi memiliki prioritas yang berbeda.",
-    options:[
-        "Mencari keseimbangan agar keduanya tetap tercapai.",
-        "Mendahulukan target yang memiliki dampak lebih besar.",
-        "Mendiskusikan prioritas dengan tim.",
-        "Menyesuaikan target pribadi dengan kebutuhan tim."
-    ]
+competency:"Orientasi Target",
+question:"Target tim dan target pribadi memiliki prioritas berbeda.",
+options:[
+"Mencari keseimbangan agar keduanya tetap tercapai.",
+"Mendahulukan target yang memiliki dampak lebih besar.",
+"Mendiskusikan prioritas dengan tim.",
+"Menyesuaikan target pribadi dengan kebutuhan tim."
+],
+scores:[4,3,2,4]
 },
 
 
-/* KETELITIAN */
-
 {
-    competency:"Ketelitian",
-    question:"Anda harus memeriksa dokumen dalam jumlah cukup banyak.",
-    options:[
-        "Menggunakan daftar pemeriksaan agar tidak ada bagian terlewat.",
-        "Memeriksa bagian yang paling berisiko terlebih dahulu.",
-        "Membagi pemeriksaan menjadi beberapa tahap.",
-        "Melakukan pengecekan ulang sebelum menyelesaikan pekerjaan."
-    ]
+competency:"Ketelitian",
+question:"Anda harus memeriksa dokumen dalam jumlah cukup banyak.",
+options:[
+"Menggunakan daftar pemeriksaan agar tidak ada bagian terlewat.",
+"Memeriksa bagian yang paling berisiko terlebih dahulu.",
+"Membagi pemeriksaan menjadi beberapa tahap.",
+"Melakukan pengecekan ulang sebelum menyelesaikan pekerjaan."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Ketelitian",
-    question:"Anda menemukan angka yang berbeda antara dua sumber data.",
-    options:[
-        "Membandingkan sumber data untuk menemukan penyebab perbedaan.",
-        "Memeriksa data asli sebelum melakukan perubahan.",
-        "Mengonfirmasi kepada pihak yang membuat data.",
-        "Menunda penggunaan data sampai perbedaannya jelas."
-    ]
+competency:"Ketelitian",
+question:"Anda menemukan angka yang berbeda antara dua sumber data.",
+options:[
+"Membandingkan sumber data untuk menemukan penyebab perbedaan.",
+"Memeriksa data asli sebelum melakukan perubahan.",
+"Mengonfirmasi kepada pihak yang membuat data.",
+"Menunda penggunaan data sampai perbedaannya jelas."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Ketelitian",
-    question:"Pekerjaan Anda terlihat sudah selesai tetapi masih memiliki waktu untuk pengecekan.",
-    options:[
-        "Melakukan pemeriksaan ulang.",
-        "Memeriksa bagian yang paling penting terlebih dahulu.",
-        "Membandingkan hasil dengan standar.",
-        "Meminta rekan melakukan pengecekan silang jika memungkinkan."
-    ]
+competency:"Ketelitian",
+question:"Pekerjaan terlihat selesai tetapi masih ada waktu untuk pengecekan.",
+options:[
+"Melakukan pemeriksaan ulang.",
+"Memeriksa bagian yang paling penting terlebih dahulu.",
+"Membandingkan hasil dengan standar.",
+"Meminta rekan melakukan pengecekan silang jika memungkinkan."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Ketelitian",
-    question:"Anda harus bekerja cepat tetapi data yang diproses cukup sensitif.",
-    options:[
-        "Menjaga kecepatan tanpa melewatkan tahapan penting.",
-        "Menggunakan checklist untuk mengurangi kesalahan.",
-        "Memprioritaskan pemeriksaan pada data berisiko.",
-        "Memastikan hasil akhir sebelum diserahkan."
-    ]
+competency:"Ketelitian",
+question:"Anda harus bekerja cepat tetapi data yang diproses cukup sensitif.",
+options:[
+"Menjaga kecepatan tanpa melewatkan tahapan penting.",
+"Menggunakan checklist untuk mengurangi kesalahan.",
+"Memprioritaskan pemeriksaan pada data berisiko.",
+"Memastikan hasil akhir sebelum diserahkan."
+],
+scores:[4,3,3,4]
 },
 
 
-/* KOMUNIKASI */
-
 {
-    competency:"Komunikasi",
-    question:"Anda harus menjelaskan sesuatu yang cukup kompleks kepada orang yang belum memahami prosesnya.",
-    options:[
-        "Menggunakan bahasa sederhana dan contoh yang relevan.",
-        "Menjelaskan secara bertahap dari hal paling dasar.",
-        "Memastikan pemahaman melalui pertanyaan.",
-        "Menyesuaikan penjelasan dengan kebutuhan orang tersebut."
-    ]
+competency:"Komunikasi",
+question:"Anda harus menjelaskan sesuatu yang kompleks kepada orang yang belum memahami prosesnya.",
+options:[
+"Menggunakan bahasa sederhana dan contoh yang relevan.",
+"Menjelaskan secara bertahap dari hal paling dasar.",
+"Memastikan pemahaman melalui pertanyaan.",
+"Menyesuaikan penjelasan dengan kebutuhan orang tersebut."
+],
+scores:[4,3,4,4]
 },
 
 {
-    competency:"Komunikasi",
-    question:"Anda menerima instruksi yang menurut Anda masih kurang jelas.",
-    options:[
-        "Mengonfirmasi bagian yang belum jelas.",
-        "Mengulang kembali instruksi dengan pemahaman Anda.",
-        "Menanyakan hasil akhir yang diharapkan.",
-        "Mencari informasi tambahan sebelum mulai bekerja."
-    ]
+competency:"Komunikasi",
+question:"Anda menerima instruksi yang masih kurang jelas.",
+options:[
+"Mengonfirmasi bagian yang belum jelas.",
+"Mengulang kembali instruksi dengan pemahaman Anda.",
+"Menanyakan hasil akhir yang diharapkan.",
+"Mencari informasi tambahan sebelum mulai bekerja."
+],
+scores:[4,3,4,2]
 },
 
 {
-    competency:"Komunikasi",
-    question:"Dalam rapat, pembicaraan mulai keluar dari topik utama.",
-    options:[
-        "Mengingatkan kembali tujuan pembahasan.",
-        "Menyimpulkan poin yang sudah dibicarakan.",
-        "Mengusulkan agar topik lain dibahas setelah agenda utama.",
-        "Mencatat topik tambahan agar tidak terlupakan."
-    ]
+competency:"Komunikasi",
+question:"Dalam rapat, pembicaraan mulai keluar dari topik utama.",
+options:[
+"Mengingatkan kembali tujuan pembahasan.",
+"Menyimpulkan poin yang sudah dibicarakan.",
+"Mengusulkan agar topik lain dibahas setelah agenda utama.",
+"Mencatat topik tambahan agar tidak terlupakan."
+],
+scores:[4,3,4,2]
 },
 
 {
-    competency:"Komunikasi",
-    question:"Anda menerima kritik terhadap hasil pekerjaan Anda.",
-    options:[
-        "Mendengarkan kritik untuk memahami bagian yang perlu diperbaiki.",
-        "Menanyakan contoh agar kritik lebih jelas.",
-        "Mempertimbangkan kritik berdasarkan fakta pekerjaan.",
-        "Menggunakan masukan yang relevan untuk perbaikan."
-    ]
+competency:"Komunikasi",
+question:"Anda menerima kritik terhadap hasil pekerjaan.",
+options:[
+"Mendengarkan kritik untuk memahami bagian yang perlu diperbaiki.",
+"Menanyakan contoh agar kritik lebih jelas.",
+"Mempertimbangkan kritik berdasarkan fakta pekerjaan.",
+"Menggunakan masukan yang relevan untuk perbaikan."
+],
+scores:[4,3,2,4]
 },
 
 
-/* PENGELOLAAN TEKANAN */
-
 {
-    competency:"Pengelolaan Tekanan",
-    question:"Beberapa pekerjaan penting harus diselesaikan dalam waktu yang berdekatan.",
-    options:[
-        "Membuat prioritas dan mengerjakan secara bertahap.",
-        "Memusatkan perhatian pada pekerjaan yang paling mendesak.",
-        "Mengatur waktu secara lebih ketat.",
-        "Berkomunikasi jika ada risiko keterlambatan."
-    ]
+competency:"Pengelolaan Tekanan",
+question:"Beberapa pekerjaan penting harus diselesaikan dalam waktu berdekatan.",
+options:[
+"Membuat prioritas dan mengerjakan secara bertahap.",
+"Memusatkan perhatian pada pekerjaan yang paling mendesak.",
+"Mengatur waktu secara lebih ketat.",
+"Berkomunikasi jika ada risiko keterlambatan."
+],
+scores:[4,3,2,4]
 },
 
 {
-    competency:"Pengelolaan Tekanan",
-    question:"Anda mendapatkan komplain ketika pekerjaan sedang sangat padat.",
-    options:[
-        "Tetap menjaga komunikasi agar masalah dapat diselesaikan.",
-        "Menyelesaikan masalah yang paling mendesak terlebih dahulu.",
-        "Mengatur ulang pekerjaan agar komplain dapat ditangani.",
-        "Meminta bantuan apabila beban sudah melebihi kapasitas."
-    ]
+competency:"Pengelolaan Tekanan",
+question:"Anda mendapatkan komplain ketika pekerjaan sedang sangat padat.",
+options:[
+"Tetap menjaga komunikasi agar masalah dapat diselesaikan.",
+"Menyelesaikan masalah yang paling mendesak terlebih dahulu.",
+"Mengatur ulang pekerjaan agar komplain dapat ditangani.",
+"Meminta bantuan apabila beban sudah melebihi kapasitas."
+],
+scores:[4,3,3,2]
 },
 
 {
-    competency:"Pengelolaan Tekanan",
-    question:"Kesalahan kecil terjadi ketika Anda sedang mengejar tenggat.",
-    options:[
-        "Mengoreksi kesalahan sebelum melanjutkan.",
-        "Menilai dampaknya dan menentukan tindakan yang diperlukan.",
-        "Meminta pengecekan tambahan jika waktunya memungkinkan.",
-        "Mencatat kesalahan agar tidak terulang."
-    ]
+competency:"Pengelolaan Tekanan",
+question:"Kesalahan kecil terjadi ketika Anda sedang mengejar tenggat.",
+options:[
+"Mengoreksi kesalahan sebelum melanjutkan.",
+"Menilai dampaknya dan menentukan tindakan yang diperlukan.",
+"Meminta pengecekan tambahan jika waktunya memungkinkan.",
+"Mencatat kesalahan agar tidak terulang."
+],
+scores:[4,3,2,3]
 },
 
 {
-    competency:"Pengelolaan Tekanan",
-    question:"Anda merasa pekerjaan mulai menumpuk dan sulit dikendalikan.",
-    options:[
-        "Mengurutkan kembali pekerjaan berdasarkan prioritas.",
-        "Menyelesaikan pekerjaan satu per satu secara terstruktur.",
-        "Mengomunikasikan kondisi kepada pihak terkait.",
-        "Mencari cara untuk mengurangi pekerjaan yang kurang prioritas."
-    ]
-
+competency:"Pengelolaan Tekanan",
+question:"Anda merasa pekerjaan mulai menumpuk dan sulit dikendalikan.",
+options:[
+"Mengurutkan kembali pekerjaan berdasarkan prioritas.",
+"Menyelesaikan pekerjaan satu per satu secara terstruktur.",
+"Mengomunikasikan kondisi kepada pihak terkait.",
+"Mencari cara untuk mengurangi pekerjaan yang kurang prioritas."
+],
+scores:[4,3,2,4]
 }
 
 ];
+
+
+/* =====================================================
+   DESKRIPSI INDIKATOR
+===================================================== */
+
+const competencyDescriptions = {
+
+"Integritas":
+"Kecenderungan menjaga kejujuran, konsistensi terhadap prinsip, kepatuhan pada ketentuan, serta kesediaan mempertanggungjawabkan keputusan.",
+
+"Disiplin & Tanggung Jawab":
+"Kecenderungan menjaga komitmen, mengatur prioritas, mengendalikan pekerjaan, dan menyelesaikan tanggung jawab secara konsisten.",
+
+"Kerja Sama":
+"Kecenderungan membangun kolaborasi, mendengarkan orang lain, memberi dukungan, serta mencari penyelesaian yang dapat diterima bersama.",
+
+"Pelayanan":
+"Kecenderungan memahami kebutuhan pihak lain, memberikan penjelasan yang sesuai, menjaga kualitas interaksi, dan mencari solusi yang tetap sesuai ketentuan.",
+
+"Problem Solving":
+"Kecenderungan menganalisis penyebab, mempertimbangkan informasi dan risiko, serta menyusun solusi terhadap masalah.",
+
+"Adaptasi":
+"Kecenderungan menyesuaikan cara kerja ketika menghadapi perubahan sistem, prioritas, situasi, atau tuntutan baru.",
+
+"Orientasi Target":
+"Kecenderungan menjaga fokus terhadap tujuan, menentukan prioritas, memantau kemajuan, dan menyesuaikan strategi untuk mencapai hasil.",
+
+"Ketelitian":
+"Kecenderungan memperhatikan detail, melakukan verifikasi, menjaga akurasi, dan mengurangi potensi kesalahan.",
+
+"Komunikasi":
+"Kecenderungan menyampaikan informasi secara jelas, memahami kebutuhan lawan bicara, melakukan klarifikasi, serta menerima masukan.",
+
+"Pengelolaan Tekanan":
+"Kecenderungan mengatur prioritas, menjaga proses kerja, dan menentukan tindakan ketika menghadapi beban atau tekanan pekerjaan."
+
+};
+
+
+/* =====================================================
+   INTERPRETASI DETAIL
+===================================================== */
+
+const interpretation = {
+
+"Integritas":{
+high:"Respons menunjukkan kecenderungan kuat untuk mempertimbangkan kejujuran, transparansi, aturan, dan dampak keputusan sebelum bertindak.",
+mid:"Respons menunjukkan perhatian terhadap prinsip dan ketentuan, namun penerapannya dapat berbeda tergantung situasi dan tekanan yang dihadapi.",
+low:"Respons menunjukkan area yang masih dapat diperkuat dalam hal konsistensi terhadap prinsip, transparansi, dan pertanggungjawaban keputusan.",
+advice:"Latih kebiasaan memeriksa kesesuaian keputusan dengan aturan, dokumentasikan keputusan penting, dan biasakan menyampaikan masalah secara terbuka."
+},
+
+"Disiplin & Tanggung Jawab":{
+high:"Respons menunjukkan kecenderungan mengatur pekerjaan secara terstruktur, menjaga komitmen, serta memperhatikan penyelesaian tugas.",
+mid:"Respons menunjukkan kemampuan menjaga tanggung jawab dalam kondisi normal, dengan ruang pengembangan pada konsistensi ketika beban meningkat.",
+low:"Respons menunjukkan bahwa pengelolaan prioritas, waktu, atau konsistensi penyelesaian tugas masih dapat diperkuat.",
+advice:"Gunakan daftar prioritas harian, pecah pekerjaan besar menjadi tahapan kecil, dan tetapkan batas waktu pribadi sebelum tenggat."
+},
+
+"Kerja Sama":{
+high:"Respons menunjukkan kecenderungan membangun hubungan kerja yang kolaboratif, mempertimbangkan perspektif orang lain, dan mencari titik temu.",
+mid:"Respons menunjukkan kemampuan bekerja bersama, dengan pengembangan yang dapat diarahkan pada komunikasi terbuka dan pembagian tanggung jawab.",
+low:"Respons menunjukkan perlunya memperkuat keterbukaan terhadap perspektif lain, koordinasi, atau pemberian dukungan kepada anggota tim.",
+advice:"Latih mendengarkan aktif, berikan kesempatan anggota lain berbicara, dan pastikan pembagian peran serta ekspektasi dipahami bersama."
+},
+
+"Pelayanan":{
+high:"Respons menunjukkan perhatian terhadap kebutuhan pihak yang dilayani, kejelasan informasi, dan pencarian solusi dalam batas ketentuan.",
+mid:"Respons menunjukkan orientasi pelayanan yang cukup baik, dengan ruang pengembangan pada penyesuaian komunikasi dan pengelolaan situasi sulit.",
+low:"Respons menunjukkan perlunya memperkuat kemampuan memahami kebutuhan, menjaga komunikasi, dan menangani keluhan secara terstruktur.",
+advice:"Biasakan menggali kebutuhan terlebih dahulu, gunakan bahasa sederhana, dan pastikan pihak yang dilayani memahami solusi yang diberikan."
+},
+
+"Problem Solving":{
+high:"Respons menunjukkan kecenderungan mencari penyebab, menggunakan informasi, mempertimbangkan risiko, dan mengembangkan solusi.",
+mid:"Respons menunjukkan kemampuan menyelesaikan masalah dengan cukup baik, namun proses analisis dapat dibuat lebih konsisten.",
+low:"Respons menunjukkan bahwa proses identifikasi akar masalah, evaluasi pilihan, atau pencegahan masalah berulang masih dapat diperkuat.",
+advice:"Sebelum bertindak, bedakan gejala dan akar masalah, kumpulkan informasi penting, pertimbangkan beberapa alternatif, lalu evaluasi hasilnya."
+},
+
+"Adaptasi":{
+high:"Respons menunjukkan kecenderungan menerima perubahan, mempelajari cara kerja baru, dan menyesuaikan strategi sesuai kondisi.",
+mid:"Respons menunjukkan kemampuan beradaptasi, dengan ruang pengembangan pada kecepatan dan konsistensi ketika perubahan terjadi secara mendadak.",
+low:"Respons menunjukkan perlunya memperkuat kesiapan menghadapi perubahan dan kemampuan menyesuaikan kebiasaan kerja.",
+advice:"Ketika terjadi perubahan, identifikasi apa yang berubah, apa yang tetap, dan tindakan baru apa yang perlu dilakukan."
+},
+
+"Orientasi Target":{
+high:"Respons menunjukkan kecenderungan menjaga fokus terhadap hasil, menentukan prioritas, serta menyesuaikan strategi ketika target belum tercapai.",
+mid:"Respons menunjukkan orientasi terhadap hasil yang cukup baik, dengan ruang pengembangan dalam pemantauan kemajuan dan penentuan prioritas.",
+low:"Respons menunjukkan perlunya memperkuat perencanaan target, pemantauan kemajuan, atau penyesuaian strategi.",
+advice:"Pecah target menjadi tahapan yang terukur, pantau kemajuan secara berkala, dan fokuskan energi pada aktivitas dengan dampak terbesar."
+},
+
+"Ketelitian":{
+high:"Respons menunjukkan perhatian yang kuat terhadap akurasi, verifikasi informasi, dan pemeriksaan sebelum hasil digunakan atau diserahkan.",
+mid:"Respons menunjukkan perhatian terhadap ketelitian, dengan ruang pengembangan pada konsistensi pengecekan terutama ketika pekerjaan harus cepat.",
+low:"Respons menunjukkan bahwa kebiasaan verifikasi dan perhatian terhadap detail masih dapat diperkuat.",
+advice:"Gunakan checklist, lakukan pengecekan akhir, dan prioritaskan verifikasi pada data yang memiliki dampak atau risiko terbesar."
+},
+
+"Komunikasi":{
+high:"Respons menunjukkan kecenderungan menyampaikan informasi secara jelas, menyesuaikan cara komunikasi, melakukan klarifikasi, dan menerima masukan.",
+mid:"Respons menunjukkan kemampuan komunikasi yang cukup baik, dengan ruang pengembangan dalam memastikan pesan benar-benar dipahami pihak lain.",
+low:"Respons menunjukkan perlunya memperkuat klarifikasi, penyampaian pesan, dan kemampuan menyesuaikan komunikasi.",
+advice:"Biasakan melakukan konfirmasi ulang terhadap instruksi penting dan sesuaikan bahasa dengan tingkat pemahaman lawan bicara."
+},
+
+"Pengelolaan Tekanan":{
+high:"Respons menunjukkan kecenderungan tetap terstruktur ketika menghadapi beban, menentukan prioritas, dan menjaga komunikasi ketika tekanan meningkat.",
+mid:"Respons menunjukkan kemampuan mengelola tekanan dalam sebagian besar situasi, dengan ruang pengembangan pada kondisi beban yang sangat tinggi.",
+low:"Respons menunjukkan perlunya memperkuat pengaturan prioritas, pengendalian pekerjaan, dan komunikasi ketika tekanan meningkat.",
+advice:"Saat tekanan meningkat, urutkan pekerjaan berdasarkan urgensi dan dampak, kerjakan secara bertahap, dan komunikasikan risiko lebih awal."
+}
+
+};
 
 
 /* =====================================================
@@ -1410,39 +1348,18 @@ let testFinished = false;
 
 
 /* =====================================================
-   ELEMEN
-===================================================== */
-
-const homeScreen =
-    document.getElementById("homeScreen");
-
-const testScreen =
-    document.getElementById("testScreen");
-
-const resultScreen =
-    document.getElementById("resultScreen");
-
-const questionPage =
-    document.getElementById("questionPage");
-
-
-/* =====================================================
-   MULAI TES
+   START
 ===================================================== */
 
 function startTest(){
 
     const input =
-        document
-        .getElementById("nameInput")
-        .value
-        .trim();
+        document.getElementById("nameInput")
+        .value.trim();
 
     if(!input){
 
-        alert(
-            "Silakan masukkan nama terlebih dahulu."
-        );
+        alert("Silakan masukkan nama terlebih dahulu.");
 
         return;
     }
@@ -1452,99 +1369,90 @@ function startTest(){
     currentQuestion = 0;
 
     answers =
-        new Array(
-            questions.length
-        ).fill(null);
+        new Array(questions.length).fill(null);
 
     timeLeft = 15 * 60;
 
     testFinished = false;
 
-    homeScreen.classList.remove("active");
+    document.getElementById("homeScreen")
+        .classList.remove("active");
 
-    resultScreen.classList.remove("active");
+    document.getElementById("resultScreen")
+        .classList.remove("active");
 
-    testScreen.classList.add("active");
+    document.getElementById("testScreen")
+        .classList.add("active");
 
     clearInterval(timerInterval);
 
     updateTimer();
 
     timerInterval =
-        setInterval(
-            countdown,
-            1000
-        );
+        setInterval(countdown,1000);
 
     showQuestion();
-
 }
 
 
 /* =====================================================
-   TAMPILKAN SOAL
+   SHOW QUESTION
 ===================================================== */
 
 function showQuestion(){
 
-    const q =
-        questions[currentQuestion];
+    const q = questions[currentQuestion];
 
-    const number =
-        currentQuestion + 1;
+    const number = currentQuestion + 1;
 
     const percent =
         (number / questions.length) * 100;
 
-    document.getElementById(
-        "questionNumber"
-    ).textContent =
+    document.getElementById("questionNumber")
+        .textContent =
         `Soal ${number} dari ${questions.length}`;
 
-    document.getElementById(
-        "progressBar"
-    ).style.width =
+    document.getElementById("progressBar")
+        .style.width =
         `${percent}%`;
-
 
     let optionsHTML = "";
 
-    q.options.forEach(
-        (option,index)=>{
+    q.options.forEach((option,index)=>{
 
-            const checked =
-                answers[currentQuestion] === index
-                ? "checked"
-                : "";
+        const checked =
+            answers[currentQuestion] === index
+            ? "checked"
+            : "";
 
-            optionsHTML += `
+        const letter =
+            String.fromCharCode(65 + index);
 
-                <div class="option">
+        optionsHTML += `
 
-                    <input
-                        type="radio"
-                        id="option${index}"
-                        name="answer"
-                        value="${index}"
-                        ${checked}
-                        onchange="selectAnswer(${index})"
-                    >
+            <div class="option">
 
-                    <label
-                        for="option${index}"
-                    >
-                        ${option}
-                    </label>
+                <input
+                    type="radio"
+                    id="option${index}"
+                    name="answer"
+                    value="${index}"
+                    ${checked}
+                    onchange="selectAnswer(${index})"
+                >
 
-                </div>
+                <label for="option${index}">
+                    <strong>${letter}.</strong>
+                    ${option}
+                </label>
 
-            `;
+            </div>
 
-        }
-    );
+        `;
 
+    });
 
-    questionPage.innerHTML = `
+    document.getElementById("questionPage").innerHTML = `
 
         <div class="question-page">
 
@@ -1586,8 +1494,8 @@ function showQuestion(){
                 </div>
 
                 <div class="question-hint">
-                    Pilih jawaban yang paling menggambarkan
-                    respons Anda dalam situasi tersebut.
+                    Pilih respons yang paling menggambarkan
+                    kecenderungan Anda dalam situasi tersebut.
                 </div>
 
             </div>
@@ -1595,31 +1503,27 @@ function showQuestion(){
         </div>
 
     `;
-
 }
 
 
 /* =====================================================
-   PILIH JAWABAN
+   SELECT
 ===================================================== */
 
 function selectAnswer(index){
 
-    answers[currentQuestion] =
-        index;
+    answers[currentQuestion] = index;
 
 }
 
 
 /* =====================================================
-   SOAL BERIKUTNYA
+   NEXT
 ===================================================== */
 
 function nextQuestion(){
 
-    if(
-        answers[currentQuestion] === null
-    ){
+    if(answers[currentQuestion] === null){
 
         alert(
             "Silakan pilih salah satu jawaban terlebih dahulu."
@@ -1628,19 +1532,7 @@ function nextQuestion(){
         return;
     }
 
-
-    if(
-        currentQuestion <
-        questions.length - 1
-    ){
-
-        /*
-         * Hapus halaman lama
-         * lalu buat halaman soal baru.
-         * Tidak menggunakan scroll.
-         */
-
-        questionPage.innerHTML = "";
+    if(currentQuestion < questions.length - 1){
 
         currentQuestion++;
 
@@ -1649,30 +1541,23 @@ function nextQuestion(){
         return;
     }
 
-
     finishTest();
-
 }
 
 
 /* =====================================================
-   SOAL SEBELUMNYA
+   PREVIOUS
 ===================================================== */
 
 function previousQuestion(){
 
-    if(
-        currentQuestion > 0
-    ){
-
-        questionPage.innerHTML = "";
+    if(currentQuestion > 0){
 
         currentQuestion--;
 
         showQuestion();
 
     }
-
 }
 
 
@@ -1682,37 +1567,24 @@ function previousQuestion(){
 
 function countdown(){
 
-    if(testFinished){
-
-        return;
-
-    }
+    if(testFinished) return;
 
     timeLeft--;
 
     updateTimer();
 
-    if(
-        timeLeft <= 0
-    ){
+    if(timeLeft <= 0){
 
         finishTest();
 
     }
-
 }
 
-
-/* =====================================================
-   UPDATE TIMER
-===================================================== */
 
 function updateTimer(){
 
     const minutes =
-        Math.floor(
-            timeLeft / 60
-        );
+        Math.floor(timeLeft / 60);
 
     const seconds =
         timeLeft % 60;
@@ -1723,37 +1595,25 @@ function updateTimer(){
     timer.textContent =
         `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
 
+    if(timeLeft <= 60){
 
-    if(
-        timeLeft <= 60
-    ){
-
-        timer.classList.add(
-            "warning"
-        );
+        timer.classList.add("warning");
 
     }else{
 
-        timer.classList.remove(
-            "warning"
-        );
+        timer.classList.remove("warning");
 
     }
-
 }
 
 
 /* =====================================================
-   SELESAI
+   FINISH
 ===================================================== */
 
 function finishTest(){
 
-    if(testFinished){
-
-        return;
-
-    }
+    if(testFinished) return;
 
     testFinished = true;
 
@@ -1761,144 +1621,90 @@ function finishTest(){
 
     calculateScores();
 
-    testScreen.classList.remove("active");
+    document.getElementById("testScreen")
+        .classList.remove("active");
 
-    resultScreen.classList.add("active");
-
+    document.getElementById("resultScreen")
+        .classList.add("active");
 }
 
 
 /* =====================================================
-   HITUNG NILAI
+   CALCULATE
 ===================================================== */
 
 function calculateScores(){
 
     const scores = {};
 
-    competencies.forEach(
-        competency=>{
-            scores[competency] = 0;
-        }
-    );
+    competencies.forEach(c=>{
+        scores[c] = 0;
+    });
 
+    questions.forEach((q,index)=>{
 
-    questions.forEach(
-        (q,index)=>{
+        const answer = answers[index];
 
-            const answer =
-                answers[index];
+        if(answer === null) return;
 
-            if(answer === null){
+        scores[q.competency] +=
+            q.scores[answer];
 
-                return;
-
-            }
-
-            /*
-             * Skor:
-             *
-             * Pilihan 1 = 4
-             * Pilihan 2 = 3
-             * Pilihan 3 = 2
-             * Pilihan 4 = 1
-             */
-
-            const score =
-                4 - answer;
-
-            scores[q.competency] +=
-                score;
-
-        }
-    );
-
+    });
 
     showResult(scores);
-
 }
 
 
 /* =====================================================
-   HASIL
+   RESULT
 ===================================================== */
 
 function showResult(scores){
 
-    const maxPerCompetency =
-        4 * 4;
-
     let total = 0;
 
-    competencies.forEach(
-        competency=>{
-            total += scores[competency];
-        }
-    );
-
+    competencies.forEach(c=>{
+        total += scores[c];
+    });
 
     const maxTotal =
         questions.length * 4;
 
     const percentage =
-        Math.round(
-            (total / maxTotal) * 100
-        );
+        Math.round((total / maxTotal) * 100);
 
-
-    document.getElementById(
-        "resultGreeting"
-    ).textContent =
+    document.getElementById("resultGreeting")
+        .textContent =
         `Gambaran pola respons berdasarkan indikator asesmen untuk peserta ${userName}.`;
 
-
-    document.getElementById(
-        "totalScore"
-    ).textContent =
+    document.getElementById("totalScore")
+        .textContent =
         `${percentage}/100`;
-
 
     const profile =
         getProfile(percentage);
 
-
-    document.getElementById(
-        "profileTitle"
-    ).textContent =
+    document.getElementById("profileTitle")
+        .textContent =
         profile.title;
 
-
-    document.getElementById(
-        "profileDescription"
-    ).textContent =
+    document.getElementById("profileDescription")
+        .textContent =
         profile.description;
 
+    createStrengths(scores);
 
-    createStrengths(
-        scores,
-        maxPerCompetency
-    );
+    createDevelopment(scores);
 
-    createDevelopment(
-        scores,
-        maxPerCompetency
-    );
+    createAdvice(scores);
 
-    createAdvice(
-        scores,
-        maxPerCompetency
-    );
-
-    createCompetencyBars(
-        scores,
-        maxPerCompetency
-    );
-
+    createCompetencyBars(scores);
 }
 
 
 /* =====================================================
-   PROFIL
+   PROFILE
 ===================================================== */
 
 function getProfile(score){
@@ -1906,462 +1712,270 @@ function getProfile(score){
     if(score >= 88){
 
         return {
-
-            title:
-                "Profil Konsisten & Berorientasi Hasil",
-
+            title:"Profil Konsisten & Berorientasi Hasil",
             description:
-                "Pola respons menunjukkan kecenderungan yang relatif konsisten dalam menghadapi situasi kerja, terutama dalam menjaga tanggung jawab, penyelesaian tugas, dan pencapaian tujuan. Area pengembangan tetap dapat ditemukan melalui indikator dengan skor relatif lebih rendah."
-
+            "Pola respons secara keseluruhan menunjukkan kecenderungan yang konsisten pada berbagai indikator. Respons relatif banyak menunjukkan perhatian terhadap tanggung jawab, penyelesaian tugas, kerja sama, pengambilan keputusan, dan pencapaian tujuan."
         };
 
     }
-
 
     if(score >= 78){
 
         return {
-
-            title:
-                "Profil Stabil & Adaptif",
-
+            title:"Profil Stabil & Adaptif",
             description:
-                "Pola respons menunjukkan kecenderungan yang cukup stabil dalam menghadapi tuntutan pekerjaan, dengan kemampuan menyesuaikan pendekatan sesuai situasi. Pengembangan dapat diarahkan pada penguatan indikator yang belum konsisten."
-
+            "Pola respons menunjukkan kecenderungan yang cukup stabil dalam menghadapi tuntutan pekerjaan. Respons menunjukkan kemampuan menyesuaikan pendekatan dengan situasi, sekaligus masih memiliki beberapa indikator yang dapat diperkuat."
         };
 
     }
-
 
     if(score >= 68){
 
         return {
-
-            title:
-                "Profil Fleksibel & Reflektif",
-
+            title:"Profil Fleksibel & Reflektif",
             description:
-                "Pola respons menunjukkan adanya fleksibilitas dalam menghadapi situasi yang berbeda. Beberapa indikator mungkin lebih kuat dibandingkan indikator lainnya sehingga refleksi dan latihan terarah dapat membantu meningkatkan konsistensi."
-
+            "Pola respons menunjukkan adanya fleksibilitas dalam menghadapi situasi yang berbeda. Beberapa indikator terlihat lebih kuat dibandingkan lainnya sehingga pengembangan dapat difokuskan pada konsistensi respons."
         };
 
     }
 
-
     return {
-
-        title:
-            "Profil Eksploratif & Berkembang",
-
+        title:"Profil Eksploratif & Berkembang",
         description:
-            "Pola respons menunjukkan adanya beberapa area yang masih dapat dikembangkan. Hasil ini dapat digunakan sebagai bahan refleksi untuk mengenali kebiasaan respons dan menentukan keterampilan yang ingin diperkuat."
-
+        "Pola respons menunjukkan adanya beberapa indikator yang masih dapat dikembangkan. Hasil ini dapat digunakan sebagai bahan refleksi untuk mengenali kebiasaan respons dan menentukan keterampilan yang ingin diperkuat."
     };
-
 }
 
 
 /* =====================================================
-   DESKRIPSI KOMPETENSI
+   STRENGTHS
 ===================================================== */
 
-const competencyDescriptions = {
-
-    "Integritas":
-        "Konsistensi dalam menjaga kejujuran, kepatuhan terhadap prinsip, serta mempertimbangkan dampak tindakan terhadap kepercayaan.",
-
-    "Disiplin & Tanggung Jawab":
-        "Kemampuan menjaga komitmen, mengatur pekerjaan, memenuhi tanggung jawab, dan menyelesaikan tugas secara konsisten.",
-
-    "Kerja Sama":
-        "Kecenderungan membangun kolaborasi, mendengarkan pihak lain, berbagi dukungan, dan mencari solusi bersama.",
-
-    "Pelayanan":
-        "Kemampuan memahami kebutuhan pihak lain, memberikan penjelasan yang sesuai, serta menjaga kualitas interaksi.",
-
-    "Problem Solving":
-        "Kecenderungan memahami penyebab masalah, mempertimbangkan pilihan, dan mencari solusi berdasarkan informasi yang tersedia.",
-
-    "Adaptasi":
-        "Kemampuan menyesuaikan diri terhadap perubahan situasi, sistem, prioritas, maupun cara kerja.",
-
-    "Orientasi Target":
-        "Kemampuan menjaga fokus terhadap tujuan, menentukan prioritas, memantau kemajuan, dan menyesuaikan strategi.",
-
-    "Ketelitian":
-        "Kecenderungan memeriksa informasi, menjaga akurasi, dan mengurangi kemungkinan kesalahan dalam pekerjaan.",
-
-    "Komunikasi":
-        "Kemampuan menyampaikan informasi secara jelas, memahami pihak lain, mengonfirmasi informasi, dan menerima masukan.",
-
-    "Pengelolaan Tekanan":
-        "Kemampuan mengatur prioritas dan menjaga proses kerja ketika menghadapi tuntutan, beban, atau situasi yang menekan."
-
-};
-
-
-/* =====================================================
-   KEUNGGULAN
-===================================================== */
-
-function createStrengths(
-    scores,
-    max
-){
+function createStrengths(scores){
 
     const sorted =
         [...competencies]
-        .sort(
-            (a,b)=>
-                scores[b] -
-                scores[a]
-        )
+        .sort((a,b)=>scores[b]-scores[a])
         .slice(0,3);
-
 
     let html = "";
 
+    sorted.forEach((c,index)=>{
 
-    sorted.forEach(
-        competency=>{
+        const percent =
+            Math.round((scores[c]/16)*100);
 
-            const score =
-                scores[competency];
+        const level =
+            getLevel(percent);
 
-            const percent =
-                Math.round(
-                    (score / max) * 100
-                );
+        html += `
 
+            <div class="result-item">
 
-            html += `
+                <strong>
+                    ${index+1}. ${c} — ${level}
+                </strong>
 
-                <div class="result-item">
-
-                    <strong>
-                        ${competency}
-                    </strong>
-
-                    <br>
-
-                    ${competencyDescriptions[competency]}
-
-                    <br>
-
-                    <small>
-                        Indikator relatif: ${percent}%
-                    </small>
-
+                <div class="meaning">
+                    ${competencyDescriptions[c]}
                 </div>
 
-            `;
+                <div class="detail">
+                    <strong>Gambaran:</strong>
+                    ${getInterpretation(c,percent)}
+                </div>
 
-        }
-    );
+            </div>
 
+        `;
 
-    document.getElementById(
-        "strengths"
-    ).innerHTML =
-        html;
+    });
 
+    document.getElementById("strengths")
+        .innerHTML = html;
 }
 
 
 /* =====================================================
-   PENGEMBANGAN
+   DEVELOPMENT
 ===================================================== */
 
-function createDevelopment(
-    scores,
-    max
-){
+function createDevelopment(scores){
 
     const sorted =
         [...competencies]
-        .sort(
-            (a,b)=>
-                scores[a] -
-                scores[b]
-        )
+        .sort((a,b)=>scores[a]-scores[b])
         .slice(0,3);
-
 
     let html = "";
 
+    sorted.forEach((c,index)=>{
 
-    sorted.forEach(
-        competency=>{
+        const percent =
+            Math.round((scores[c]/16)*100);
 
-            const score =
-                scores[competency];
+        html += `
 
-            const percent =
-                Math.round(
-                    (score / max) * 100
-                );
+            <div class="result-item">
 
+                <strong>
+                    ${index+1}. ${c}
+                </strong>
 
-            html += `
-
-                <div class="result-item">
-
-                    <strong>
-                        ${competency}
-                    </strong>
-
-                    <br>
-
-                    Indikator ini memiliki nilai relatif
-                    lebih rendah dibandingkan indikator lain
-                    pada asesmen ini. Hal tersebut dapat menjadi
-                    area refleksi dan latihan lebih lanjut.
-
-                    <br>
-
-                    <small>
-                        Indikator relatif: ${percent}%
-                    </small>
-
+                <div class="meaning">
+                    ${competencyDescriptions[c]}
                 </div>
 
-            `;
+                <div class="detail">
+                    <strong>Area pengembangan:</strong>
+                    ${getInterpretation(c,percent)}
+                </div>
 
-        }
-    );
+            </div>
 
+        `;
 
-    document.getElementById(
-        "development"
-    ).innerHTML =
-        html;
+    });
 
+    document.getElementById("development")
+        .innerHTML = html;
 }
 
 
 /* =====================================================
-   SARAN
+   ADVICE
 ===================================================== */
 
-function createAdvice(
-    scores,
-    max
-){
+function createAdvice(scores){
 
     const sorted =
         [...competencies]
-        .sort(
-            (a,b)=>
-                scores[a] -
-                scores[b]
-        )
+        .sort((a,b)=>scores[a]-scores[b])
         .slice(0,3);
 
-
     let html = "";
 
+    sorted.forEach((c,index)=>{
 
-    sorted.forEach(
-        competency=>{
+        html += `
 
-            let advice = "";
+            <div class="result-item">
 
+                <strong>
+                    ${index+1}. ${c}
+                </strong>
 
-            switch(competency){
-
-                case "Integritas":
-
-                    advice =
-                        "Biasakan mendokumentasikan keputusan penting, mengikuti prosedur, dan menyampaikan kesalahan secara terbuka agar dapat segera diperbaiki.";
-
-                    break;
-
-
-                case "Disiplin & Tanggung Jawab":
-
-                    advice =
-                        "Gunakan daftar prioritas harian dan tentukan batas waktu pribadi sebelum tenggat resmi.";
-
-                    break;
-
-
-                case "Kerja Sama":
-
-                    advice =
-                        "Latih kemampuan mendengarkan aktif, meminta pendapat anggota lain, dan menyepakati pembagian tanggung jawab secara jelas.";
-
-                    break;
-
-
-                case "Pelayanan":
-
-                    advice =
-                        "Latih kemampuan menggali kebutuhan, menjelaskan pilihan secara sederhana, dan memastikan pihak yang dilayani memahami solusi.";
-
-                    break;
-
-
-                case "Problem Solving":
-
-                    advice =
-                        "Biasakan membedakan gejala dan akar masalah sebelum menentukan tindakan, kemudian evaluasi hasil solusi.";
-
-                    break;
-
-
-                case "Adaptasi":
-
-                    advice =
-                        "Ketika terjadi perubahan, identifikasi apa yang berubah, apa yang tetap, dan tindakan baru apa yang diperlukan.";
-
-                    break;
-
-
-                case "Orientasi Target":
-
-                    advice =
-                        "Pecah target besar menjadi target mingguan atau harian dan pantau kemajuan secara berkala.";
-
-                    break;
-
-
-                case "Ketelitian":
-
-                    advice =
-                        "Gunakan checklist dan lakukan pengecekan akhir terutama pada informasi atau pekerjaan yang memiliki dampak besar.";
-
-                    break;
-
-
-                case "Komunikasi":
-
-                    advice =
-                        "Biasakan melakukan konfirmasi ulang terhadap instruksi penting dan gunakan bahasa yang disesuaikan dengan lawan bicara.";
-
-                    break;
-
-
-                case "Pengelolaan Tekanan":
-
-                    advice =
-                        "Saat beban meningkat, urutkan pekerjaan berdasarkan urgensi dan dampak, lalu komunikasikan risiko keterlambatan lebih awal.";
-
-                    break;
-
-            }
-
-
-            html += `
-
-                <div class="result-item">
-
-                    <strong>
-                        ${competency}
-                    </strong>
-
-                    <br>
-
-                    ${advice}
-
+                <div class="detail">
+                    ${interpretation[c].advice}
                 </div>
 
-            `;
+            </div>
 
-        }
-    );
+        `;
 
+    });
 
-    document.getElementById(
-        "advice"
-    ).innerHTML =
-        html;
-
+    document.getElementById("advice")
+        .innerHTML = html;
 }
 
 
 /* =====================================================
-   BAR KOMPETENSI
+   BARS
 ===================================================== */
 
-function createCompetencyBars(
-    scores,
-    max
-){
+function createCompetencyBars(scores){
 
     let html = "";
 
+    competencies.forEach(c=>{
 
-    competencies.forEach(
-        competency=>{
+        const percent =
+            Math.round((scores[c]/16)*100);
 
-            const percent =
-                Math.round(
-                    (scores[competency] / max) * 100
-                );
+        html += `
 
+            <div class="bar-item">
 
-            html += `
+                <div class="bar-header">
 
-                <div class="bar-item">
+                    <span>${c}</span>
 
-                    <div class="bar-header">
-
-                        <span>
-                            ${competency}
-                        </span>
-
-                        <span>
-                            ${percent}%
-                        </span>
-
-                    </div>
-
-                    <div class="bar-bg">
-
-                        <div
-                            class="bar-fill"
-                            style="width:${percent}%"
-                        ></div>
-
-                    </div>
+                    <span>${percent}%</span>
 
                 </div>
 
-            `;
+                <div class="bar-bg">
 
-        }
-    );
+                    <div
+                        class="bar-fill"
+                        style="width:${percent}%"
+                    ></div>
 
+                </div>
 
-    document.getElementById(
-        "competencyBars"
-    ).innerHTML =
-        html;
+            </div>
 
+        `;
+
+    });
+
+    document.getElementById("competencyBars")
+        .innerHTML = html;
 }
 
 
 /* =====================================================
-   ULANGI TES
+   LEVEL
+===================================================== */
+
+function getLevel(percent){
+
+    if(percent >= 85)
+        return "Relatif kuat";
+
+    if(percent >= 70)
+        return "Cukup kuat";
+
+    if(percent >= 55)
+        return "Perlu diperhatikan";
+
+    return "Area pengembangan";
+}
+
+
+/* =====================================================
+   INTERPRETASI
+===================================================== */
+
+function getInterpretation(c,percent){
+
+    if(percent >= 85)
+        return interpretation[c].high;
+
+    if(percent >= 70)
+        return interpretation[c].mid;
+
+    return interpretation[c].low;
+}
+
+
+/* =====================================================
+   RESTART
 ===================================================== */
 
 function restartTest(){
 
     clearInterval(timerInterval);
 
-    resultScreen.classList.remove(
-        "active"
-    );
+    document.getElementById("resultScreen")
+        .classList.remove("active");
 
-    homeScreen.classList.add(
-        "active"
-    );
+    document.getElementById("homeScreen")
+        .classList.add("active");
 
-    document.getElementById(
-        "nameInput"
-    ).value =
-        userName;
-
+    document.getElementById("nameInput")
+        .value = userName;
 }
 
 </script>
