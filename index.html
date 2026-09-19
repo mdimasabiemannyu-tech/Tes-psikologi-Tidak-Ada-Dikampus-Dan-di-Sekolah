@@ -3,397 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Asesmen Refleksi Diri</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#111827,#1e3a5f);color:#172033;min-height:100vh}
-.container{max-width:900px;margin:auto;padding:22px}
-.card{background:#fff;border-radius:22px;padding:26px;box-shadow:0 15px 40px rgba(0,0,0,.25);margin:18px 0}
-h1,h2,h3{margin-top:0}.hero{text-align:center;color:white;padding:35px 10px}
-.hero h1{font-size:32px;margin-bottom:10px}.hero p{opacity:.9;line-height:1.6}
-button{border:0;border-radius:12px;padding:14px 20px;font-size:16px;font-weight:bold;cursor:pointer;background:#2563eb;color:white}
-button:hover{opacity:.9}.secondary{background:#64748b}
-.progress{height:10px;background:#e5e7eb;border-radius:20px;overflow:hidden;margin:15px 0 25px}
-.progress div{height:100%;background:#2563eb;width:0}
-.question-number{font-size:14px;color:#64748b;font-weight:bold}
-.question{font-size:21px;line-height:1.5;margin:12px 0 20px}
-.option{display:block;width:100%;text-align:left;background:#f8fafc;color:#172033;border:2px solid #e2e8f0;margin:10px 0;padding:16px;border-radius:13px;font-weight:normal}
-.option:hover{border-color:#2563eb;background:#eff6ff}
-.option.selected{border-color:#2563eb;background:#dbeafe}
-.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
-.hidden{display:none}
-.note{background:#fff7ed;border-left:5px solid #f59e0b;padding:14px;border-radius:8px;line-height:1.5}
-.disclaimer{font-size:13px;color:#64748b;line-height:1.6}
-.result-header{text-align:center}.profile{font-size:28px;color:#2563eb;font-weight:bold}
-.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:20px 0}
-.score{padding:15px;background:#f8fafc;border-radius:14px;border:1px solid #e5e7eb}
-.bar{height:9px;background:#e5e7eb;border-radius:20px;overflow:hidden;margin-top:8px}
-.bar i{display:block;height:100%;background:#2563eb}
-ul{line-height:1.8}.tip{background:#eff6ff;padding:15px;border-radius:12px;margin-top:10px}
-footer{text-align:center;color:#cbd5e1;font-size:12px;padding:20px}
-input{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:10px;font-size:16px;margin:8px 0 15px}
-</style>
-</head>
-<body>
-<div class="container">
-  <section id="intro" class="hero">
-    <h1>🧠 Asesmen Refleksi Diri</h1>
-    <p>Simulasi asesmen situasional dan kepribadian kerja untuk mengenali kecenderungan perilaku, kekuatan, dan area pengembangan diri.</p>
-  </section>
-
-  <section id="startCard" class="card">
-    <h2>Sebelum Memulai</h2>
-    <input id="nama" placeholder="Nama peserta (opsional)">
-    <div class="note">
-      Jawablah berdasarkan kebiasaan Anda yang sebenarnya, bukan jawaban yang menurut Anda paling ideal.
-      Tidak ada diagnosis medis atau psikologis dari tes ini.
-    </div>
-    <p><b>40 soal</b> · pilihan A–E · estimasi 10–15 menit.</p>
-    <button onclick="mulai()">Mulai Tes</button>
-    <p class="disclaimer">Tes ini merupakan simulasi refleksi diri dan bukan alat diagnosis psikologis klinis maupun tes resmi rekrutmen BUMN.</p>
-  </section>
-
-  <section id="quiz" class="card hidden">
-    <div class="question-number" id="qnum"></div>
-    <div class="progress"><div id="progress"></div></div>
-    <div class="question" id="question"></div>
-    <div id="options"></div>
-    <div class="nav">
-      <button class="secondary" id="prevBtn" onclick="prev()">Sebelumnya</button>
-      <button id="nextBtn" onclick="next()">Berikutnya</button>
-    </div>
-  </section>
-
-  <section id="result" class="card hidden"></section>
-</div>
-<footer>Asesmen Refleksi Diri • Untuk pengembangan diri, bukan diagnosis klinis.</footer>
-
-<script>
-const aspek = {
- integritas:"Integritas",
- tanggungjawab:"Tanggung Jawab",
- disiplin:"Disiplin",
- kerjasama:"Kerja Sama",
- adaptasi:"Adaptasi",
- ketelitian:"Ketelitian",
- emosi:"Pengelolaan Emosi",
- kepemimpinan:"Kepemimpinan",
- inisiatif:"Inisiatif",
- pelayanan:"Orientasi Pelayanan"
-};
-
-const questions = [
-["Anda menemukan kesalahan kecil pada laporan yang sudah hampir dikirim. Apa yang paling mungkin Anda lakukan?",[
-["Membiarkannya karena kecil",{ketelitian:0,integritas:0}],
-["Memperbaiki sendiri tanpa memberi tahu siapa pun",{ketelitian:2,integritas:2}],
-["Memberi tahu pihak terkait dan memperbaikinya",{ketelitian:3,integritas:3,tanggungjawab:3}],
-["Menunggu sampai ada yang menemukan",{ketelitian:0,tanggungjawab:0}],
-["Mengirim dulu agar pekerjaan cepat selesai",{disiplin:1,integritas:0}]]],
-["Ketika mendapat tugas baru dengan instruksi yang belum jelas, Anda cenderung...",[
-["Langsung mengerjakan berdasarkan asumsi",{inisiatif:2,adaptasi:2}],
-["Menunggu instruksi lengkap",{disiplin:2}],
-["Meminta klarifikasi bagian penting lalu mulai bekerja",{inisiatif:3,ketelitian:3}],
-["Meminta rekan mengerjakan",{tanggungjawab:0}],
-["Menunda sampai ada arahan",{inisiatif:0,adaptasi:0}]]],
-["Rekan satu tim melakukan kesalahan yang berdampak pada pekerjaan Anda. Anda...",[
-["Langsung menyalahkannya",{emosi:0,kerjasama:0}],
-["Membicarakannya dengan rekan tersebut dan mencari solusi",{kerjasama:3,emosi:3}],
-["Memperbaiki diam-diam setiap kali",{tanggungjawab:2,kerjasama:1}],
-["Melaporkannya tanpa berbicara dengannya",{integritas:2,kerjasama:1}],
-["Membiarkannya",{tanggungjawab:0}]]],
-["Atasan mengubah prioritas pekerjaan secara mendadak. Reaksi Anda biasanya...",[
-["Kesal dan berhenti sejenak",{emosi:0,adaptasi:0}],
-["Mengikuti perubahan tetapi membutuhkan waktu",{adaptasi:2}],
-["Menanyakan prioritas baru lalu menyesuaikan rencana",{adaptasi:3,disiplin:3}],
-["Tetap mengerjakan rencana lama",{adaptasi:0}],
-["Menyerahkan keputusan kepada orang lain",{inisiatif:0}]]],
-["Saat menghadapi pelanggan yang kecewa, Anda paling mungkin...",[
-["Membalas dengan tegas",{emosi:0,pelayanan:0}],
-["Mendengarkan masalahnya sebelum menjawab",{pelayanan:3,emosi:3}],
-["Meminta pelanggan menunggu tanpa penjelasan",{pelayanan:1}],
-["Langsung menyalahkan sistem",{pelayanan:0}],
-["Mencari solusi sesuai aturan dan menjelaskan batasannya",{pelayanan:3,integritas:3}]]],
-["Anda memiliki beberapa pekerjaan dengan tenggat yang sama. Anda...",[
-["Mengerjakan yang paling mudah dahulu",{disiplin:1}],
-["Memilih secara acak",{ketelitian:0}],
-["Menentukan prioritas berdasarkan urgensi dan dampak",{disiplin:3,tanggungjawab:3}],
-["Menunggu atasan menentukan",{inisiatif:0}],
-["Mengerjakan semuanya sekaligus tanpa urutan",{ketelitian:0}]]],
-["Ketika ide Anda ditolak dalam rapat, Anda...",[
-["Tidak mau memberi ide lagi",{emosi:0,inisiatif:0}],
-["Mempertahankan ide sampai semua setuju",{kepemimpinan:2,kerjasama:0}],
-["Meminta alasan, mempertimbangkan masukan, lalu memperbaiki ide",{adaptasi:3,kerjasama:3}],
-["Menganggap tim tidak menghargai Anda",{emosi:0}],
-["Menerima saja tanpa belajar apa pun",{adaptasi:1}]]],
-["Anda melihat kesempatan memperbaiki proses kerja tanpa diminta. Anda...",[
-["Tidak melakukan apa-apa karena bukan tugas Anda",{inisiatif:0}],
-["Membuat perubahan langsung tanpa koordinasi",{inisiatif:2,integritas:1}],
-["Mengusulkan perbaikan dengan mempertimbangkan risikonya",{inisiatif:3,ketelitian:3}],
-["Menunggu orang lain memulai",{inisiatif:0}],
-["Mencoba sendiri lalu membagikan hasilnya",{inisiatif:3,adaptasi:2}]]],
-["Jika pekerjaan Anda selesai lebih cepat dari target, Anda cenderung...",[
-["Langsung berhenti bekerja",{inisiatif:1}],
-["Memeriksa kembali hasil pekerjaan",{ketelitian:3}],
-["Mencari tugas berikutnya atau membantu tim",{inisiatif:3,kerjasama:3}],
-["Menunggu sampai jam pulang",{inisiatif:0}],
-["Mengubah hasil agar terlihat lebih banyak",{integritas:0}]]],
-["Ketika menerima kritik yang menurut Anda kurang tepat, Anda...",[
-["Langsung membantah",{emosi:0}],
-["Diam tetapi menyimpan kekesalan",{emosi:1}],
-["Mendengarkan, mengambil bagian yang berguna, dan menjelaskan bila perlu",{emosi:3,adaptasi:3}],
-["Mengabaikannya",{emosi:1}],
-["Membicarakan orang yang memberi kritik",{kerjasama:0,emosi:0}]]],
-["Dalam pekerjaan rutin yang berulang, Anda...",[
-["Sering melewatkan detail karena bosan",{ketelitian:0,disiplin:0}],
-["Tetap mengikuti prosedur dan mencari cara aman agar efisien",{disiplin:3,ketelitian:3}],
-["Mengubah prosedur sesuka hati",{integritas:0}],
-["Menunda sampai diingatkan",{disiplin:0}],
-["Mengerjakan cepat tanpa memeriksa",{ketelitian:0}]]],
-["Jika Anda terlambat menyelesaikan tugas karena kesalahan sendiri, Anda...",[
-["Mencari alasan",{integritas:0}],
-["Menyalahkan keadaan",{tanggungjawab:0}],
-["Mengakui, memperbaiki, dan membuat langkah agar tidak terulang",{tanggungjawab:3,integritas:3}],
-["Diam agar tidak diketahui",{integritas:0}],
-["Meminta orang lain menutupi kesalahan",{integritas:0}]]],
-["Saat harus bekerja dengan orang yang gaya kerjanya berbeda, Anda...",[
-["Memaksanya mengikuti cara Anda",{kerjasama:0}],
-["Menghindari bekerja dengannya",{kerjasama:0}],
-["Menyepakati cara kerja dan pembagian tugas yang jelas",{kerjasama:3,adaptasi:3}],
-["Mengerjakan bagian sendiri saja",{kerjasama:1}],
-["Mengikuti saja walaupun tidak paham",{adaptasi:1}]]],
-["Ketika tekanan kerja meningkat, Anda biasanya...",[
-["Mengerjakan tanpa prioritas",{emosi:1,disiplin:1}],
-["Mengambil jeda singkat lalu menyusun kembali prioritas",{emosi:3,disiplin:3}],
-["Melampiaskan kepada rekan",{emosi:0,kerjasama:0}],
-["Menunda semua pekerjaan",{disiplin:0}],
-["Mencoba menyelesaikan semuanya sendiri",{tanggungjawab:2,kerjasama:1}]]],
-["Anda diberi kesempatan memimpin tugas kecil. Anda...",[
-["Menghindarinya",{kepemimpinan:0}],
-["Menerima dan membagi tugas sesuai kemampuan anggota",{kepemimpinan:3,kerjasama:3}],
-["Mengerjakan semuanya sendiri",{kepemimpinan:1,kerjasama:0}],
-["Menunggu anggota lain mengambil alih",{kepemimpinan:0}],
-["Memberi perintah tanpa menjelaskan tujuan",{kepemimpinan:1,kerjasama:0}]]],
-["Ketika aturan terasa merepotkan tetapi tetap berlaku, Anda...",[
-["Mengabaikannya jika tidak ada yang melihat",{integritas:0}],
-["Mengikuti aturan dan mencari cara yang tetap efisien",{integritas:3,disiplin:3}],
-["Meminta pengecualian tanpa alasan",{integritas:1}],
-["Mengajak rekan melanggar bersama",{integritas:0}],
-["Mengikuti hanya jika diawasi",{disiplin:1}]]],
-["Anda menemukan informasi yang tidak sesuai antara dua sumber. Anda...",[
-["Memilih yang paling menguntungkan",{integritas:0}],
-["Menggunakan salah satunya secara acak",{ketelitian:0}],
-["Memeriksa sumber dan mengklarifikasi perbedaan",{ketelitian:3,integritas:3}],
-["Mengabaikannya",{ketelitian:0}],
-["Meminta orang lain memilih tanpa mengecek",{tanggungjawab:0}]]],
-["Ketika target belum tercapai, Anda...",[
-["Menunggu keadaan membaik",{inisiatif:0}],
-["Mencari penyebab dan membuat langkah perbaikan",{inisiatif:3,tanggungjawab:3}],
-["Mengurangi target agar mudah tercapai",{integritas:0}],
-["Menyalahkan anggota tim",{kerjasama:0}],
-["Bekerja lebih keras tanpa mengubah strategi",{inisiatif:1}]]],
-["Dalam diskusi, Anda lebih sering...",[
-["Mendominasi pembicaraan",{kepemimpinan:1,kerjasama:0}],
-["Diam walaupun memiliki informasi penting",{inisiatif:0}],
-["Menyampaikan pendapat sekaligus memberi ruang bagi orang lain",{kerjasama:3,kepemimpinan:3}],
-["Mengikuti pendapat mayoritas tanpa berpikir",{inisiatif:0}],
-["Berbicara hanya ketika ditanya",{inisiatif:1}]]],
-["Jika pelanggan meminta sesuatu yang bertentangan dengan prosedur, Anda...",[
-["Tetap memenuhi agar pelanggan senang",{pelayanan:1,integritas:0}],
-["Menolak dengan kasar",{pelayanan:0,emosi:0}],
-["Menjelaskan aturan dan menawarkan alternatif yang diperbolehkan",{pelayanan:3,integritas:3}],
-["Menyuruh pelanggan bertanya ke orang lain",{pelayanan:1}],
-["Membuat pengecualian sendiri",{integritas:0}]]],
-["Ketika belajar sistem baru, Anda...",[
-["Menghindarinya",{adaptasi:0}],
-["Menunggu sampai diwajibkan",{adaptasi:1}],
-["Mencoba, bertanya bila perlu, dan mencatat hal penting",{adaptasi:3,inisiatif:3}],
-["Meminta orang lain mengerjakannya",{inisiatif:0}],
-["Mencoba sekali lalu berhenti jika sulit",{adaptasi:1}]]],
-["Anda menyadari ada detail kecil yang terlewat setelah pekerjaan selesai. Anda...",[
-["Membiarkannya jika tidak terlalu penting",{ketelitian:1}],
-["Memeriksa dampaknya dan memperbaikinya jika diperlukan",{ketelitian:3,tanggungjawab:3}],
-["Menyalahkan banyaknya pekerjaan",{tanggungjawab:0}],
-["Menghapus bagian yang bermasalah",{integritas:0}],
-["Menunggu ada yang komplain",{tanggungjawab:0}]]],
-["Jika rekan kerja sedang kewalahan dan pekerjaan Anda terkendali, Anda...",[
-["Mengabaikannya",{kerjasama:0}],
-["Membantu setelah memastikan tugas Anda aman",{kerjasama:3,tanggungjawab:3}],
-["Mengambil semua pekerjaannya",{kerjasama:2}],
-["Menunggu diminta",{kerjasama:1}],
-["Mengatakan itu bukan urusan Anda",{kerjasama:0}]]],
-["Saat terjadi perubahan aturan yang belum Anda pahami, Anda...",[
-["Mengikuti kabar dari orang lain saja",{ketelitian:1}],
-["Mencari sumber resmi dan memahami dampaknya",{ketelitian:3,adaptasi:3}],
-["Tetap memakai aturan lama",{adaptasi:0}],
-["Mengabaikannya",{disiplin:0}],
-["Mengikuti apa pun yang paling mudah",{integritas:0}]]],
-["Ketika Anda melakukan presentasi dan ada pertanyaan sulit, Anda...",[
-["Mengarang jawaban",{integritas:0}],
-["Mengatakan tidak tahu lalu berhenti",{emosi:1}],
-["Mengakui batas pengetahuan dan menawarkan mencari jawaban yang benar",{integritas:3,emosi:3}],
-["Mengalihkan topik",{tanggungjawab:1}],
-["Menyalahkan pertanyaannya",{emosi:0}]]],
-["Dalam mengambil keputusan, Anda paling sering mempertimbangkan...",[
-["Kecepatan saja",{disiplin:1}],
-["Pendapat pribadi saja",{inisiatif:1}],
-["Data, risiko, aturan, dan dampaknya",{ketelitian:3,integritas:3}],
-["Apa yang dilakukan orang lain",{inisiatif:0}],
-["Apa yang paling nyaman",{adaptasi:1}]]],
-["Jika rencana kerja gagal, Anda...",[
-["Menganggap semuanya sia-sia",{emosi:0}],
-["Mencari pelajaran dan menyusun rencana alternatif",{adaptasi:3,inisiatif:3}],
-["Menyalahkan kondisi",{tanggungjawab:0}],
-["Mengulangi cara yang sama",{adaptasi:0}],
-["Berhenti mencoba",{inisiatif:0}]]],
-["Anda mendapat tugas yang tidak terlalu Anda sukai tetapi penting bagi tim. Anda...",[
-["Mengerjakannya asal selesai",{tanggungjawab:1}],
-["Menundanya",{disiplin:0}],
-["Menyelesaikannya sesuai standar meski tidak favorit",{tanggungjawab:3,disiplin:3}],
-["Mencari alasan untuk menghindar",{tanggungjawab:0}],
-["Meminta orang lain mengambil alih",{tanggungjawab:0}]]],
-["Saat rekan berbeda pendapat dengan Anda, Anda...",[
-["Menganggap dia salah",{kerjasama:0}],
-["Mendengarkan alasan dan mencari titik temu",{kerjasama:3,emosi:3}],
-["Mengalah meskipun yakin masalahnya penting",{kerjasama:1}],
-["Mengakhiri diskusi",{kerjasama:0}],
-["Mencoba membuktikan diri paling benar",{emosi:0}]]],
-["Jika mendapat pekerjaan mendadak menjelang akhir jam kerja, Anda...",[
-["Menolak otomatis",{tanggungjawab:0}],
-["Menilai urgensi dan mengomunikasikan kemampuan/waktu secara jujur",{tanggungjawab:3,integritas:3}],
-["Menerima lalu tidak mengerjakannya",{integritas:0}],
-["Mengeluh kepada semua orang",{emosi:0}],
-["Mengerjakan tanpa memberi tahu kendala",{komunikasi:1}]]],
-["Anda memiliki kesempatan mendapat pujian dengan mengambil kredit atas kerja tim. Anda...",[
-["Mengambilnya",{integritas:0,kerjasama:0}],
-["Membagi pengakuan sesuai kontribusi",{integritas:3,kerjasama:3}],
-["Diam dan membiarkan orang lain mengira",{integritas:1}],
-["Mengatakan bahwa semuanya hasil Anda",{integritas:0}],
-["Tidak peduli siapa yang mendapat pujian",{integritas:2}]]],
-["Jika Anda harus memilih antara cepat dan teliti untuk tugas berisiko tinggi, Anda...",[
-["Selalu memilih cepat",{ketelitian:0}],
-["Selalu memilih lambat",{disiplin:1}],
-["Menyesuaikan tingkat ketelitian dengan risiko dan tenggat",{ketelitian:3,disiplin:3}],
-["Meminta orang lain memutuskan",{inisiatif:0}],
-["Mengabaikan risikonya",{integritas:0}]]],
-["Ketika diberi feedback positif, Anda...",[
-["Menganggap tidak perlu belajar lagi",{adaptasi:0}],
-["Mengucapkan terima kasih dan mempertahankan hal yang baik",{emosi:2}],
-["Meminta contoh agar tahu apa yang perlu dipertahankan",{inisiatif:3,adaptasi:3}],
-["Menganggap itu basa-basi",{emosi:1}],
-["Langsung meminta pujian lebih banyak",{emosi:0}]]],
-["Jika pekerjaan tim berhasil, Anda...",[
-["Menonjolkan kontribusi sendiri",{kerjasama:0}],
-["Mengakui kontribusi anggota dan mengevaluasi proses",{kerjasama:3,kepemimpinan:3}],
-["Menganggap selesai tanpa evaluasi",{inisiatif:0}],
-["Tidak peduli siapa yang berkontribusi",{kerjasama:1}],
-["Mencari kesalahan orang lain",{kerjasama:0}]]],
-["Saat Anda sedang emosi tetapi harus menghadapi pelanggan, Anda...",[
-["Tetap melayani dengan profesional dan mengatur emosi terlebih dahulu",{emosi:3,pelayanan:3}],
-["Menunjukkan bahwa Anda sedang kesal",{emosi:0,pelayanan:0}],
-["Menghindari pelanggan",{pelayanan:1}],
-["Membalas dengan nada tinggi",{emosi:0}],
-["Menunda semua pelayanan",{pelayanan:0}]]],
-["Anda menerima tugas dengan target yang menurut Anda sulit. Anda...",[
-["Langsung menyimpulkan tidak mungkin",{inisiatif:0}],
-["Memecah target menjadi langkah kecil dan memantau kemajuan",{inisiatif:3,disiplin:3}],
-["Menunggu bantuan datang",{inisiatif:1}],
-["Mengurangi target sendiri",{integritas:0}],
-["Bekerja tanpa rencana",{disiplin:1}]]],
-["Ketika ada kesempatan mengikuti pelatihan, Anda...",[
-["Tidak ikut jika tidak wajib",{adaptasi:0}],
-["Ikut jika ada manfaat yang jelas dan menerapkan hasilnya",{adaptasi:3,inisiatif:3}],
-["Ikut hanya untuk sertifikat",{inisiatif:1}],
-["Menganggap pelatihan tidak penting",{adaptasi:0}],
-["Meminta orang lain merangkum semuanya",{inisiatif:0}]]],
-["Jika menemukan prosedur yang berpotensi membingungkan pelanggan, Anda...",[
-["Membiarkannya",{pelayanan:0}],
-["Mengeluh tetapi tidak melakukan apa-apa",{inisiatif:0}],
-["Mengusulkan perbaikan berdasarkan masalah yang ditemukan",{pelayanan:3,inisiatif:3}],
-["Membuat aturan sendiri",{integritas:0}],
-["Menyalahkan pembuat prosedur",{kerjasama:0}]]]
-];
-
-let current=0, answers=Array(questions.length).fill(null), scores={};
-
-function mulai(){
- document.getElementById("startCard").classList.add("hidden");
- document.getElementById("intro").classList.add("hidden");
- document.getElementById("quiz").classList.remove("hidden");
- render();
+*{
+    box-sizing:border-box;
 }
-function render(){
- const q=questions[current];
- document.getElementById("qnum").textContent=`Soal ${current+1} dari ${questions.length}`;
- document.getElementById("progress").style.width=((current+1)/questions.length*100)+"%";
- document.getElementById("question").textContent=q[0];
- const box=document.getElementById("options"); box.innerHTML="";
- q[1].forEach((o,i)=>{
-   const b=document.createElement("button");
-   b.className="option"+(answers[current]===i?" selected":"");
-   b.textContent=String.fromCharCode(65+i)+". "+o[0];
-   b.onclick=()=>{answers[current]=i;render()};
-   box.appendChild(b);
- });
- document.getElementById("prevBtn").disabled=current===0;
- document.getElementById("nextBtn").textContent=current===questions.length-1?"Lihat Hasil":"Berikutnya";
-}
-function next(){
- if(answers[current]===null){alert("Pilih salah satu jawaban terlebih dahulu.");return}
- if(current<questions.length-1){current++;render()}else finish();
-}
-function prev(){if(current>0){current--;render()}}
-function finish(){
- scores={}; Object.keys(aspek).forEach(k=>scores[k]=0);
- questions.forEach((q,qi)=>{
-   const a=q[1][answers[qi]][1];
-   Object.keys(a).forEach(k=>scores[k]=(scores[k]||0)+a[k]);
- });
- const max={};
- Object.keys(aspek).forEach(k=>max[k]=0);
- questions.forEach(q=>q[1].forEach(o=>Object.keys(o[1]).forEach(k=>max[k]=Math.max(max[k],max[k]+o[1][k])));
- // Normalize based on observed positive scale; cap 100.
- const pct={};
- Object.keys(aspek).forEach(k=>{
-   const theoretical=questions.length*3;
-   pct[k]=Math.max(0,Math.min(100,Math.round(scores[k]/theoretical*100)));
- });
- const sorted=Object.keys(pct).sort((a,b)=>pct[b]-pct[a]);
- const top=sorted.slice(0,3), low=sorted.slice(-3).reverse();
- let profile;
- if(pct.adaptasi>=70 && pct.inisiatif>=70) profile="Adaptif & Proaktif";
- else if(pct.ketelitian>=70 && pct.disiplin>=70) profile="Teliti & Terstruktur";
- else if(pct.kerjasama>=70 && pct.pelayanan>=70) profile="Kolaboratif & Berorientasi Pelayanan";
- else if(pct.kepemimpinan>=70 && pct.tanggungjawab>=70) profile="Bertanggung Jawab & Berjiwa Memimpin";
- else if(pct.integritas>=70 && pct.emosi>=70) profile="Stabil & Berintegritas";
- else profile="Seimbang & Sedang Berkembang";
 
- const label=v=>v>=75?"Sangat kuat":v>=60?"Kuat":v>=45?"Cukup": "Perlu dikembangkan";
- const tips={
-   integritas:"Biasakan transparan saat terjadi kesalahan dan pastikan keputusan tetap sesuai aturan.",
-   tanggungjawab:"Gunakan daftar tugas dan selalu tutup pekerjaan dengan evaluasi singkat.",
-   disiplin:"Tetapkan prioritas harian dan gunakan tenggat yang jelas.",
-   kerjasama:"Latih mendengar aktif dan sepakati pembagian peran sejak awal.",
-   adaptasi:"Coba satu hal baru secara berkala dan latih membuat rencana alternatif.",
-   ketelitian:"Gunakan checklist untuk pekerjaan yang memiliki banyak detail.",
-   emosi:"Berikan jeda sebelum merespons ketika tertekan dan fokus pada fakta.",
-   kepemimpinan:"Latih memberi arahan yang jelas sekaligus membuka ruang bagi masukan.",
-   inisiatif:"Mulai dari tindakan kecil yang aman tanpa selalu menunggu instruksi.",
-   pelayanan:"Dengarkan kebutuhan orang lain, jelaskan pilihan yang tersedia, dan tetap jaga aturan."
- };
- const name=document.getElementById("nama").value.trim()||"Peserta";
- let html=`<div class="result-header"><h2>Hasil Refleksi Diri</h2><p>${name}</p><div class="profile">${profile}</div><p>Profil ini menunjukkan kecenderungan jawaban Anda dalam simulasi ini.</p></div>`;
- html+=`<h3>📊 Profil Aspek</h3><div class="score-grid">`;
- Object.keys(aspek).forEach(k=>html+=`<div class="score"><b>${aspek[k]}</b><br>${pct[k]}% — ${label(pct[k])}<div class="bar"><i style="width:${pct[k]}%"></i></div></div>`);
- html+=`</div>`;
- html+=`<h3>💪 Kekuatan yang Terlihat</h3><ul>${top.map(k=>`<li><b>${aspek[k]}</b> (${pct[k]}%): ${tips[k]}</li>`).join("")}</ul>`;
- html+=`<h3>🎯 Area Pengembangan</h3><ul>${low.map(k=>`<li><b>${aspek[k]}</b> (${pct[k]}%): ${tips[k]}</li>`).join("")}</ul>`;
- html+=`<div class="tip"><b>💡 Tantangan pribadi:</b> pilih satu area pengembangan dengan nilai terendah dan lakukan satu kebiasaan kecil selama 7 hari. Evaluasi kembali setelahnya.</div>`;
- html+=`<br><p class="disclaimer"><b>Penting:</b> Hasil ini adalah interpretasi dari pola jawaban pada simulasi, bukan diagnosis psikologis, bukan penilaian resmi BUMN, dan bukan pengganti pemeriksaan oleh psikolog/tenaga profesional.</p>`;
- html+=`<button onclick="location.reload()">Ulangi Tes</button>`;
- document.getElementById("quiz").classList.add("hidden");
- const r=document.getElementById("result");r.innerHTML=html;r.classList.remove("hidden");
- window.scrollTo({top:0,behavior:"smooth"});
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e3a5f);
+    color:#172033;
+    min-height:100vh;
 }
-</script>
-</body>
-</html>
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+/* =========================
+   HERO / HALAMAN AWAL
+========================= */
+
+.hero{
+    min-height:480px;
+    border-radius:25px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+
+    background-image:
+    linear-gradient(
+        rgba(5,15,35,.68),
+        rgba(5,15,35,.82)
+    ),
+    url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85");
+
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.hero-content{
+    padding:35px 20px;
+}
+
+.logo{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.hero h1{
+    font-size:36px;
+    margin:0 0 15px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    line-height:1.7;
+    font-size:16px;
+}
+
+.badges{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+}
+
+.badge{
+    padding:10px 15px;
+    border-radius:30px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.3);
+    backdrop-filter:blur(8px);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    margin:18px 0;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+h2,h3{
+    margin-top:0;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+input{
+    width:100%;
+    padding:15px;
+    border:2px solid #e2e8f0;
+    border-radius:12px;
+    font-size:16px;
+    margin:8px 0 15px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2563eb;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    border:0;
+    border-radius:12px;
+    padding:14px 20px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+    transition:.2s;
+    -webkit-tap-highlight-color:transparent;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+button:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.start-button{
+    width:100%;
+    padding:17px;
+    font-size:18px;
+    margin-top:10px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    box-shadow:0 8px 20px rgba(37,99,235,.3);
+}
+
+.secondary{
+    background:#64748b;
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+    background:#fff7ed;
+    border-left:5px solid #f59e0b;
+    padding:15px;
+    border-radius:8px;
+    line-height:1.6;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.question-number{
+    font-size:14px;
+    color:#64748b;
+    font-weight:bold;
+}
+
+.progress{
+    height:10px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0 25px;
+}
+
+.progress div{
+    height:100%;
+    width:0;
+    background:#2563eb;
+    transition:.3s;
+}
+
+.question{
+    font-size:21px;
+    line-height:1.5;
+    margin:15px 0 20px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left
